@@ -6,6 +6,8 @@ class LandingPage extends React.Component {
         return(
             <div>
                 <h1>Home/Landing -Test Git Update-</h1>
+                <button>Log In</button>
+                <button>Register</button>
                 </div>
         )
     }
