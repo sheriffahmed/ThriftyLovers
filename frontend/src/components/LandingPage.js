@@ -5,7 +5,7 @@ class LandingPage extends React.Component {
     render(){
         return(
             <div>
-                <h1>Home/Landing</h1>
+                <h1>Home/Landing -Test Git Update-</h1>
                 </div>
         )
     }
