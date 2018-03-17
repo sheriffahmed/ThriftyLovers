@@ -18,7 +18,6 @@ class App extends Component {
     return (
       //Edit App.css for style
       <div className="App">
-      <h1>Hi!</h1>
         <Switch>
        <Route exact path='/' component={LandingPage}/>
        <Route path='/signup' component={Registration} />
