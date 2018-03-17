@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-class Registration extends React.Component {
+class EventDetails extends React.Component {
     render(){
         return(
             <div>
@@ -10,4 +10,4 @@ class Registration extends React.Component {
         )
     }
     }
-    export default Registration;
+    export default EventDetails;
