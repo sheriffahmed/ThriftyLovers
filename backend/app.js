@@ -7,7 +7,9 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+const pgp = require('pg-promise')({});
+const connectionStr = "postgres://localhost/thrifty"
+const db = pgp(connectionStr);
 var app = express();
 
 // view engine setup
