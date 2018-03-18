@@ -15,7 +15,7 @@ class LandingPage extends React.Component {
                     
                 <button>Log In</button>
                 <p>Don't have a user? Signup:</p>
-               <Link to='/signup'> <button>Register</button> </Link>
+               <Link to='/signup'> <button>Register</button></Link>
                 
                 </div>
                 </div>
