@@ -13,12 +13,12 @@ class LandingPage extends React.Component {
                     <br />
                     <label>Password: </label><input type='password' class='login' />
                     
-                <button>Log In</button>
-                <p>Don't have a user? Signup:</p>
-               <Link to='/signup'> <button>Register</button> </Link>
+                    <button>Log In</button>
+                    <p>Don't have a user? Signup:</p>
+                    <Link to='/signup'> <button>Register</button> </Link>
                 
                 </div>
-                </div>
+            </div>
         )
     }
     }
