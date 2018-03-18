@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {GenericScrollBox,ScrollBox, ScrollAxes, FastTrack} from 'react-scroll-box'; // ES6
+
 
 
 class Messages extends React.Component {
@@ -13,9 +13,7 @@ render(){
             Place any content here.
           </div>
         </GenericScrollBox> */}
-        <ScrollBox style={{height: '200px'}} axes={ScrollAxes.Y} fastTrack={FastTrack.PAGING}>
-  Place any content here.
-</ScrollBox>
+
         
         </div>
     
