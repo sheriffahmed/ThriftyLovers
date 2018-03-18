@@ -6,8 +6,9 @@ class Messages extends React.Component {
 render(){
     return(
         <div>
-            <h1>Type a Message Here!</h1>
-  
+            <h1>Chat With Your Thrifter <3 Here!</h1>
+            <textarea class="messagebox"></textarea>
+            <button>Send</button> {' '}
         </div>
     )
 }
