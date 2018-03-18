@@ -29,10 +29,21 @@
 
 .Mandatory {
   width: 200px;
-  height: 133px
+  height: 133px;
+  padding-left: 1.8em;
 }
 
 .optional {
   width: 200px;
-  height: 133px
+  height: 133px;
+  padding-left: 1.8em;
+}
+
+.aboutme {
+  width: 49em;
+  height: 3em;
+}
+
+.bill {
+  display: inline-flex;
 }
