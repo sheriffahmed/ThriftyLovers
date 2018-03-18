@@ -9,7 +9,7 @@ class LandingPage extends React.Component {
                 
                 <div>
                 
-                    <label>Login: </label><input type='input' class='login' />
+                    <label>User: </label><input type='input' class='login' />
                     <br/>
                     <br/>
                     <label>Password: </label><input type='password' class='login' />
