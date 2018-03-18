@@ -28,15 +28,6 @@ class App extends Component {
           <Link to='/user/:user/messages'> Messages </Link>
         </nav>
         <Switch>
-       <Route exact path='/' component={LandingPage}/>
-       <Route path='/signup' component={Registration} />
-       <Route exact path='/user/:user' component={EditUser} />
-       <Route path='/budget' component={BudgetPage} />
-       <Route exact path='/messages' component={Messages} />
-       
-       
-       
-        </Switch>
           <Route exact path='/' component={LandingPage}/>
           <Route path='/signup' component={Registration} />
           <Route exact path='/user/:user' component={EditUser} />
