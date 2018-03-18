@@ -23,7 +23,7 @@ class App extends Component {
        <Route path='/signup' component={Registration} />
        <Route exact path='/user/:user' component={EditUser} />
        <Route path='/budget' component={BudgetPage} />
-       <Route exact path='/user/:user/messages' component={Messages} />
+       <Route exact path='/messages' component={Messages} />
        
        
        
