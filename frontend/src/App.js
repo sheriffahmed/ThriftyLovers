@@ -34,7 +34,6 @@ class App extends Component {
           <Route path='/budget' component={BudgetPage} />
           <Route exact path='/user/:user/messages' component={Messages} />
        </Switch>
-
       </div>
     );
   }
