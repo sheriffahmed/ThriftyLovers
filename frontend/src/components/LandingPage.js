@@ -19,7 +19,7 @@ class LandingPage extends React.Component {
                     <button>Log In</button>
                     <br/>
                     <br/>
-                    Don't have a user? {' '}
+                    Not a user yet? {' '}
                     <Link to='/signup'><button> Register </button></Link>
 
                 
