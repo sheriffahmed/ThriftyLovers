@@ -6,7 +6,7 @@ class BudgetPage extends React.Component {
         return(
             <div>
                 <h1>Budget</h1>
-                <p1>Please choose your level of thrifiness!</p1>
+                <p1>Please choose your level of thriftiness!</p1>
                 <br/>
                 <br/>
                 <br/>
