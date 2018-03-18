@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Mandatory {
+  width: 200px;
+  height: 133px
+}
+
+.optional {
+  width: 200px;
+  height: 133px
+}
