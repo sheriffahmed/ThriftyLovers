@@ -5,7 +5,8 @@ class EditUser extends React.Component {
 render(){
     return(
         <div>
-            </div>
+            <h1>User Profile</h1>
+        </div>
     )
 }
 }

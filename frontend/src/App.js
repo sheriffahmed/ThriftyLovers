@@ -18,16 +18,22 @@ class App extends Component {
     return (
       //Edit App.css for style
       <div className="App">
+        
+        {/*Nav specifically for testing, but can be implimented later. Dont delete*/}
+        <nav>
+          <Link to='/'> Home </Link> {' '}
+          <Link to='/signup'> Signup </Link> {' '}
+          <Link to='/budget'> Budget </Link> {' '}
+          <Link to='/user/:user'> User </Link> {' '}
+          <Link to='/user/:user/messages'> Messages </Link>
+        </nav>
         <Switch>
-       <Route exact path='/' component={LandingPage}/>
-       <Route path='/signup' component={Registration} />
-       <Route exact path='/user/:user' component={EditUser} />
-       <Route path='/budget' component={BudgetPage} />
-       <Route exact path='/user/:user/messages' component={Messages} />
-       
-       
-       
-        </Switch>
+          <Route exact path='/' component={LandingPage}/>
+          <Route path='/signup' component={Registration} />
+          <Route exact path='/user/:user' component={EditUser} />
+          <Route path='/budget' component={BudgetPage} />
+          <Route exact path='/user/:user/messages' component={Messages} />
+       </Switch>
       </div>
     );
   }
