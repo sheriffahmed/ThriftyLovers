@@ -19,7 +19,7 @@ class App extends Component {
       //Edit App.css for style
       <div className="App">
         
-        //Nav specifically for testing, but can be implimented later. Don't delete
+        {/*Nav specifically for testing, but can be implimented later. Dont delete*/}
         <nav>
           <Link to='/'> Home </Link> {' '}
           <Link to='/signup'> Signup </Link> {' '}
