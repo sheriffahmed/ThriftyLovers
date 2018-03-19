@@ -7,7 +7,7 @@ render(){
     return(
         <div>
             <h1>Chat With Your Thrifter Here!</h1>
-            <textarea class="messagebox" rows="5" cols="130">
+            <textarea class="messagebox" rows="5" cols="100">
             </textarea>
             <br />
             <button>Send</button> {' '}
