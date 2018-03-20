@@ -8,16 +8,16 @@ render(){
             
             <h1>User Profile</h1>
             <h2><a href="">New Matches: 3</a></h2>
-            <img class="mandatory" src="https://vignette.wikia.nocookie.net/warriorcatsrpg/images/1/19/Yellow_tiger_cat.jpg/revision/latest?cb=20110830125714" />
-            <img class="optional" src="https://pbs.twimg.com/profile_images/378800000560709341/f304187183447a26eb801a3761b8353a.jpeg" />
-            <img class="optional" src="http://www.catster.com/wp-content/uploads/2018/01/Orange-tabby-cat-sleeping-with-eyes-closed.jpg" /> 
+            <img className="mandatory" src="https://vignette.wikia.nocookie.net/warriorcatsrpg/images/1/19/Yellow_tiger_cat.jpg/revision/latest?cb=20110830125714" />
+            <img className="optional" src="https://pbs.twimg.com/profile_images/378800000560709341/f304187183447a26eb801a3761b8353a.jpeg" />
+            <img className="optional" src="http://www.catster.com/wp-content/uploads/2018/01/Orange-tabby-cat-sleeping-with-eyes-closed.jpg" /> 
             <br/>
             <h3>About Me</h3>
-            <textarea class="aboutme">I enjoy fine wine, long walks on the beach, and modern art.</textarea>
+            <textarea className="aboutme">I enjoy fine wine, long walks on the beach, and modern art.</textarea>
             <br/>
             <h3>Edit Profile</h3>
             <h5>On dates, I'd prefer to:</h5>
-                <form class="bill">
+                <form className="bill">
                     <input type="radio" name="bill" value="Split the bill" checked/>Split the bill<br/>
                     <input type="radio" name="bill" value="I pay the bill"/>I pay the bill<br/>
                     <input type="radio" name="bill" value="Other"/>Other
@@ -212,6 +212,8 @@ render(){
                 <br/>
                 <br/>
                 Password: <input/>
+                <br/>
+                <br/>
         </div>
     )
 }
