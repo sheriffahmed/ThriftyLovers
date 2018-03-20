@@ -206,6 +206,7 @@ class Registration extends React.Component {
                 <br/>
                 <br/>
                 My gender is:       <select>
+                                    <option>Gender</option>
                                     <option>Male</option>
                                     <option>Female</option>
                                     <option>Neutral</option>
