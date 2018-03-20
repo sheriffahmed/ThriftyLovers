@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #960B18;
 }
 
 .App-logo {
@@ -46,4 +47,15 @@
 
 .bill {
   display: inline-flex;
+}
+
+.couple {
+  background-size: cover;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

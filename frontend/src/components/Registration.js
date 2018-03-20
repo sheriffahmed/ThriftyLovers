@@ -215,5 +215,5 @@ class Registration extends React.Component {
             </div>
         )
     }
-    }
-    export default Registration;
+}
+export default Registration;
