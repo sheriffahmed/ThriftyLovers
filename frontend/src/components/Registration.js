@@ -211,7 +211,12 @@ class Registration extends React.Component {
                                     <option>Female</option>
                                     <option>Neutral</option>
                                     </select>
-                About Me:<input/>
+                <br/>
+                <br/>
+                About Me:<textarea class="messagebox" rows="10" cols="100">
+            </textarea>
+            <br />
+            <br/>
             </div>
         )
     }
