@@ -213,12 +213,13 @@ class Registration extends React.Component {
                                     </select>
                 <br/>
                 <br/>
-                About Me:<textarea class="messagebox" rows="10" cols="100">
+                <h3>About Me:</h3>
+                <textarea class="messagebox" rows="10" cols="100">
             </textarea>
             <br />
             <br/>
             </div>
         )
     }
-}
-export default Registration;
+    }
+    export default Registration;
