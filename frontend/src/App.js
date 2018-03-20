@@ -19,39 +19,7 @@ class App extends Component {
     return (
       //Edit App.css for style
       <div className="App">
-        <Navbar inverse collapseOnSelect>
-  <Navbar.Header>
-    <Navbar.Brand>
-      <a href="#brand">React-Bootstrap</a>
-    </Navbar.Brand>
-    <Navbar.Toggle />
-  </Navbar.Header>
-  <Navbar.Collapse>
-    <Nav>
-      <NavItem eventKey={1} href="#">
-        Link
-      </NavItem>
-      <NavItem eventKey={2} href="#">
-        Link
-      </NavItem>
-      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-        <MenuItem eventKey={3.1}>Action</MenuItem>
-        <MenuItem eventKey={3.2}>Another action</MenuItem>
-        <MenuItem eventKey={3.3}>Something else here</MenuItem>
-        <MenuItem divider />
-        <MenuItem eventKey={3.3}>Separated link</MenuItem>
-      </NavDropdown>
-    </Nav>
-    <Nav pullRight>
-      <NavItem eventKey={1} href="#">
-        Link Right
-      </NavItem>
-      <NavItem eventKey={2} href="#">
-        Link Right
-      </NavItem>
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>;
+
         {/*Nav specifically for testing, but can be implimented later. Dont delete*/}
         
         {/* <nav className="navbar navbar-default">
@@ -61,6 +29,40 @@ class App extends Component {
           <Link to='/user/:user'> User </Link> {' '}
           <Link to='/user/:user/messages'> Messages </Link>
         </nav> */}
+        <div style={{padding: 0 + 'auto'}}>
+        <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+        <div>
         <Switch>
           <Route exact path='/' component={LandingPage}/>
           <Route path='/signup' component={Registration} />
@@ -68,6 +70,7 @@ class App extends Component {
           <Route path='/budget' component={BudgetPage} />
           <Route exact path='/user/:user/messages' component={Messages} />
        </Switch>
+       </div>
       </div>
     );
   }

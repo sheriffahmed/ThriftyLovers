@@ -6,9 +6,10 @@ class EventDetails extends React.Component {
         return(
             <div>
                 <h1>Event Details</h1>
-
-                </div>
+                <h5>Not a user yet?</h5>
+                <Link to='/signup'><button> Register </button></Link>
+            </div>
         )
     }
-    }
-    export default EventDetails;
+}
+export default EventDetails;
