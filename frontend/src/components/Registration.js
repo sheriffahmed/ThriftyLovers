@@ -197,6 +197,20 @@ class Registration extends React.Component {
                 Password: <input/>
                 <br/>
                 <br/>
+                I'm interested in:  <select>
+                                    <option>Gender</option>
+                                    <option>Men</option>
+                                    <option>Women</option>
+                                    <option>Both</option>
+                                    </select>
+                <br/>
+                <br/>
+                My gender is:       <select>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Neutral</option>
+                                    </select>
+                About Me:<input/>
             </div>
         )
     }
