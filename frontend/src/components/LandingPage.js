@@ -12,18 +12,18 @@ class LandingPage extends React.Component {
                 {/* <img className="couple" src="https://images.unsplash.com/photo-1499200544186-6b1e3ec3b68e?ixlib=rb-0.3.5&s=4016bce234ec5e578252846833c0949f&auto=format&fit=crop&w=1950&q=80"/> */}
                 <div className="container">
                 <h1>Thrifty Lovers</h1>
-                <label>I'm a </label>
-                <select>
-                        <option>Straight</option>
-                        <option>Gay</option>
-                        <option>Bisexual</option>
-                        <option>Other</option>
-                </select>
-                {' '} 
+                <label>I'm a</label>
+                {' '}
                 <select>
                         <option>Woman</option>
                         <option>Man</option>
                         <option>Gender Neutral</option>
+                </select>
+                {' '} looking for a {' '} 
+                <select>
+                        <option>Woman</option>
+                        <option>Man</option>
+                        <option>Both</option>
                     </select>
                 <br/>
                 <br/>
