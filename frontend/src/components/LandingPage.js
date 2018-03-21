@@ -34,8 +34,6 @@ class LandingPage extends React.Component {
                 <button>Avg</button>
                     <br/>
                     <br/>
-                    <button>Let's Go</button>
-                    <br/>
                     <br/>    
                 </div>
             </div>

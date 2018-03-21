@@ -4,8 +4,7 @@ import {Link} from 'react-router-dom'
 class EditUser extends React.Component {
 render(){
     return(
-        <div>
-            
+        <div>    
             <h1>User Profile</h1>
             <h2><a href="">New Matches: 3</a></h2>
             <img className="mandatory" src="https://vignette.wikia.nocookie.net/warriorcatsrpg/images/1/19/Yellow_tiger_cat.jpg/revision/latest?cb=20110830125714" />
@@ -18,9 +17,11 @@ render(){
             <h3>Edit Profile</h3>
             <h5>On dates, I'd prefer to:</h5>
                 <form className="bill">
-                    <input type="radio" name="bill" value="Split the bill" checked/>Split the bill<br/>
-                    <input type="radio" name="bill" value="I pay the bill"/>I pay the bill<br/>
-                    <input type="radio" name="bill" value="Other"/>Other
+                    <ul>
+                    <li><label><input type="checkbox" />Pay for myself</label></li>
+                    <li><label><input type="checkbox" />Pay the whole bill</label></li>
+                    <li><label><input type="checkbox" />It depends on the date</label></li>
+                    </ul>
                 </form>
                 <br/>
                 <br/>
