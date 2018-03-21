@@ -1,7 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import EventBudgetPage from './EventsBudgetPage'
 
 class BudgetPage extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            currentTier : ''
+        }
+    }
+    handleTiers = e =>{
+
+    }
     render(){
         return(
             <div>
@@ -14,9 +24,9 @@ class BudgetPage extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-                <button>Free</button> {' '}
-                <button>Low</button> {' '}
-                <button>Avg</button>
+                <button onClick={this.handleTiers}>Free</button> {' '}
+                <button onClick={this.handleTiers}>Low</button> {' '}
+                <button onClick={this.handleTiers}>Avg</button>
             </div>
         )
     }
