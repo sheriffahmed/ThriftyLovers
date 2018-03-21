@@ -40,7 +40,7 @@ class App extends Component {
                   <span class="icon-bar"></span>                        
                 </button>
                 <a class="navbar-brand" href="/" style={{color: 'red'}}>
-                <img alt="Brand" src={Logo_2} style={{width: "20px", display: "inline"}}/>
+                <img alt="Brand" src={Logo_2} style={{width: "17px", display: "inline"}}/>
                 {' '}
                 Thrifty Lovers
                 </a>
