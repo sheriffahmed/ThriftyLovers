@@ -81,3 +81,7 @@ body{
 tr, th, td {
   border: #960B18 solid;
 }
+
+ul {
+  list-style-type: none;
+}
