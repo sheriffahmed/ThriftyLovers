@@ -186,7 +186,7 @@ class Registration extends React.Component {
                                     <option>1901</option>
                                     <option>1900</option>
                                     
-// Map years in some function
+ {/* Map years in some function */}
                                     <option id='year'></option>
                                 </select>
                 <br/>
@@ -218,7 +218,9 @@ class Registration extends React.Component {
             </textarea>
             <br />
             <br/>
+            <button>Submit</button>
             </div>
+           
         )
     }
     }
