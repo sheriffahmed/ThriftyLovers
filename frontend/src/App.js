@@ -7,6 +7,7 @@ import BudgetPage from './components/BudgetPage'
 import LandingPage from './components/LandingPage'
 import Registration from './components/Registration'
 import Messages from './components/Messages'
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 
 class App extends Component {
@@ -18,15 +19,50 @@ class App extends Component {
     return (
       //Edit App.css for style
       <div className="App">
-        
+
         {/*Nav specifically for testing, but can be implimented later. Dont delete*/}
-        <nav>
+        
+        {/* <nav className="navbar navbar-default">
           <Link to='/'> Home </Link> {' '}
           <Link to='/signup'> Signup </Link> {' '}
           <Link to='/budget'> Budget </Link> {' '}
           <Link to='/user/:user'> User </Link> {' '}
           <Link to='/user/:user/messages'> Messages </Link>
-        </nav>
+        </nav> */}
+        <div style={{padding: 0 + 'auto'}}>
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="/" style={{color: 'red'}}>Thrifty Lovers</a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Page 1-1</a></li>
+                      <li><a href="#">Page 1-2</a></li>
+                      <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Page 2</a></li>
+                  <li><a href="#">Page 3</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+  </div>
+</nav>
+</div>
+        <div>
         <Switch>
           <Route exact path='/' component={LandingPage}/>
           <Route path='/signup' component={Registration} />
@@ -34,6 +70,7 @@ class App extends Component {
           <Route path='/budget' component={BudgetPage} />
           <Route exact path='/user/:user/messages' component={Messages} />
        </Switch>
+       </div>
       </div>
     );
   }
