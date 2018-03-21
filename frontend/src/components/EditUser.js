@@ -212,7 +212,13 @@ render(){
                 Username: <input/>
                 <br/>
                 <br/>
-                Password: <input/>
+                Password: <input type="password"/>
+                <br/>
+                <br/>
+                Confirm Password: <input type="password"/>
+                <br/>
+                <br/>
+                <button>Submit</button>
                 <br/>
                 <br/>
         </div>

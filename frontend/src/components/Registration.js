@@ -194,7 +194,10 @@ class Registration extends React.Component {
                 Username: <input/>
                 <br/>
                 <br/>
-                Password: <input/>
+                Password: <input type="password"/>
+                <br/>
+                <br/>
+                Confirm Password: <input type="password"/>
                 <br/>
                 <br/>
                 I'm interested in:  <select>
