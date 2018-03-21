@@ -8,7 +8,8 @@ import LandingPage from './components/LandingPage'
 import Registration from './components/Registration'
 import Messages from './components/Messages'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
-
+import Logo_1 from './images/Logo_1.png'
+import Logo_2 from './images/Logo_2.png'
 
 class App extends Component {
   constructor(){
@@ -38,21 +39,17 @@ class App extends Component {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>                        
                 </button>
-                <a class="navbar-brand" href="/" style={{color: 'red'}}>Thrifty Lovers</a>
+                <a class="navbar-brand" href="/" style={{color: 'red'}}>
+                <img alt="Brand" src={Logo_2} style={{width: "20px", display: "inline"}}/>
+                {' '}
+                Thrifty Lovers
+                </a>
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Page 1-1</a></li>
-                      <li><a href="#">Page 1-2</a></li>
-                      <li><a href="#">Page 1-3</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Page 2</a></li>
-                  <li><a href="#">Page 3</a></li>
+                  <li><a href="/user/:user"><span class="glyphicon glyphicon-tags"></span> My Profile</a></li>
+                  <li><a href="/user/:user/messages"><span class="glyphicon glyphicon-comment"></span> Messages</a></li>
+                  <li><a href="/budget"><span class="glyphicon glyphicon-btc"></span> Budget</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
