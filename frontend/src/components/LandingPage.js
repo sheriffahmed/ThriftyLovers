@@ -23,7 +23,9 @@ class LandingPage extends React.Component {
                 <select>
                         <option>Woman</option>
                         <option>Man</option>
-                        <option>Both</option>
+                        <option>Gender Neutral</option>
+                        <option>Any</option>
+                        
                     </select>
                 <br/>
                 <br/>
