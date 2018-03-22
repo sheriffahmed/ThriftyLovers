@@ -1,13 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
-
+import sparks_lighter from './sparks_lighter.png'
 
 class LandingPage extends React.Component {
+    constructor(){
+        super();
+    }
+    componentWillMount(){
+        
+        document.body.style.background = `#fcfcfc url('${require("./sparks_lighter.png")}')`;
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundSize = 'cover';
+        // document.body.style.backgroundPosition = 'center';
+        
+    }
     render(){
         return(
             
-            <div className="container2">
+            <div className="container2" style={{background: `#fcfcfc url('${require("./sparks_lighter.png")}')`, backgroundSize: 'cover', backgroundPosition: 'center', marginTop: '-20px' }} >
         
                 {/* <img className="couple" src="https://images.unsplash.com/photo-1499200544186-6b1e3ec3b68e?ixlib=rb-0.3.5&s=4016bce234ec5e578252846833c0949f&auto=format&fit=crop&w=1950&q=80"/> */}
                 <div className="container">
