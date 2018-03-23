@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       //Edit App.css for style
-      <div className="App">
+      <div className="App" style={{margin: 0}}>
 
         {/*Nav specifically for testing, but can be implimented later. Dont delete*/}
         
