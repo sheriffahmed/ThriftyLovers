@@ -1,5 +1,5 @@
 var pgp = require('pg-promise')({});
-var connectionString = 'postgres://localhost/userlist';
+var connectionString = 'postgres://localhost/thrifty';
 //postgres://postgres:postgres@localhost:5433/userlist
 var db = pgp(connectionString);
 const authHelpers = require('../auth/helpers');
@@ -72,6 +72,7 @@ function registerUser(req, res, next) {
               data: user,
               message: 'Registered one user'
             });
+            console.log(`Post Success: `, user, info)
         }
       })(req, res, next);
     })
@@ -81,6 +82,7 @@ function registerUser(req, res, next) {
           status: 'error',
           error: err
         })
+        console.log(`Post err: `, err)
     });
 }
 

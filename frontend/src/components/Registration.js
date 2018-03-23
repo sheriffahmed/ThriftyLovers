@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import Dropzone from 'react-dropzone'
+import request from 'superagent';
 
 class Registration extends React.Component {
     constructor(){
@@ -34,7 +36,7 @@ class Registration extends React.Component {
             }
             return age >= 18;
         }
-        console.log('age: ' + this.ageWall("1980/08/10"));
+        // console.log('age: ' + this.ageWall("1980/08/10"));
 
         for(let i = 1; i<= 31; i++){
            this.daysArr.push(i)
@@ -53,7 +55,8 @@ class Registration extends React.Component {
             bYear: 0,
             bio: '',
             gender: '',
-            preferredGender: ''
+            preferredGender: '',
+            Message: ''
 
         }
         // function that will map Month and day arrays as select box options in the render. month select box: line 144; day select box: line 148 
@@ -66,7 +69,7 @@ class Registration extends React.Component {
         this.yearOptions = () => { 
             let options = []
             for(let i = 1900; i<=2018;i++){options.unshift(<option value={`${i}`}>{i}</option>)}
-            options.unshift(<option value={`0`}>{'Year'}</option>)
+            options.unshift(<option value={0}>{'Year'}</option>)
             return options;
         }
             
@@ -236,12 +239,15 @@ class Registration extends React.Component {
         if(!gender || !preferredGender || !firstName || !lastName || !username || !password || !confirmPassword || confirmPassword !== password || !this.ageWall(`${this.state.bYear}/${this.state.bMonth}/${this.state.bDay}`)  ){
 
             console.log(`errs detected.`, errs)
+            this.setState({
+                Message: 'Error: Please complete the boxes in Red'
+            })
             return;
         }
 
 
-        console.log(`no errs.`, errs)
-        return;
+        // console.log(`no errs.`, errs)
+        // return;
         
         
 
@@ -282,6 +288,7 @@ class Registration extends React.Component {
             this.setState({
                 username: '' ,
                 password: '' ,
+                confirmPassword: '',
                 firstname: '' ,
                 lastname: '' ,
                 bio: '' ,
@@ -317,7 +324,6 @@ class Registration extends React.Component {
             preferredGender} = this.state
         this.handleDiMOptions();
 
-        console.log(document.getElementById('gender'))
         return(
             <div>
                 <h1>Registration</h1>
@@ -329,7 +335,7 @@ class Registration extends React.Component {
                 Last Name: <input id='lastName' onInput={this.handleFormInput}  value={lastName} />
                 <br/>
                 <br/>
-                Date of Birth:  <select className='dob' onChange={this.handleMonthSelect} >
+                Date of Birth:  <select className='dob' onChange={this.handleMonthSelect} value={bMonth} >
                     {/* Month dropdown Select list Options:  */}
                     {this.dateOptions(this.monthArr)}
 
@@ -338,7 +344,7 @@ class Registration extends React.Component {
                     {this.dateOptions(this.DiMArr)}
                                  
                                 </select>
-                                <select className='dob' onChange={this.handleYearSelect} >
+                                <select className='dob' onChange={this.handleYearSelect} value={bYear} >
                                     {/* <option>Year</option> */}
                                     {this.yearOptions()}
                                     
@@ -355,7 +361,7 @@ class Registration extends React.Component {
                 Confirm Password: <input id='confirmPassword' onInput={this.handleFormInput}  type="password" value={confirmPassword} />
                 <br/>
                 <br/>
-                I'm interested in:  <select id='preferredGender' className='g' onChange={this.handleGenderSelect} >
+                I'm interested in:  <select id='preferredGender' className='g' onChange={this.handleGenderSelect} value={preferredGender} >
                                     <option value='' >Gender</option>
                                     <option value='M' >Men</option>
                                     <option value='F' >Women</option>
@@ -365,7 +371,7 @@ class Registration extends React.Component {
                                     </select>
                 <br/>
                 <br/>
-                My gender is:       <select id="gender" className='g' onChange={this.handleGenderSelect} >
+                My gender is:       <select id="gender" className='g' onChange={this.handleGenderSelect} value={gender} >
                                     <option value='' >Gender</option>
                                     <option value='M' >Male</option>
                                     <option value='F' >Female</option>
@@ -377,8 +383,11 @@ class Registration extends React.Component {
                 <textarea id='bio' value={bio} onInput={this.handleFormInput} class="messagebox" rows="10" cols="100">
             </textarea>
             <br />
+            <p>{this.state.Message}</p>
             <br/>
             <button onClick={this.handleSubmit} >Submit</button>
+            <br />
+            <br />
             </div>
            
         )
