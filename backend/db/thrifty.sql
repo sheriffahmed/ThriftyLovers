@@ -13,7 +13,6 @@ CREATE TABLE users (
   bio VARCHAR,
   gender VARCHAR,
   gender_pref VARCHAR,
-  profile_pic_name text,
-  profile_pic bytea
+  profile_pic_url VARCHAR
    
 );

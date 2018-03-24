@@ -4,6 +4,7 @@ var connectionString = 'postgres://localhost/thrifty';
 var db = pgp(connectionString);
 const authHelpers = require('../auth/helpers');
 const passport = require('../auth/local');
+const jwt = require('jsonwebtoken');
 
 function getAllUsers(req, res, next) {
   db.any('select * from users')
@@ -67,6 +68,7 @@ function registerUser(req, res, next) {
       passport.authenticate('local', (err, user, info) => {
         if (user) {
           res.status(200)
+          console.log(`res.body`, res.body)
             .json({
               status: 'success',
               data: user,
@@ -86,31 +88,7 @@ function registerUser(req, res, next) {
     });
 }
 
-// function authUser(req, res, next) {
-//   // console.log('testing login')
-//   // passport.authenticate('local', (err, user) =>{
 
-//   //   if(err){ res.status(500).send('error logging in.')}
-//   //   if(!user){res.status(404).send('User Not Found')}
-//   //     req.logIn(user, function (err){
-//   //       if(err){return next(err);}
-//   //       // else{ res.status(200).send('Logged In')}
-//   //       res.send('localhost:3000/user.id') 
-
-//   //       // return res.redirect('/users/' + req.user.id);
-//   //   })}
-//   // )(req, res, next);
-
-//   passport.authenticate('local', function(err, user, info) {
-//     if (err) { return next(err); }
-//     if (!user) { res.status(401).end();return }
-//     req.logIn(user, function(err) {
-//       if (err) { return next(err); }
-//        res.send('/users/' + user.id);
-//     });
-//   })(req, res, next);
-
-// };
 function authUser(req, res, next) {
   passport.authenticate('local', (err, user) => {
     if (err) {
@@ -135,6 +113,14 @@ function authUser(req, res, next) {
             error: err
           })
       }
+      const payload = {
+        sub: user._id
+      };
+
+      const token = jwt.sign(payload, config.jwtSecret);
+      const data = {
+        name: user.name
+      };
       res.status(200)
         .json({
           status: 'success',
