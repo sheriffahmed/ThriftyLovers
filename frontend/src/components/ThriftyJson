@@ -1,0 +1,11 @@
+let Dummy = {
+    userid: 1,
+    username: ThriftyLover1,
+    password: thebudgetcompany,
+    pref,{
+        gender: male
+        genderPref: female
+        age: 23
+        budget: free
+    }
+}
