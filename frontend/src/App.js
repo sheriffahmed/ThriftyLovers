@@ -7,7 +7,6 @@ import BudgetPage from './components/BudgetPage'
 import LandingPage from './components/LandingPage'
 import Registration from './components/Registration'
 import Messages from './components/Messages'
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import Logo_1 from './images/Logo_1.png'
 import Logo_2 from './images/Logo_2.png'
 
@@ -31,29 +30,29 @@ class App extends Component {
           <Link to='/user/:user/messages'> Messages </Link>
         </nav> */}
         <div style={{padding: 0 + 'auto'}}>
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header" >
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
+          <nav className="navbar navbar-default">
+            <div className="container-fluid">
+              <div className="navbar-header" >
+                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>                        
                 </button>
-                <a class="navbar-brand" href="/" style={{color: 'red'}}>
+                <a className="navbar-brand" href="/" style={{color: 'red'}}>
                 <img alt="Brand" src={Logo_2} style={{width: "17px", display: "inline"}}/>
                 {' '}
                 Thrifty Lovers
                 </a>
               </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                  <li><a href="/user/:user"><span class="glyphicon glyphicon-tags"></span> My Profile</a></li>
-                  <li><a href="/user/:user/messages"><span class="glyphicon glyphicon-comment"></span> Messages</a></li>
-                  <li><a href="/budget"><span class="glyphicon glyphicon-btc"></span> Budget</a></li>
+              <div className="collapse navbar-collapse" id="myNavbar">
+                <ul className="nav navbar-nav">
+                  <li><a href="/user/:user"><span className="glyphicon glyphicon-tags"></span> My Profile</a></li>
+                  <li><a href="/user/:user/messages"><span className="glyphicon glyphicon-comment"></span> Messages</a></li>
+                  <li><a href="/budget"><span className="glyphicon glyphicon-btc"></span> Budget</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <ul className="nav navbar-nav navbar-right">
+                  <li><a href="/signup"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
   </div>
