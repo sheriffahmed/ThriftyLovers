@@ -11,7 +11,7 @@ const options = {};
 init();
 
 passport.use(new LocalStrategy(options, (username, password, done) => {
-  db.one('SELECT username, password_digest FROM users WHERE username=$1', [username])
+  db.one('SELECT username, password_digest first_name, last_name, bio, gender, gender_pref, dob, profile_pic_url FROM users WHERE username=$1', [username])
     .then((user) => {
       if (!user) {
         return done(null, false);

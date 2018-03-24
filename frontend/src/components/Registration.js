@@ -4,6 +4,10 @@ import axios from 'axios'
 import Dropzone from 'react-dropzone'
 import request from 'superagent';
 
+const CLOUDINARY_UPLOAD_PRESET = 'thrift_preset';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/thiftylovers/image/upload';
+
+
 class Registration extends React.Component {
     constructor(){
         super();
@@ -56,7 +60,10 @@ class Registration extends React.Component {
             bio: '',
             gender: '',
             preferredGender: '',
-            Message: ''
+            Message: '',
+            uploadedFileCloudinaryUrl: '',
+            uploadedFile: null,
+            hidebutton: false
 
         }
         // function that will map Month and day arrays as select box options in the render. month select box: line 144; day select box: line 148 
@@ -183,7 +190,9 @@ class Registration extends React.Component {
              password,
              confirmPassword,
              gender,
-             preferredGender
+             preferredGender,
+             uploadedFile,
+             uploadedFileCloudinaryUrl
              
          } = this.state;
          
@@ -249,9 +258,9 @@ class Registration extends React.Component {
         // console.log(`no errs.`, errs)
         // return;
         
-        
+        // this.handleImageUpload(uploadedFile);
 
-    
+    console.log(`after cloud upload, ckoud state: `, this.state.uploadedFileCloudinaryUrl)
 
         axios 
         .post('/users/new', {
@@ -264,7 +273,8 @@ class Registration extends React.Component {
             bio: this.state.bio,
             gender: this.state.gender,
             genderpref: this.state.preferredGender,
-            dob: `${this.state.bYear}-${this.state.bMonth}-${this.state.bDay} `
+            dob: `${this.state.bYear}-${this.state.bMonth}-${this.state.bDay} `,
+            profilepicurl: this.state.uploadedFileCloudinaryUrl
         })
         .then(res =>{
             console.log(res.data)
@@ -280,6 +290,8 @@ class Registration extends React.Component {
                 bDay: 0,
                 bMonth: 0,
                 bYear: 0,
+                uploadedFile: null,
+                uploadedFileCloudinaryUrl: '',
                 Message: 'Register success' 
             })
         })
@@ -298,6 +310,8 @@ class Registration extends React.Component {
                 bDay: 0,
                 bMonth: 0,
                 bYear: 0,
+                uploadedFile: null,
+                uploadedFileCloudinaryUrl: '',
                 Message: 'Err Registering user. UserName may be taken by another user' 
             })
         })
@@ -307,6 +321,39 @@ class Registration extends React.Component {
         this.setState({
             [e.target.id]: e.target.value
         })
+    }
+
+    handleImageUpload(file) { 
+        this.setState({
+        
+            hidebutton: true
+        })
+        let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                            .field('file', file);
+    
+        upload.end((err, response) => {
+          if (err) {
+            console.error(err);
+          }
+   
+          if (response.body.secure_url !== '') {
+            this.setState({
+              uploadedFileCloudinaryUrl: response.body.secure_url,
+              hidebutton: false
+            });
+          }
+        });
+      }
+
+    onImageDrop = files =>{
+        this.setState({
+            uploadedFile: files[0]
+          });
+          console.log(`uploaded File: `, files[0])
+      
+          this.handleImageUpload(files[0]);
+
     }
 
     render(){
@@ -321,13 +368,44 @@ class Registration extends React.Component {
             bYear,
             bio,
             gender,
-            preferredGender} = this.state
+            preferredGender,
+        uploadedFile,
+    uploadedFileCloudinaryUrl} = this.state
         this.handleDiMOptions();
 
         return(
             <div>
                 <h1>Registration</h1>
                 <br/>
+                <br/>
+            Upload Profile Pic:
+            <br/>
+            <br/>
+   
+            <div>
+      <div className="FileUpload">
+    <Dropzone
+      multiple={false}
+      accept="image/*"
+      onDrop={this.onImageDrop}>
+      <p>Drop an image or click to select a file to upload.</p>
+    </Dropzone>
+      </div>
+
+      <div>
+      {uploadedFile === null ? null: <div>
+          <h2>Preview:</h2> <img style={{height: '200px'}} src={uploadedFile.preview} /> 
+          </div>}
+        {this.state.uploadedFileCloudinaryUrl === '' ? null :
+        <div>
+          <p>{this.state.uploadedFile.name}</p>
+          <img  src={this.state.uploadedFileCloudinaryUrl} />
+        </div>}
+      </div>
+    </div>
+            
+  
+                <br />
                 <br/>
                 First Name: <input id='firstName' onInput={this.handleFormInput}  value={firstName}  />
                 <br/>
@@ -385,7 +463,7 @@ class Registration extends React.Component {
             <br />
             <p>{this.state.Message}</p>
             <br/>
-            <button onClick={this.handleSubmit} >Submit</button>
+            <button disabled={this.state.hidebutton} onClick={this.handleSubmit} id='formSubmit' >Submit</button>
             <br />
             <br />
             </div>
