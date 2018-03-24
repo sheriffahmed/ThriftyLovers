@@ -19,16 +19,6 @@ class App extends Component {
     return (
       //Edit App.css for style
       <div className="App" style={{margin: 0}}>
-
-        {/*Nav specifically for testing, but can be implimented later. Dont delete*/}
-        
-        {/* <nav className="navbar navbar-default">
-          <Link to='/'> Home </Link> {' '}
-          <Link to='/signup'> Signup </Link> {' '}
-          <Link to='/budget'> Budget </Link> {' '}
-          <Link to='/user/:user'> User </Link> {' '}
-          <Link to='/user/:user/messages'> Messages </Link>
-        </nav> */}
         <div style={{padding: 0 + 'auto'}}>
           <nav className="navbar navbar-default">
             <div className="container-fluid">
@@ -54,19 +44,19 @@ class App extends Component {
                   <li><a href="/signup"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
                   <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
+              </div>
             </div>
-  </div>
-</nav>
-</div>
+          </nav>
+        </div>
         <div>
-        <Switch>
-          <Route exact path='/' component={LandingPage}/>
-          <Route path='/signup' component={Registration} />
-          <Route exact path='/user/:user' component={EditUser} />
-          <Route path='/budget' component={BudgetPage} />
-          <Route exact path='/user/:user/messages' component={Messages} />
-       </Switch>
-       </div>
+          <Switch>
+            <Route exact path='/' component={LandingPage}/>
+            <Route path='/signup' component={Registration} />
+            <Route exact path='/user/:user' component={EditUser} />
+            <Route path='/budget' component={BudgetPage} />
+            <Route exact path='/user/:user/messages' component={Messages} />
+          </Switch>
+        </div>
       </div>
     );
   }
