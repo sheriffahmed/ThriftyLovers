@@ -8,6 +8,7 @@ import LandingPage from './components/LandingPage'
 import Registration from './components/Registration'
 import Matching from './components/Matching'
 import Messages from './components/Messages'
+import Login from './components/Login'
 import Logo_1 from './images/Logo_1.png'
 import Logo_2 from './images/Logo_2.png'
 
@@ -43,7 +44,7 @@ class App extends Component {
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                   <li><a href="/signup"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+                  <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
               </div>
             </div>
@@ -57,6 +58,7 @@ class App extends Component {
             <Route path='/budget' component={BudgetPage} />
             <Route path='/match' component={Matching} />
             <Route exact path='/user/:user/messages' component={Messages} />
+            <Route exact path='/login' component={Login} />
           </Switch>
         </div>
       </div>
