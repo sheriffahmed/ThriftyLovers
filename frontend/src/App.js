@@ -6,6 +6,7 @@ import EditUser from './components/EditUser'
 import BudgetPage from './components/BudgetPage'
 import LandingPage from './components/LandingPage'
 import Registration from './components/Registration'
+import Matching from './components/Matching'
 import Messages from './components/Messages'
 import Logo_1 from './images/Logo_1.png'
 import Logo_2 from './images/Logo_2.png'
@@ -54,6 +55,7 @@ class App extends Component {
             <Route path='/signup' component={Registration} />
             <Route exact path='/user/:user' component={EditUser} />
             <Route path='/budget' component={BudgetPage} />
+            <Route path='/match' component={Matching} />
             <Route exact path='/user/:user/messages' component={Messages} />
           </Switch>
         </div>
