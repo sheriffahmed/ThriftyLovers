@@ -1,22 +1,8 @@
-const Dummy = {
-    firstName: 'John',
-    lastName: 'Doe',
-    userId: 1,
-    username: "ThriftyLover1",
-    password: "ld+kjdujfef-937&%3mdfuQ*~",
-    age: 23,
-    gender: "male",
-    pictures: ['123.jpg','456.png','789.gif'],
-    pref: {
-        
-        genderPref: "female",
-        minAge: 20,
-        maxAge: 25,
-        eventIds: [1,2,3],
-    }
-}
+import React from 'react';
+import ReactDOM from 'react-router-dom';
+import dummy from './DummyJSON';
 
-const Dummy2 = [
+const dummy2 = [
     {
         firstName: 'John',
         lastName: 'Doe',
@@ -87,8 +73,4 @@ const Dummy2 = [
     }
 ]
 
-const getDummy = () => Dummy;
-const getDummy2 = () => Dummy2;
-
-export default getDummy2
-
+export default dummy2;
