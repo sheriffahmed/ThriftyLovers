@@ -5,13 +5,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.2.0",
-    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-dropzone": "^4.2.9",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "react-scroll-box": "^0.3.5",
-    "socket.io": "^2.0.4",
+    "react-scripts": "^1.1.1",
     "socket.io-client": "^2.0.4",
     "superagent": "^3.8.2"
   },

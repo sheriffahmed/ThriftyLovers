@@ -3,8 +3,14 @@ import {Link} from 'react-router-dom'
 import sparks_lighter from './sparks_lighter.png'
 
 class LandingPage extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+    }
+
+    handleLinkClick = () =>{
+        document.body.style.background = ''
+        document.body.style.backgroundRepeat = ''
+        document.body.style.backgroundSize = ''
     }
     componentWillMount(){
         
@@ -22,6 +28,8 @@ class LandingPage extends React.Component {
                 {/* <img className="couple" src="https://images.unsplash.com/photo-1499200544186-6b1e3ec3b68e?ixlib=rb-0.3.5&s=4016bce234ec5e578252846833c0949f&auto=format&fit=crop&w=1950&q=80"/> */}
                 <div className="container">
                 <h1>Thrifty Lovers</h1>
+
+                <h1>See how this Thrift Lovers work Below:</h1>
                 <label>I'm a</label>
                 {' '}
                 <select>
@@ -41,9 +49,9 @@ class LandingPage extends React.Component {
                 <br/>
                 <p1>Please choose your level of thriftiness!</p1>
                 <br/>
-                <button>Free</button> {' '}
-                <button>Low</button> {' '}
-                <button>Avg</button>
+                <Link onClick={this.handleLinkClick} to='/budget'><button>Free</button></Link> {' '}
+                <Link onClick={this.handleLinkClick} to='/budget'><button>Low</button></Link> {' '}
+                <Link onClick={this.handleLinkClick} to='/budget'><button>Avg</button></Link>
                     <br/>
                     <br/>
                     <br/>    
