@@ -21,6 +21,9 @@
   "proxy": {
     "/users/new": {
       "target": "http://localhost:3100"
+    },
+    "/users/login": {
+      "target": "http://localhost:3100"
     }
   }
 }

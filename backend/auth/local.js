@@ -11,18 +11,23 @@ const options = {};
 init();
 
 passport.use(new LocalStrategy(options, (username, password, done) => {
-
-  db.one('SELECT username, password_digest first_name, last_name, bio, gender, gender_pref, dob, profile_pic_url FROM users WHERE username=$1', [username])
+  console.log(username, password)
+  db.one('SELECT username, password_digest FROM users WHERE username=$1', [username])
     .then((user) => {
+      console.log('database user: ', user.password_digest)
       if (!user) {
+        console.log('Not User')
         return done(null, false);
       } if (!authHelpers.comparePass(password, user.password_digest)) {
+        console.log('Password Problems')
         return done(null, false);
       } else {
         return done(null, user);
       }
     })
     .catch((err) => {
+      console.log("HELLO???")
+      console.log(err)
       return done(err);
     })
 }))

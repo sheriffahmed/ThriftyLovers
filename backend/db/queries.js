@@ -90,44 +90,39 @@ function registerUser(req, res, next) {
 
 
 function authUser(req, res, next) {
-  passport.authenticate('local', (err, user) => {
+  passport.authenticate('local', (err, user, info) => {
     if (err) {
+      console.log("FIRST ERROR")
       res.status(500)
         .json({
           status: 'error',
           error: err
         })
     }
-    if (!user) {
+    else if (!user) {
       res.status(404)
         .json({
           status: 'Not Found',
           error: err
         })
-    }
-    req.logIn(user, function (err) {
-      if (err) {
-        res.status(500)
+    } else if (user) {
+      req.logIn(user, function (err) { 
+        if (err) {
+          console.log("THIS ERROR")
+          res.status(500)
+            .json({
+              status: 'Login Error',
+              error: err
+            })
+        }
+        res.status(200)
           .json({
-            status: 'Login Error',
-            error: err
-          })
-      }
-      const payload = {
-        sub: user._id
-      };
-
-      const token = jwt.sign(payload, config.jwtSecret);
-      const data = {
-        name: user.name
-      };
-      res.status(200)
-        .json({
-          status: 'success',
-          data: user,
-          message: 'Registered one user'
-        });
-    })
+            status: 'success',
+            data: user,
+            message: 'Logged in user'
+          });
+      })
+    }
   }
   )(req, res, next);
 };

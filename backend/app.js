@@ -10,6 +10,8 @@ const pgp = require('pg-promise')({});
 const connectionStr = "postgres://localhost/thrifty"
 const db = pgp(connectionStr);
 var app = express();
+const session = require("express-session");
+const passport = require("passport");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +26,18 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(
+  session({
+    secret:
+      "\x02\xf3\xf7r\t\x9f\xee\xbbu\xb1\xe1\x90\xfe'\xab\xa6L6\xdd\x8d[\xccO\xfe",
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
