@@ -41,6 +41,40 @@ class App extends Component {
                   <li><a href="/user/:user"><span className="glyphicon glyphicon-tags"></span> My Profile</a></li>
                   <li><a href="/user/:user/messages"><span className="glyphicon glyphicon-comment"></span> Messages</a></li>
                   <li><a href="/budget"><span className="glyphicon glyphicon-btc"></span> Budget</a></li>
+                  <li><form class="form-inline">
+                    <div class="input-group">
+                    <label>
+                      <input 
+                      type="text" 
+                      class="form-control" 
+                      placeholder="Username" 
+                      aria-label="Username" 
+                      aria-describedby="basic-addon1" 
+                      style={{
+                        marginTop: "8px",
+                        paddingLeft: "-0px",
+                        marginLeft: "10px",
+                        display: "block"
+                      }}/>
+                      </label>
+                    </div>
+                    <div class="input-group">
+                    <label>
+                      <input 
+                      type="password" 
+                      class="form-control" 
+                      placeholder="Password" 
+                      aria-label="Password" 
+                      aria-describedby="basic-addon1" 
+                      style={{
+                        marginTop: "8px",
+                        paddingLeft: "-0px",
+                        marginLeft: "10px",
+                        display: "block"
+                      }}/>
+                      </label>
+                    </div>
+                  </form></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                   <li><a href="/signup"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
