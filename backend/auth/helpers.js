@@ -4,6 +4,7 @@ var connectionString = 'postgres://localhost/thrifty';
 var db = pgp(connectionString);
 
 function comparePass(userPassword, databasePassword) {
+  console.log(`user: `, userPassword, `database: `, databasePassword)
   return bcrypt.compareSync(userPassword, databasePassword);
 }
 
