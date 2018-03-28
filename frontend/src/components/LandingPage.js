@@ -27,6 +27,11 @@ class LandingPage extends React.Component {
         
                 {/* <img className="couple" src="https://images.unsplash.com/photo-1499200544186-6b1e3ec3b68e?ixlib=rb-0.3.5&s=4016bce234ec5e578252846833c0949f&auto=format&fit=crop&w=1950&q=80"/> */}
                 <div className="container">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    
                 <h1>Thrifty Lovers</h1>
 
                 <h1>See how this Thrift Lovers work Below:</h1>
