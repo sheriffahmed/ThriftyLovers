@@ -1,6 +1,6 @@
 import React from 'react';
-import dummy from './DummyJSON';
-import dummy2 from './Dummy2JSON';
+import dummy from './DummySingle';
+import dummy2 from './DummyAll';
 
 
 
@@ -41,15 +41,13 @@ class Matching extends React.Component {
     
     }
     render() {
-        const dummer = JSON.stringify(dummy);
-        const dummer2 = JSON.stringify(dummy2);
+        
 
         return (
             <div>
                 <h1>Matching</h1>
-            <p>{dummer}</p>
-            <p>{dummer2}</p>
-           {/* {this.handleUserMatch(dummer2)} */}
+            <p>{dummy.firstName} {' '} {dummy.lastName}</p>
+           {this.handleUserMatch(dummy, dummy2)}
             <p>{this.state.result}</p>
             </div>
         )
