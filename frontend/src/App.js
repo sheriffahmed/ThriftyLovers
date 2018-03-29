@@ -21,69 +21,59 @@ class App extends Component {
     return (
       //Edit App.css for style
       <div className="App" style={{margin: 0}}>
-        <div style={{padding: 0 + 'auto'}}>
-          <nav className="navbar navbar-default">
-            <div className="container-fluid">
-              <div className="navbar-header" >
-                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>                        
-                </button>
-                <a className="navbar-brand" href="/" style={{color: 'red'}}>
-                <img alt="Brand" src={Logo_2} style={{width: "17px", display: "inline"}}/>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+          <a class="navbar-brand" href="/" style={{color: 'red'}}>
+          <img alt="Brand" src={Logo_2} style={{width: "20px", display: "inline"}}/>
+          {' '}Thrifty Lovers
+           </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="/user/:user">My Profile</a></li>
+              <li class="nav-item"><a class="nav-link" href="/user/:user/messages">Messages</a></li>
+              <li class="nav-item"><a class="nav-link" href="/budget">Budget</a></li>
+              <li><form class="form-inline">
+                <div class="input-group">
+                <label>
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  placeholder="Username" 
+                  aria-label="Username" 
+                  aria-describedby="basic-addon1" 
+                  style={{
+                    paddingLeft: "-0px",
+                    display: "block"
+                  }}/>
+                  </label>
+                </div>
                 {' '}
-                Thrifty Lovers
-                </a>
-              </div>
-              <div className="collapse navbar-collapse" id="myNavbar">
-                <ul className="nav navbar-nav">
-                  <li><a href="/user/:user"><span className="glyphicon glyphicon-tags"></span> My Profile</a></li>
-                  <li><a href="/user/:user/messages"><span className="glyphicon glyphicon-comment"></span> Messages</a></li>
-                  <li><a href="/budget"><span className="glyphicon glyphicon-btc"></span> Budget</a></li>
-                  <li><form class="form-inline">
-                    <div class="input-group">
-                    <label>
-                      <input 
-                      type="text" 
-                      class="form-control" 
-                      placeholder="Username" 
-                      aria-label="Username" 
-                      aria-describedby="basic-addon1" 
-                      style={{
-                        marginTop: "8px",
-                        paddingLeft: "-0px",
-                        marginLeft: "10px",
-                        display: "block"
-                      }}/>
-                      </label>
-                    </div>
-                    <div class="input-group">
-                    <label>
-                      <input 
-                      type="password" 
-                      class="form-control" 
-                      placeholder="Password" 
-                      aria-label="Password" 
-                      aria-describedby="basic-addon1" 
-                      style={{
-                        marginTop: "8px",
-                        paddingLeft: "-0px",
-                        marginLeft: "10px",
-                        display: "block"
-                      }}/>
-                      </label>
-                    </div>
-                  </form></li>
-                </ul>
-                <ul className="nav navbar-nav navbar-right">
-                  <li><a href="/signup"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-        </div>
+                <div class="input-group">
+                  <label>
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    placeholder="Password" 
+                    aria-label="Password" 
+                    aria-describedby="basic-addon1" 
+                    style={{
+                      paddingLeft: "-0px",
+                      marginLeft: "10px",
+                      display: "block"
+                    }}/>
+                  </label>
+                <div>
+                  <label>
+                    <button type="button" className="btn btn-danger" style={{backgroundColor: 'red', marginLeft: '10px'}} >Login</button>
+                  </label>
+                </div>
+                </div>
+              </form></li>
+            </ul>
+          </div> 
+        </nav>
         <div>
           <Switch>
             <Route exact path='/' component={LandingPage}/>

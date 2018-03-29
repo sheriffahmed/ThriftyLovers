@@ -60,21 +60,15 @@ body{
   background-size: cover;
 }
 
-.container2{
-  /* background: url("https://images.unsplash.com/photo-1499200544186-6b1e3ec3b68e?ixlib=rb-0.3.5&s=4016bce234ec5e578252846833c0949f&auto=format&fit=crop&w=1950&q=80"); */
-  /* background-repeat: no-repeat; */
-  /* background-color: #cccccc; */
-  height: 100vh;
-  width: 100vw;
-  /* background-size: cover; */
-  bottom: 3em;
-}
+
 .container {
   position: relative;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: black;
   font-family: 'Raleway', sans-serif;
+}
+
+.container2{
+  position: absolute;
 }
 
 .table {

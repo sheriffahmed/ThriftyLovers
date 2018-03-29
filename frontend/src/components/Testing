@@ -1,0 +1,94 @@
+<div style={{padding: 0 + 'auto'}}>
+          <nav className="navbar navbar-default">
+            <div className="container-fluid">
+              <div className="navbar-header" >
+                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>                        
+                </button>
+                <a className="navbar-brand" href="/" style={{color: 'red'}}>
+                <img alt="Brand" src={Logo_2} style={{width: "17px", display: "inline"}}/>
+                {' '}
+                Thrifty Lovers
+                </a>
+              </div>
+              <div className="collapse navbar-collapse" id="myNavbar">
+                <ul className="nav navbar-nav">
+                  <li><a href="/user/:user"><span className="glyphicon glyphicon-tags"></span> My Profile</a></li>
+                  <li><a href="/user/:user/messages"><span className="glyphicon glyphicon-comment"></span> Messages</a></li>
+                  <li><a href="/budget"><span className="glyphicon glyphicon-btc"></span> Budget</a></li>
+                </ul>
+                <ul className="nav navbar-nav navbar-right">
+                  <li><form class="form-inline">
+                    <div class="input-group">
+                    <label>
+                      <input 
+                      type="text" 
+                      class="form-control" 
+                      placeholder="Username" 
+                      aria-label="Username" 
+                      aria-describedby="basic-addon1" 
+                      style={{
+                        marginTop: "8px",
+                        paddingLeft: "-0px",
+                        marginLeft: "10px",
+                        display: "block"
+                      }}/>
+                      </label>
+                    </div>
+                    <div class="input-group">
+                      <label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                        placeholder="Password" 
+                        aria-label="Password" 
+                        aria-describedby="basic-addon1" 
+                        style={{
+                          marginTop: "8px",
+                          paddingLeft: "-0px",
+                          marginLeft: "10px",
+                          display: "block"
+                        }}/>
+                      </label>
+                      <label>
+                      <button><span className="glyphicon glyphicon-log-in"></span> Login </button>
+                      </label>
+                    </div>
+                  </form></li>
+                  <li><a href="/signup"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ componentWillMount(){
+        
+       // document.body.style.background = `#fcfcfc url('${require("./sparks_lighter.png")}')`;
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        
+    }
+
+
+    handleLinkClick = () =>{
+        // document.body.style.background = ''
+        // document.body.style.backgroundRepeat = ''
+        // document.body.style.backgroundSize = ''
+    }
