@@ -7,5 +7,9 @@ router.get('/', function(req, res, next) {
 });
 router.post('/new', db.registerUser);
 router.post('/login', db.authUser);
+router.get('/art', ()=>{
+  fetch('http://www.nyartbeat.com/list/event_searchNear?latitude=40.719130&longitude=-73.980000')
+  .then()
+})
 
 module.exports = router;
