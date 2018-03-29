@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Dropzone from 'react-dropzone'
 import request from 'superagent';
-
+import cloudData from '../imageCloudUrls'
 // Image Upload Cloud API Url and upload style preset Variables  (Line 332)
-const CLOUDINARY_UPLOAD_PRESET = 'thrift_preset';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/thiftylovers/image/upload';
+console.log(`cloud: `,)
+const CLOUDINARY_UPLOAD_PRESET = cloudData.cloudPreset;
+const CLOUDINARY_UPLOAD_URL = cloudData.cloudUploadUrl;
 
 
 class Registration extends React.Component {
