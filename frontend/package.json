@@ -25,6 +25,9 @@
     },
     "/users/login": {
       "target": "http://localhost:3100"
+    },
+    "/users/art": {
+      "target": "http://localhost:3100"
     }
   }
 }

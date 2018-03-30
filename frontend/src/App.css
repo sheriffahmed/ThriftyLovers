@@ -8,6 +8,10 @@ body{
 }
 .App {
   color: #960B18;
+  margin: inherit;
+  height: inherit;
+  width: inherit;
+  padding: inherit;
 }
 
 .App-logo {
@@ -68,7 +72,7 @@ body{
 }
 
 .container2{
-  position: absolute;
+  /* position: absolute; */
 }
 
 .table {

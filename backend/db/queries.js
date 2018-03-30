@@ -5,6 +5,7 @@ var db = pgp(connectionString);
 const authHelpers = require('../auth/helpers');
 const passport = require('../auth/local');
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
 
 function getAllUsers(req, res, next) {
   db.any('select * from users')
@@ -89,6 +90,8 @@ function registerUser(req, res, next) {
 }
 
 
+
+
 function authUser(req, res, next) {
   passport.authenticate('local', (err, user, info) => {
     if (err) {
@@ -126,7 +129,32 @@ function authUser(req, res, next) {
   }
   )(req, res, next);
 };
-
+function artFetch(req, res){
+  // (req, res) => {
+    // var myHeaders = new Headers({
+    //   'Content-Type': 'text/xml'
+    // });
+  
+    // myHeaders.append('Content-Type', 'text/xml');  
+   axios({
+    method:'get',
+    url:'http://www.nyartbeat.com/list/event_searchNear?latitude=40.719130&longitude=-73.980000',
+    responseType:'document'
+  })
+        .then(data =>{
+          // console.log(`data: `, data)
+      return data.data
+        })
+      .then(obj => {
+        res.send(obj)
+        // console.log(`obj`, obj)
+      })
+      .catch(err => {
+        console.log(`Backend Fetch err: `, err)
+      })
+  
+  
+}
 
 
 
@@ -135,5 +163,6 @@ module.exports = {
   getSingleUser: getSingleUser,
   registerUser: registerUser,
   updateSingleUser: updateSingleUser,
-  authUser: authUser
+  authUser: authUser,
+  artFetch: artFetch
 };
