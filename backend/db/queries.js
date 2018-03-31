@@ -6,6 +6,13 @@ const authHelpers = require('../auth/helpers');
 const passport = require('../auth/local');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
+var Parser = require('xml2js').Parser;
+var {parseNumbers} = require('xml2js/lib/processors')
+
+var parser = new Parser({explicitArray: false, valueProcessors: [parseNumbers]})
+var parseString = parser.parseString
+
+
 
 function getAllUsers(req, res, next) {
   db.any('select * from users')
@@ -146,7 +153,10 @@ function artFetch(req, res){
       return data.data
         })
       .then(obj => {
-        res.send(obj)
+        parseString(obj, function (err, result) {
+          console.log(result)
+        res.send(result) 
+      })
         // console.log(`obj`, obj)
       })
       .catch(err => {

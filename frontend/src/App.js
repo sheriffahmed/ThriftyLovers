@@ -77,7 +77,7 @@ class App extends Component {
         </nav>
         <div>
           <Switch>
-            <Route exact path='/' component={LandingPage}/>
+            <Route exact path='/' component={LandingPage} />
             <Route path='/signup' component={Registration} />
             <Route exact path='/user/:user' component={EditUser} />
             <Route path='/budget' component={BudgetPage} />

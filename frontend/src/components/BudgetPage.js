@@ -2,16 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import EventBudgetPage from './EventsBudgetPage'
 import axios from 'axios'
+var XMLParser = require('react-xml-parser');
 
 class BudgetPage extends React.Component {
     constructor() {
         super();
         this.state = {
             currentTier: '',
-            tierData: ''
+            tierData: '',
+            apiEvents: []
+
             
         }
+        this.eventDivLoop = []
     }
+
+
     handleTiers = e => {
 
     }
@@ -19,15 +25,16 @@ class BudgetPage extends React.Component {
         axios({
             method:'get',
             url:'/users/art',
-            responseType:'document'
+            // responseType:'document'
           })
-        // axios
-        //     .get('/users/art')
+
         .then(obj => obj.data )
             .then(res =>{
                 console.log(res)
+              
+
             this.setState({
-                tierData: res.data
+                tierData: res.Events.Event
             })
             })
 
@@ -63,6 +70,7 @@ class BudgetPage extends React.Component {
     }
 
     render() {
+        let {tierData} = this.state
         return (
             <div>
                 <h1>Budget</h1>
@@ -77,6 +85,17 @@ class BudgetPage extends React.Component {
                 <button onClick={this.handleTiers}>Free</button> {' '}
                 <button onClick={this.handleTiers}>Low</button> {' '}
                 <button onClick={this.handleTiers}>Avg</button>
+
+                { tierData ? tierData.map(e =>{
+                  return  <div>
+                        <h2>{e.Name}</h2>
+
+                        <img src={e.Image[2].$.src} />
+                        
+                        <h2>Details</h2>
+                        <p>{e.Description.length > 100 ? e.Description.substring(0,100) + '...' : e.Description}</p>
+                    </div>
+                } ) : null}
                 <p>{`${this.state.tierData}`}</p>
             </div>
 
