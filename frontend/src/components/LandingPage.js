@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import './sparks_lighter.png'
 
 class LandingPage extends React.Component {
     constructor(props){
@@ -7,12 +8,27 @@ class LandingPage extends React.Component {
     }
 
 
+    // componentDidMount(){
+        
+    //    document.body.style.background = `#fcfcfc url('${require("./sparks_lighter.png")}')`;
+    //     document.body.style.backgroundRepeat = 'no-repeat';
+    //     document.body.style.backgroundSize = 'cover';
+    //     document.body.style.backgroundPosition = 'center';
+        
+    // }
+
+
+    // handleLinkClick = () =>{
+    //     document.body.style.background = ''
+    //     document.body.style.backgroundRepeat = ''
+    //     document.body.style.backgroundSize = ''
+    // }
     render(){
         return(
             
-            <div className="container">
+            <div className="container" style={{background: `#fcfcfc url('${require("./sparks_lighter.png")}')`, width: '70vw', margin: '0', height: '100vh'}} >
         
-            <div className="container2">
+            <div className="container2" style={{background: `#fcfcfc url('${require("./sparks_lighter.png")}')`, width: '98.8vw', margin: '0', height: '100vh', backgroundPosition: 'center', backgroundSize: 'cover', textAlign: 'center', top: '50vh', verticalAlign: 'middle', lineHeight: 'inherit' }}>
                     
                     
                     

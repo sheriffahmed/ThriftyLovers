@@ -12,6 +12,7 @@ import Login from './components/Login'
 import Logo_1 from './images/Logo_1.png'
 import Logo_2 from './images/Logo_2.png'
 
+
 class App extends Component {
   constructor(){
     super();
@@ -21,7 +22,7 @@ class App extends Component {
     return (
       //Edit App.css for style
       <div className="App" style={{margin: 0}}>
-        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark" style={{backgroundPosition: 'fixed'}} >
           <a class="navbar-brand" href="/" style={{color: 'red'}}>
           <img alt="Brand" src={Logo_2} style={{width: "20px", display: "inline"}}/>
           {' '}Thrifty Lovers
@@ -76,7 +77,7 @@ class App extends Component {
         </nav>
         <div>
           <Switch>
-            <Route exact path='/' component={LandingPage}/>
+            <Route exact path='/' component={LandingPage} />
             <Route path='/signup' component={Registration} />
             <Route exact path='/user/:user' component={EditUser} />
             <Route path='/budget' component={BudgetPage} />

@@ -9,6 +9,7 @@
     "react-dropzone": "^4.2.9",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.1",
+    "react-xml-parser": "^1.0.5",
     "socket.io": "^2.0.4",
     "socket.io-client": "^2.0.4",
     "superagent": "^3.8.2"
@@ -24,6 +25,9 @@
       "target": "http://localhost:3100"
     },
     "/users/login": {
+      "target": "http://localhost:3100"
+    },
+    "/users/art": {
       "target": "http://localhost:3100"
     }
   }

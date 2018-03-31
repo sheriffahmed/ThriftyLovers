@@ -6,6 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
@@ -20,6 +21,7 @@
     "passport-local": "^1.0.0",
     "pg-promise": "^8.2.2",
     "serve-favicon": "~2.4.5",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.0.4",
+    "xml2js": "^0.4.19"
   }
 }
