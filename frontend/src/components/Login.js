@@ -107,7 +107,10 @@ handleFormInput = e => {
                 <br/>
                 <br/>
                 <button onClick={this.handleLoginSubmit} type='submit'>Submit</button>
-
+                <br />
+                <br />
+                <br />
+                
                 <h2>Don't have an account? Signup now!</h2>
                 <Link to='/signup' > <button>Sign Up</button> </Link>
 
