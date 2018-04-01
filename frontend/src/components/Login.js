@@ -62,7 +62,7 @@ class Login extends Component {
         })
         .then(res => {
             console.log(res.data)
-            this.props.onLoginSuccess(res.data.data.token)
+            this.props.onLoginSuccess(res.data.data.token, res.data.data.user.username)
             this.setState({
                 username: '',
                 password: '',
