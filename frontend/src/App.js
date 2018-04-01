@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Switch, Route} from 'react-router-dom'
+import {Link, Switch, Route, Redirect} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import EditUser from './components/EditUser'
@@ -88,10 +88,10 @@ this.setState({
           <Switch>
             <Route exact path='/' component={LandingPage} />
             <Route path='/signup' component={Registration} />
-            <Route exact path='/user/:user' component={EditUser} />
+            <Route exact path='/user/:user' render={()=> this.state.userSession ? <EditUser /> : <Redirect to='/login' /> } />
+            <Route exact path='/user/:user/messages' render={()=> this.state.userSession ? <Messages /> : <Redirect to='/login' /> } />
             <Route path='/budget' component={BudgetPage} />
             <Route path='/match' component={Matching} />
-            <Route exact path='/user/:user/messages' component={Messages} />
             <Route exact path='/login' render={props => <Login onLoginSuccess={this.handleLoginSuccess} {...props} />} />
           </Switch>
         </div>

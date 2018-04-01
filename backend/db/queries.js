@@ -145,7 +145,9 @@ function artFetch(req, res){
     // myHeaders.append('Content-Type', 'text/xml');  
    axios({
     method:'get',
-    url:'http://www.nyartbeat.com/list/event_searchNear?latitude=40.719130&longitude=-73.980000',
+    // url:'http://www.nyartbeat.com/list/event_searchNear?latitude=40.719130&longitude=-73.980000',
+    url:'http://www.nyartbeat.com/list/event_permanent.en.xml',
+    
     responseType:'document'
   })
         .then(data =>{
