@@ -86,12 +86,12 @@ this.setState({
         </nav>
         <div>
           <Switch>
-            <Route exact path='/' component={LandingPage} />
-            <Route path='/signup' component={Registration} />
+            <Route exact path='/' render={(props)=> <LandingPage {...props} /> } />
+            <Route path='/signup' render={(props)=> <Registration {...props} /> } />
             <Route exact path='/user/:user' render={()=> this.state.userSession ? <EditUser /> : <Redirect to='/login' /> } />
             <Route exact path='/user/:user/messages' render={()=> this.state.userSession ? <Messages /> : <Redirect to='/login' /> } />
-            <Route path='/budget' component={BudgetPage} />
-            <Route path='/match' component={Matching} />
+            <Route path='/budget' render={(props)=> <BudgetPage {...props} /> } />
+            <Route path='/match' render={(props)=> <Matching {...props} /> } />
             <Route exact path='/login' render={props => <Login onLoginSuccess={this.handleLoginSuccess} {...props} />} />
           </Switch>
         </div>
