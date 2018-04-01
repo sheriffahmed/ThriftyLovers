@@ -7,7 +7,8 @@ router.get('/', function (req, res, next) {
 });
 router.post('/new', db.registerUser);
 router.post('/login', db.authUser);
-router.get('/art', db.artFetch )
+router.get('/art', db.artFetch);
+router.get('/user', db.getSingleUser);
 // router.get('/user/:user_id', db.grabProfileInfo )
 
 module.exports = router;

@@ -3,6 +3,7 @@ import {Link, Switch, Route, Redirect} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import EditUser from './components/EditUser'
+import UserProfile from './components/UserProfile'
 import BudgetPage from './components/BudgetPage'
 import LandingPage from './components/LandingPage'
 import Registration from './components/Registration'
@@ -18,14 +19,16 @@ class App extends Component {
     super();
     this.state = {
       userSession: '',
-      loggedInUserName: ''
+      loggedInUserName: '',
+      userId: ''
     }
   }
-  handleLoginSuccess = (sessionID, username) =>{
+  handleLoginSuccess = (sessionID, username, userID) =>{
     console.log(`HEY NOW `, sessionID)
 this.setState({
   userSession: sessionID,
-  loggedInUserName: username
+  loggedInUserName: username,
+  userId: userID
 })
 
   }
@@ -43,8 +46,8 @@ this.setState({
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-              <Link to='/user/:user' > <li class="nav-item"><a class="nav-link" href="/user/:user">My Profile</a></li></Link>
-              <Link to='/user/:user/messages' > <li class="nav-item"><a class="nav-link" href="/user/:user/messages">Messages</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}`: '/user/:user'} > <li class="nav-item"><a class="nav-link" href="/user/:user">My Profile</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/messages`: '/user/:user/messages'} > <li class="nav-item"><a class="nav-link" href="/user/:user/messages">Messages</a></li></Link>
               <Link to='/budget' > <li class="nav-item"><a class="nav-link" href="/budget">Budget</a></li></Link>
               {this.state.userSession ? <form class="form-inline"> <div class="input-group"> <p class="navbar-brand">Welcome, {this.state.loggedInUserName}!</p> <div>
                   <label>
@@ -96,7 +99,8 @@ this.setState({
             {(console.log(`Session State: `, this.state.userSession))}
             <Route exact path='/' render={(props)=> <LandingPage {...props} /> } />
             <Route path='/signup' render={(props)=> <Registration {...props} /> } />
-            <Route exact path='/user/:user' render={()=> this.state.userSession ? <EditUser /> : <Redirect to='/login' /> } />
+            <Route  path='/user/:user/edit' render={()=> this.state.userSession ? <EditUser /> : <Redirect to='/login' /> } />
+            <Route exact path='/user/:user' render={(props)=> this.state.userSession ? <UserProfile user={props.match.params.user} editButton={<Link to={`/user/${this.state.loggedInUserName}/edit`} ></Link>} {...props}  /> : <Redirect to='/login' /> } />            
             <Route exact path='/user/:user/messages' render={()=> this.state.userSession ? <Messages /> : <Redirect to='/login' /> } />
             <Route path='/budget' render={(props)=> <BudgetPage {...props} /> } />
             <Route path='/match' render={(props)=> <Matching {...props} /> } />

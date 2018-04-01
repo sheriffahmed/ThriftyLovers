@@ -13,6 +13,14 @@ CREATE TABLE users (
   bio VARCHAR,
   gender VARCHAR,
   gender_pref VARCHAR,
-  profile_pic_url VARCHAR
+  profile_pic_url VARCHAR,
+  event_pref_id VARCHAR ARRAY
    
 );
+
+CREATE TABLE event_pref(
+id SERIAL PRIMARY KEY,
+user_id INTEGER,
+event_id VARCHAR
+
+  );

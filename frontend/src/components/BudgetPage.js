@@ -84,6 +84,8 @@ class BudgetPage extends React.Component {
                 <br />
                 { tierData ? tierData.map(e =>{
                   return  <div>
+                      <hr />
+                      <button>Preferred</button>
                         <h2>{e.Name}</h2>
 
                         <img src={e.Image[2].$.src} />
@@ -101,6 +103,7 @@ class BudgetPage extends React.Component {
                         }
                         Entrances
                         {e.Venue.Access}
+                      <hr />
                     </div>
                 } ) : null}
     

@@ -51,6 +51,7 @@ function getSingleUser(req, res, next) {
         });
     })
     .catch(function (err) {
+      console.log(`err: ` ,err,`req: `, req)
       return next(err);
     });
 }
