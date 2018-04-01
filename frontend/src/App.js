@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Switch, Route} from 'react-router-dom'
+import {Link, Switch, Route, Redirect} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import EditUser from './components/EditUser'
@@ -16,7 +16,16 @@ import Logo_2 from './images/Logo_2.png'
 class App extends Component {
   constructor(){
     super();
-    this.state = {}
+    this.state = {
+      userSession: ''
+    }
+  }
+  handleLoginSuccess = (sessionID) =>{
+    console.log(`HEY NOW `, sessionID)
+this.setState({
+  userSession: sessionID
+})
+
   }
   render() {
     return (
@@ -35,7 +44,7 @@ class App extends Component {
               <li class="nav-item"><a class="nav-link" href="/user/:user">My Profile</a></li>
               <li class="nav-item"><a class="nav-link" href="/user/:user/messages">Messages</a></li>
               <li class="nav-item"><a class="nav-link" href="/budget">Budget</a></li>
-              <li><form class="form-inline">
+              {this.state.userSession ? <p>Welcome!</p> : <li><form class="form-inline">
                 <div class="input-group">
                 <label>
                   <input 
@@ -71,19 +80,19 @@ class App extends Component {
                   </label>
                 </div>
                 </div>
-              </form></li>
+              </form></li>}
             </ul>
           </div> 
         </nav>
         <div>
           <Switch>
-            <Route exact path='/' component={LandingPage} />
-            <Route path='/signup' component={Registration} />
-            <Route exact path='/user/:user' component={EditUser} />
-            <Route path='/budget' component={BudgetPage} />
-            <Route path='/match' component={Matching} />
-            <Route exact path='/user/:user/messages' component={Messages} />
-            <Route exact path='/login' component={Login} />
+            <Route exact path='/' render={(props)=> <LandingPage {...props} /> } />
+            <Route path='/signup' render={(props)=> <Registration {...props} /> } />
+            <Route exact path='/user/:user' render={()=> this.state.userSession ? <EditUser /> : <Redirect to='/login' /> } />
+            <Route exact path='/user/:user/messages' render={()=> this.state.userSession ? <Messages /> : <Redirect to='/login' /> } />
+            <Route path='/budget' render={(props)=> <BudgetPage {...props} /> } />
+            <Route path='/match' render={(props)=> <Matching {...props} /> } />
+            <Route exact path='/login' render={props => <Login onLoginSuccess={this.handleLoginSuccess} {...props} />} />
           </Switch>
         </div>
       </div>

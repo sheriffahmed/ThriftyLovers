@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Switch, Route} from 'react-router-dom';
+import {Link, Switch, Route, Redirect} from 'react-router-dom';
 import axios from 'axios'
 
 class Login extends Component {
@@ -62,11 +62,13 @@ class Login extends Component {
         })
         .then(res => {
             console.log(res.data)
+            this.props.onLoginSuccess(res.data.data.token)
             this.setState({
                 username: '',
                 password: '',
                 Message: 'Login success'
             })
+
         })
         .catch(err => {
             console.log(`Axios err: `, err)
@@ -105,6 +107,14 @@ handleFormInput = e => {
                 <br/>
                 <br/>
                 <button onClick={this.handleLoginSubmit} type='submit'>Submit</button>
+                <br />
+                <br />
+                <br />
+                
+                <h2>Don't have an account? Signup now!</h2>
+                <Link to='/signup' > <button>Sign Up</button> </Link>
+
+                {this.state.Message === 'Login success' ? <Redirect to="/budget"/> : null }
             </div>
         )
     }
