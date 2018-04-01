@@ -17,13 +17,15 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      userSession: ''
+      userSession: '',
+      loggedInUserName: ''
     }
   }
-  handleLoginSuccess = (sessionID) =>{
+  handleLoginSuccess = (sessionID, username) =>{
     console.log(`HEY NOW `, sessionID)
 this.setState({
-  userSession: sessionID
+  userSession: sessionID,
+  loggedInUserName: username
 })
 
   }
@@ -32,19 +34,24 @@ this.setState({
       //Edit App.css for style
       <div className="App" style={{margin: 0}}>
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark" style={{backgroundPosition: 'fixed'}} >
-          <a class="navbar-brand" href="/" style={{color: 'red'}}>
+          <Link to='/' > <a class="navbar-brand" href="/" style={{color: 'red'}}> 
           <img alt="Brand" src={Logo_2} style={{width: "20px", display: "inline"}}/>
           {' '}Thrifty Lovers
-           </a>
+           </a></Link>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link" href="/user/:user">My Profile</a></li>
-              <li class="nav-item"><a class="nav-link" href="/user/:user/messages">Messages</a></li>
-              <li class="nav-item"><a class="nav-link" href="/budget">Budget</a></li>
-              {this.state.userSession ? <p>Welcome!</p> : <li><form class="form-inline">
+              <Link to='/user/:user' > <li class="nav-item"><a class="nav-link" href="/user/:user">My Profile</a></li></Link>
+              <Link to='/user/:user/messages' > <li class="nav-item"><a class="nav-link" href="/user/:user/messages">Messages</a></li></Link>
+              <Link to='/budget' > <li class="nav-item"><a class="nav-link" href="/budget">Budget</a></li></Link>
+              {this.state.userSession ? <form class="form-inline"> <div class="input-group"> <p class="navbar-brand">Welcome, {this.state.loggedInUserName}!</p> <div>
+                  <label>
+                    <button type="button" className="btn btn-danger" style={{backgroundColor: 'red', marginLeft: '10px'}} >Logout</button>
+                  </label>
+                </div> </div> </form> : <li>
+                <form class="form-inline">
                 <div class="input-group">
                 <label>
                   <input 
@@ -86,6 +93,7 @@ this.setState({
         </nav>
         <div>
           <Switch>
+            {(console.log(`Session State: `, this.state.userSession))}
             <Route exact path='/' render={(props)=> <LandingPage {...props} /> } />
             <Route path='/signup' render={(props)=> <Registration {...props} /> } />
             <Route exact path='/user/:user' render={()=> this.state.userSession ? <EditUser /> : <Redirect to='/login' /> } />
