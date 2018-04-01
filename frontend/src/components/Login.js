@@ -12,7 +12,8 @@ class Login extends Component {
         }
     }
 
-    handleLoginSubmit = () =>{
+    handleLoginSubmit = (e) =>{
+e.preventDefault();
         const formErr = (selector) => {
             const isNodelist = (typeof selector.length != 'undefined' &&
                 typeof selector.item != 'undefined')
@@ -62,7 +63,7 @@ class Login extends Component {
         })
         .then(res => {
             console.log(res.data)
-            this.props.onLoginSuccess(res.data.data.token, res.data.data.user.username)
+            this.props.onLoginSuccess(res.data.data.token, res.data.data.user.username, res.data.data.user.id)
             this.setState({
                 username: '',
                 password: '',
@@ -97,16 +98,19 @@ handleFormInput = e => {
                 <h1>Login</h1>
                 <br/>
                 <br/>
+                <form onSubmit={this.handleLoginSubmit} >
                 <input id='username' onInput={this.handleFormInput} type='text' placeholder='username' value={username}/>
                 <br/>
                 <br/>
                 <input id='password' onInput={this.handleFormInput} type='password' placeholder='password' value={password}/>
+             
                 <br/>
                 <br/>
                 <p>{this.state.Message}</p>
                 <br/>
                 <br/>
-                <button onClick={this.handleLoginSubmit} type='submit'>Submit</button>
+                <button onClick={this.handleLoginSubmit} type='submit'>Submit</button> 
+                  </form>
                 <br />
                 <br />
                 <br />

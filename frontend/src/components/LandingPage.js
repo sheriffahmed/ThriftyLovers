@@ -26,8 +26,7 @@ class LandingPage extends React.Component {
     render(){
         return(
             
-            <div className="container" style={{background: `#fcfcfc url('${require("./sparks_lighter.png")}')`, width: '70vw', margin: '0', height: '100vh'}} >
-        
+            <div className="container" style={{background: `#fcfcfc url('${require("./sparks_lighter.png")}')`, width: '70vw', margin: '0', height: '100vh'}} >        
             <div className="container2" style={{background: `#fcfcfc url('${require("./sparks_lighter.png")}')`, width: '98.8vw', margin: '0', height: '100vh', backgroundPosition: 'center', backgroundSize: 'cover', textAlign: 'center', top: '50vh', verticalAlign: 'middle', lineHeight: 'inherit' }}>
                     
                     
