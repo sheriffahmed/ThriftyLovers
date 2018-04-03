@@ -96,6 +96,33 @@ function registerUser(req, res, next) {
         console.log(`Post err: `, err)
     });
 }
+function saveEventPref(req, res, next) {
+ console.log(`reeq`,req.body)
+  db.none('INSERT INTO event_pref (user_id, event_id) VALUES (${userid}, ${eventid})',
+  {userid: req.body.userid, eventid: req.body.eventid})
+
+    .then((data) => {
+      // passport.authenticate('local', (err, user, info) => {
+        // if (user) {
+          res.status(200)
+            .json({
+              status: 'success',
+              data: data,
+              message: 'Added Event'
+            });
+            console.log(`Event Added: `, user, info)
+        // }
+      // })(req, res, next);
+    })
+    .catch((err) => {
+      res.status(500)
+        .json({
+          status: 'error ',
+          error: err
+        })
+        console.log(`Post Event err: `, err)
+    });
+}
 
 
 
@@ -177,5 +204,6 @@ module.exports = {
   registerUser: registerUser,
   updateSingleUser: updateSingleUser,
   authUser: authUser,
-  artFetch: artFetch
+  artFetch: artFetch,
+  saveEventPref: saveEventPref
 };

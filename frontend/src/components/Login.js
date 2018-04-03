@@ -63,7 +63,7 @@ e.preventDefault();
         })
         .then(res => {
             console.log(res.data)
-            this.props.onLoginSuccess(res.data.data.token, res.data.data.user.username, res.data.data.user.id)
+            this.props.onLoginSuccess(res.data.data.token, res.data.data.user.username, res.data.data.user.id, res.data.data.user.gender, res.data.data.user.gender_pref)
             this.setState({
                 username: '',
                 password: '',

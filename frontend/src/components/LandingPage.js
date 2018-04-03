@@ -59,7 +59,8 @@ class LandingPage extends React.Component {
                 <Link to='/budget'><button>Avg</button></Link>
                     <br/>
                     <br/>
-                    <br/>    
+                    <br/>   
+                    <Link to='/signup'><button>Signup</button></Link> 
                 </div>
             </div>
         )

@@ -1,20 +1,61 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import EventBudgetPage from './EventsBudgetPage'
 import axios from 'axios'
 var XMLParser = require('react-xml-parser');
 
 class BudgetPage extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             currentTier: '',
             tierData: '',
-            apiEvents: []            
+            apiEvents: [],
+            noUserId: false,
+            modal: ''            
         }
         this.eventDivLoop = []
     }
+    
+handleChosenEvent = (e) =>{
+    console.log(`Button CLicked.`, this.props.UserID)
+    if(!this.props.UserID){
+        this.setState({
+            noUserId: true
+        })
+        // this.props.handleRedirect();
+        return;
+    }
+    if(this.state.noUserId){
+        this.setState({
+            noUserId: false
+        })
+    }
 
+    if(e.target.id !== '' || !e.target.id){
+        
+    }
+    console.log(`userid`, this.props.UserID,`eventid :`, e.target.id)
+axios
+.post('/users/event', {
+    userid: this.props.UserID,
+    eventid: e.target.id
+})
+.then(res =>{
+    this.setState({
+        modal: 'success'
+    })
+    document.querySelector('#clickModal').click()
+})
+.catch(err =>{
+    console.log(err)
+    this.setState({
+        modal: 'error'
+    })
+    document.querySelector('#clickModal').click();
+})
+
+}
 
     handleTiers = e => {
 
@@ -82,27 +123,64 @@ class BudgetPage extends React.Component {
                 <br />
                 <br />
                 <br />
+                {this.state.noUserId ? <Redirect to='/login' /> : null}
+                { <button id='clickModal' type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" hidden={true} >
+    Open modal
+  </button>}
+               
+                <div>
+              <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        {/* <!-- Modal Header --> */}
+        <div class="modal-header">
+          <h4 class="modal-title"> {this.state.modal === 'success' ? 'Success!' : `Error` }</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        {/* <!-- Modal body --> */}
+        <div class="modal-body">
+        {this.state.modal === 'success' ? 'Event preference has successfully been saved.' : 'Event could not be saved..'}
+        </div>
+        
+        {/* <!-- Modal footer --> */}
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
                 { tierData ? tierData.map(e =>{
                   return  <div>
                       <hr />
-                      <button>Preferred</button>
+                      <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button>
                         <h2>{e.Name}</h2>
 
                         <img src={e.Image[2].$.src} />
-                        <h2>Price</h2>
-                        <p>{e.Price._}</p>
+                       <h2>Details</h2>
+                      <br />
+                      Name:{' '}
+                        {
+                          e.Venue.Name
+                        }
+                        <br />
+                        Address:{' '}
+                          {
+                          e.Venue.Address
+                        }
+                        <br />
+                        Entrances:{' '}
+                        
+                        {e.Venue.Access}
+                         <br />
+                         Price:{' '}
+                        {e.Price._}
 
                         <h2>Summary</h2>
                         <p>{e.Description.length > 100 ? e.Description.substring(0,100) + '...' : e.Description}</p>
-                        <h2>Details</h2>
-                      Name  {
-                          e.Venue.Name
-                        }
-                        Address  {
-                          e.Venue.Address
-                        }
-                        Entrances
-                        {e.Venue.Access}
+                        
                       <hr />
                     </div>
                 } ) : null}

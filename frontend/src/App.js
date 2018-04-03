@@ -20,16 +20,22 @@ class App extends Component {
     this.state = {
       userSession: '',
       loggedInUserName: '',
-      userId: ''
+      userId: '',
+      userGender: '',
+      userGenderPref: ''
     }
   }
-  handleLoginSuccess = (sessionID, username, userID) =>{
+ 
+  handleLoginSuccess = (sessionID, username, userID, gender, genderpref) =>{
     console.log(`HEY NOW `, sessionID)
 this.setState({
   userSession: sessionID,
   loggedInUserName: username,
-  userId: userID
+  userId: userID,
+  userGender: gender,
+  userGenderPref: genderpref
 })
+
 
   }
   render() {
@@ -102,11 +108,12 @@ this.setState({
             <Route  path='/user/:user/edit' render={()=> this.state.userSession ? <EditUser /> : <Redirect to='/login' /> } />
             <Route exact path='/user/:user' render={(props)=> this.state.userSession ? <UserProfile user={props.match.params.user} editButton={<Link to={`/user/${this.state.loggedInUserName}/edit`} ></Link>} {...props}  /> : <Redirect to='/login' /> } />            
             <Route exact path='/user/:user/messages' render={()=> this.state.userSession ? <Messages /> : <Redirect to='/login' /> } />
-            <Route path='/budget' render={(props)=> <BudgetPage {...props} /> } />
+            <Route path='/budget' render={(props)=> <BudgetPage UserID={this.state.userId} {...props} /> } />
             <Route path='/match' render={(props)=> <Matching {...props} /> } />
             <Route exact path='/login' render={props => <Login onLoginSuccess={this.handleLoginSuccess} {...props} />} />
           </Switch>
         </div>
+        <div style={{height: '50px', backgroundColor: '#343a40'}} ></div>
       </div>
     );
   }

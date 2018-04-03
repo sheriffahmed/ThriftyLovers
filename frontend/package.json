@@ -32,6 +32,9 @@
     },
     "/users/user": {
       "target": "http://localhost:3100"
+    },
+    "/users/event": {
+      "target": "http://localhost:3100"
     }
   }
 }
