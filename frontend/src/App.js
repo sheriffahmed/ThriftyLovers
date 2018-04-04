@@ -14,6 +14,7 @@ import Chat from './components/Chat'
 import Login from './components/Login'
 import Logo_1 from './images/Logo_1.png'
 import Logo_2 from './images/Logo_2.png'
+import axios from 'axios'
 
 
 class App extends Component {
@@ -25,14 +26,58 @@ class App extends Component {
       userId: '',
       userGender: '',
       userGenderPref: '',
-      userBudgetTier: ''
+      userBudgetTier: '',
+      navUser: '',
+      navPassword: '',
+      navMessage: ''
+
     }
   }
 
-  handleNavbarLogin = (cb) =>{
-    return cb();
+  handleUserInput = e =>{
+    this.setState({
+      navUser: [e.target.value]
+    })
   }
-
+handlePasswordInput = e =>{
+    this.setState({
+      navPassword: [e.target.value]
+    })
+  }
+  handleNavbarLogin = (e) =>{
+console.log(this.state.navUser)
+              axios
+                  .post('/users/login', {
+                      username: this.state.navUser,
+                      password: this.state.navPassword
+      
+                  })
+                  .then(res => {
+                      console.log(`res data: `,res.data)
+                      this.handleLoginSuccess(res.data.data.token, res.data.data.user.username, res.data.data.user.id, res.data.data.user.gender, res.data.data.user.gender_pref, res.data.data.user.budget_tier)
+                      this.setState({
+                          navUser: '',
+                          navPassword: '',
+                          navMessage: 'Login success'
+                      })
+      
+                  })
+                  .catch(err => {
+                      console.log(`Axios err: `, err)
+                      this.setState({
+                          navUser: '',
+                          navPassword: '',
+                          navMessage: 'Err during login. Please try again'
+                      })
+                  })
+          }
+      
+  
+  // handleNavbarSubmit = () =>{
+  //   this.setState({
+  //     navSubmit: true
+  //   })
+  // }
   handleLoginSuccess = (sessionID, username, userID, gender, genderpref, budgettier) => {
 
     this.setState({
@@ -41,7 +86,8 @@ class App extends Component {
       userId: userID,
       userGender: gender,
       userGenderPref: genderpref,
-      userBudgetTier: budgettier
+      userBudgetTier: budgettier,
+      navSubmit: false
     })
 
 
@@ -124,12 +170,15 @@ class App extends Component {
                   </div>
                 </form>
                 : <li>
+                  {/* Need to Login */}
                   <form class="form-inline">
                     <div class="input-group">
                       <label>
                         <input
                           type="text"
                           class="form-control"
+                          value={this.state.navUser}
+                          onInput={this.handleUserInput}
                           placeholder="Username"
                           aria-label="Username"
                           aria-describedby="basic-addon1"
@@ -146,6 +195,8 @@ class App extends Component {
                           type="password"
                           class="form-control"
                           placeholder="Password"
+                          value={this.state.navPassword}
+                          onInput={this.handlePasswordInput}
                           aria-label="Password"
                           aria-describedby="basic-addon1"
                           style={{
@@ -156,10 +207,11 @@ class App extends Component {
                       </label>
                       <div>
                         <label>
-                          <button type="button" className="btn btn-danger" style={{ backgroundColor: 'red', marginLeft: '10px' }} >
+                          <button type="button" onClick={this.handleNavbarLogin} className="btn btn-danger" style={{ backgroundColor: 'red', marginLeft: '10px' }} >
                             Login
                           </button>
                         </label>
+                        {this.state.navMessage}
                       </div>
                     </div>
                   </form>
@@ -170,7 +222,6 @@ class App extends Component {
         </nav>
         <div>
           <Switch>
-            {/* {(console.log(`Session State: `, this.state.userSession))} */}
             <Route exact path='/' render={(props) => <LandingPage {...props} />} />
             <Route path='/signup' render={(props) => <Registration {...props} />} />
             <Route path='/user/:user/edit' render={() => this.state.userSession ? <EditUser /> : <Redirect to='/login' />} />
@@ -179,7 +230,7 @@ class App extends Component {
             <Route exact path='/user/:user/chat/:user2' render={(props) => this.state.userSession ? <Chat authUser={this.state.loggedInUserName} /> : <Redirect to='/login' />} />
             <Route path='/budget' render={(props) => <BudgetPage UserID={this.state.userId} BudgetTier={this.state.userBudgetTier} {...props} />} />
             <Route path='/match' render={(props) => <Matching {...props} />} />
-            <Route exact path='/login' render={props => <Login onLoginSuccess={this.handleLoginSuccess} loggedInUser={this.state.loggedInUserName} {...props} />} />
+            <Route exact path='/login' render={props => <Login onLoginSuccess={this.handleLoginSuccess} navUser={this.state.navUser} navPassword={this.state.navPassword} loggedInUser={this.state.loggedInUserName} {...props} />} />
             <Route exact path='/user/:user/feed' render={props => this.state.userSession ? <Feed onLoginSuccess={this.handleLoginSuccess} {...props} /> : <Redirect to='/login' />} />
 
           </Switch>

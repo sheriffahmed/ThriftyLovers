@@ -3,8 +3,8 @@ import { Link, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios'
 
 class Login extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             username: '',
             password: '',
@@ -97,8 +97,17 @@ class Login extends Component {
             username,
             password,
             Message } = this.state
+            // if( this.state.isNavLogin){
+            //     this.setState({
+            //         username: this.props.navUser,
+            //         password: this.props.navPassword
+            //     })
+            // this.handleLoginSubmit();
+            // }
+               
         return (
             <div>
+               
                 <h1>Login</h1>
                 <br />
                 <br />
@@ -114,6 +123,7 @@ class Login extends Component {
                     <br />
                     <br />
                     <button onClick={this.handleLoginCheck} type='submit'>Submit</button>
+
                 </form>
                 <br />
                 <br />

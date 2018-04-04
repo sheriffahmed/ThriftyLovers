@@ -40,8 +40,8 @@ function getAllUsers(req, res, next) {
 // }
 
 function getSingleUser(req, res, next) {
-  db.any('select * from users where username = ${username}',
-    req.params)
+  db.any('select username, bio, dob, gender, budget_tier, first_name, gender_pref, id, last_name, profile_pic_url from users where username = ${username}',
+    {username: req.body.username})
     .then(function (data) {
       res.status(200)
         .json({
@@ -51,7 +51,7 @@ function getSingleUser(req, res, next) {
         });
     })
     .catch(function (err) {
-      console.log(`err: ` ,err,`req: `, req)
+      console.log(`err: ` ,err,`req: `, req.body)
       return next(err);
     });
 }
