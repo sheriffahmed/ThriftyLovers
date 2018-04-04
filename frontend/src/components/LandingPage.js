@@ -34,7 +34,7 @@ class LandingPage extends React.Component {
                     
                 <h1>Thrifty Lovers</h1>
 
-                <h1>See how this Thrift Lovers work Below:</h1>
+                <h1>See how it works below:</h1>
                 <label>I'm a</label>
                 {' '}
                 <select>
