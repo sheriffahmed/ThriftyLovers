@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-router-dom';
-import dummy from './DummyJSON';
 
 const dummy2 = [
     {

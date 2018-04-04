@@ -13,6 +13,38 @@ CREATE TABLE users (
   bio VARCHAR,
   gender VARCHAR,
   gender_pref VARCHAR,
-  profile_pic_url VARCHAR
+  profile_pic_url VARCHAR,
+  budget_tier VARCHAR
    
+);
+
+CREATE TABLE event_pref(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  user_gender VARCHAR,
+  user_gender_pref VARCHAR,
+  event_id VARCHAR
+
+);
+
+CREATE TABLE matches(
+  id SERIAL PRIMARY KEY,
+  user1 INTEGER,
+  user2 INTEGER,
+  approved BOOLEAN NOT NULL
+
+);
+
+CREATE TABLE likes(
+  id SERIAL PRIMARY KEY,
+  match_id INTEGER,
+  user_id INTEGER  
+);
+
+CREATE TABLE message_log(
+  id SERIAL PRIMARY KEY,
+  to_user_id INTEGER,
+  from_user_id INTEGER,
+  message VARCHAR
+  
 );

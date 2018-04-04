@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Dropzone from 'react-dropzone'
 import request from 'superagent';
-
+import cloudData from '../imageCloudUrls'
 // Image Upload Cloud API Url and upload style preset Variables  (Line 332)
-const CLOUDINARY_UPLOAD_PRESET = 'thrift_preset';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/thiftylovers/image/upload';
+console.log(`cloud: `,)
+const CLOUDINARY_UPLOAD_PRESET = cloudData.cloudPreset;
+const CLOUDINARY_UPLOAD_URL = cloudData.cloudUploadUrl;
 
 
 class Registration extends React.Component {
@@ -58,6 +59,7 @@ class Registration extends React.Component {
             bio: '',
             gender: '',
             preferredGender: '',
+            budgetTier: '',
             Message: '',
             // UploadFile holds image data from dropbox for image Cloud && uploadedFileCloudinaryUrl holds the url where the image is stored in cloud
             uploadedFileCloudinaryUrl: '',
@@ -181,6 +183,8 @@ class Registration extends React.Component {
         let gen = document.getElementById('gender')
         let genpref = document.getElementById('preferredGender')
         let g = document.getElementsByClassName('g')
+        let b = document.getElementsByClassName('b')
+        
         let errs = document.querySelectorAll('input')
 
         let bio = document.getElementById('bio')
@@ -192,6 +196,7 @@ class Registration extends React.Component {
             confirmPassword,
             gender,
             preferredGender,
+            budgetTier,
             uploadedFile,
             uploadedFileCloudinaryUrl
 
@@ -244,6 +249,12 @@ class Registration extends React.Component {
             fixedErr(g);
         }
 
+        if(!budgetTier){
+            formErr(b);
+        } else {
+            fixedErr(b);
+        }
+
         if (!this.ageWall(`${this.state.bYear}/${this.state.bMonth}/${this.state.bDay}`)) {
 
             formErr(dob);
@@ -253,7 +264,7 @@ class Registration extends React.Component {
             fixedErr(dob)
         }
 
-        if (!gender || !preferredGender || !firstName || !lastName || !username || !password || !confirmPassword || confirmPassword !== password || !this.ageWall(`${this.state.bYear}/${this.state.bMonth}/${this.state.bDay}`)) {
+        if (!gender || !preferredGender || !budgetTier || !firstName || !lastName || !username || !password || !confirmPassword || confirmPassword !== password || !this.ageWall(`${this.state.bYear}/${this.state.bMonth}/${this.state.bDay}`)) {
 
             console.log(`errs detected.`, errs)
             this.setState({
@@ -268,7 +279,7 @@ class Registration extends React.Component {
 
         // this.handleImageUpload(uploadedFile);
 
-        console.log(`after cloud upload, ckoud state: `, this.state.uploadedFileCloudinaryUrl)
+        console.log(`after cloud upload, cloud state: `, this.state.uploadedFileCloudinaryUrl)
 
         axios
             .post('/users/new', {
@@ -281,6 +292,7 @@ class Registration extends React.Component {
                 bio: this.state.bio,
                 gender: this.state.gender,
                 genderpref: this.state.preferredGender,
+                budgettier: this.state.budgetTier,
                 dob: `${this.state.bYear}-${this.state.bMonth}-${this.state.bDay} `,
                 profilepicurl: this.state.uploadedFileCloudinaryUrl
             })
@@ -294,6 +306,7 @@ class Registration extends React.Component {
                     bio: '',
                     gender: '',
                     genderpref: '',
+                    budgetTier: '',
                     dob: '',
                     bDay: 0,
                     bMonth: 0,
@@ -306,20 +319,20 @@ class Registration extends React.Component {
             .catch(err => {
                 console.log(`Axios err: `, err)
                 this.setState({
-                    username: '',
-                    password: '',
-                    confirmPassword: '',
-                    firstname: '',
-                    lastname: '',
-                    bio: '',
-                    gender: '',
-                    genderpref: '',
-                    dob: '',
-                    bDay: 0,
-                    bMonth: 0,
-                    bYear: 0,
-                    uploadedFile: null,
-                    uploadedFileCloudinaryUrl: '',
+                    // username: '',
+                    // password: '',
+                    // confirmPassword: '',
+                    // firstname: '',
+                    // lastname: '',
+                    // bio: '',
+                    // gender: '',
+                    // genderpref: '',
+                    // dob: '',
+                    // bDay: 0,
+                    // bMonth: 0,
+                    // bYear: 0,
+                    // uploadedFile: null,
+                    // uploadedFileCloudinaryUrl: '',
                     Message: 'Err Registering user. UserName may be taken by another user'
                 })
             })
@@ -372,6 +385,7 @@ class Registration extends React.Component {
             bio,
             gender,
             preferredGender,
+            budgetTier,
             uploadedFile,
             uploadedFileCloudinaryUrl } = this.state
         this.handleDiMOptions();
@@ -442,7 +456,17 @@ class Registration extends React.Component {
                 Confirm Password: <input id='confirmPassword' onInput={this.handleFormInput} type="password" value={confirmPassword} />
                 <br />
                 <br />
-                I'm interested in:  <select id='preferredGender' className='g' onChange={this.handleGenderSelect} value={preferredGender} >
+                  My gender is:       <select id="gender" className='g' onChange={this.handleGenderSelect} value={gender} >
+                    <option value='' >Gender</option>
+                    <option value='M' >Male</option>
+                    <option value='F' >Female</option>
+                    <option value='N' >Neutral</option>
+               
+                </select>
+                <br />
+                <br />
+
+               I'm interested in:  <select id='preferredGender' className='g' onChange={this.handleGenderSelect} value={preferredGender} >
                     <option value='' >Gender</option>
                     <option value='M' >Men</option>
                     <option value='F' >Women</option>
@@ -452,11 +476,12 @@ class Registration extends React.Component {
                 </select>
                 <br />
                 <br />
-                My gender is:       <select id="gender" className='g' onChange={this.handleGenderSelect} value={gender} >
-                    <option value='' >Gender</option>
-                    <option value='M' >Male</option>
-                    <option value='F' >Female</option>
-                    <option value='N' >Neutral</option>
+               Please Select Budget Tier: <select id='budgetTier' className='b' onChange={this.handleGenderSelect} value={budgetTier} >
+                    <option value='' >Budget Tier</option>
+                    <option value='Free' >Free Tier</option>
+                    <option value='$' >Low Tier</option>
+                    <option value='$$' >Average Tier</option>
+
                 </select>
                 <br />
                 <br />

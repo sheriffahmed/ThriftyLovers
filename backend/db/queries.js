@@ -5,6 +5,14 @@ var db = pgp(connectionString);
 const authHelpers = require('../auth/helpers');
 const passport = require('../auth/local');
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
+var Parser = require('xml2js').Parser;
+var {parseNumbers} = require('xml2js/lib/processors')
+
+var parser = new Parser({explicitArray: false, valueProcessors: [parseNumbers]})
+var parseString = parser.parseString
+
+
 
 function getAllUsers(req, res, next) {
   db.any('select * from users')
@@ -43,6 +51,7 @@ function getSingleUser(req, res, next) {
         });
     })
     .catch(function (err) {
+      console.log(`err: ` ,err,`req: `, req)
       return next(err);
     });
 }
@@ -87,51 +96,105 @@ function registerUser(req, res, next) {
         console.log(`Post err: `, err)
     });
 }
+function saveEventPref(req, res, next) {
+ console.log(`reeq`,req.body)
+  db.none('INSERT INTO event_pref (user_id, event_id) VALUES (${userid}, ${eventid})',
+  {userid: req.body.userid, eventid: req.body.eventid})
+
+    .then((data) => {
+      // passport.authenticate('local', (err, user, info) => {
+        // if (user) {
+          res.status(200)
+            .json({
+              status: 'success',
+              data: data,
+              message: 'Added Event'
+            });
+            console.log(`Event Added: `, user, info)
+        // }
+      // })(req, res, next);
+    })
+    .catch((err) => {
+      res.status(500)
+        .json({
+          status: 'error ',
+          error: err
+        })
+        console.log(`Post Event err: `, err)
+    });
+}
+
+
 
 
 function authUser(req, res, next) {
-  passport.authenticate('local', (err, user) => {
+  passport.authenticate('local', (err, user, info) => {
     if (err) {
+      console.log("FIRST ERROR")
       res.status(500)
         .json({
           status: 'error',
           error: err
         })
     }
-    if (!user) {
+    else if (!user) {
       res.status(404)
         .json({
           status: 'Not Found',
           error: err
         })
-    }
-    req.logIn(user, function (err) {
-      if (err) {
-        res.status(500)
+    } else if (user) {
+      req.logIn(user, function (err) { 
+        if (err) {
+          console.log("THIS ERROR")
+          res.status(500)
+            .json({
+              status: 'Login Error',
+              error: err
+            })
+        }
+        res.status(200)
           .json({
-            status: 'Login Error',
-            error: err
-          })
-      }
-      const payload = {
-        sub: user._id
-      };
-
-      const token = jwt.sign(payload, config.jwtSecret);
-      const data = {
-        name: user.name
-      };
-      res.status(200)
-        .json({
-          status: 'success',
-          data: user,
-          message: 'Registered one user'
-        });
-    })
+            status: 'success',
+            data: { user, token: req.sessionID } ,
+            message: 'Logged in user'
+          });
+      })
+    }
   }
   )(req, res, next);
 };
-
+function artFetch(req, res){
+  // (req, res) => {
+    // var myHeaders = new Headers({
+    //   'Content-Type': 'text/xml'
+    // });
+  
+    // myHeaders.append('Content-Type', 'text/xml');  
+   axios({
+    method:'get',
+    // url:'http://www.nyartbeat.com/list/event_searchNear?latitude=40.719130&longitude=-73.980000',
+    url:'http://www.nyartbeat.com/list/event_permanent.en.xml',
+    
+    responseType:'document'
+  })
+        .then(data =>{
+          // console.log(`data: `, data)
+      return data.data
+        })
+      .then(obj => {
+        parseString(obj, function (err, result) {
+          console.log(result)
+        res.send(result) 
+      })
+        // console.log(`obj`, obj)
+      })
+      .catch(err => {
+        console.log(`Backend Fetch err: `, err)
+      })
+  
+  
+}
 
 
 
@@ -140,5 +203,7 @@ module.exports = {
   getSingleUser: getSingleUser,
   registerUser: registerUser,
   updateSingleUser: updateSingleUser,
-  authUser: authUser
+  authUser: authUser,
+  artFetch: artFetch,
+  saveEventPref: saveEventPref
 };
