@@ -11,6 +11,7 @@ router.post('/event', db.saveEventPref);
 router.get('/art', db.artFetch);
 router.post('/user', db.getSingleUser);
 
+
 // router.get('/user/:user_id', db.grabProfileInfo )
 
 module.exports = router;

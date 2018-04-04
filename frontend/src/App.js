@@ -222,6 +222,7 @@ console.log(this.state.navUser)
         </nav>
         <div>
           <Switch>
+
             <Route exact path='/' render={(props) => <LandingPage {...props} />} />
             <Route path='/signup' render={(props) => <Registration {...props} />} />
             <Route path='/user/:user/edit' render={() => this.state.userSession ? <EditUser /> : <Redirect to='/login' />} />

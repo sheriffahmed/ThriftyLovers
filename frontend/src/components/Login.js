@@ -104,7 +104,6 @@ class Login extends Component {
             //     })
             // this.handleLoginSubmit();
             // }
-               
         return (
             <div>
                
