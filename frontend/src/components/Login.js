@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {Link, Switch, Route, Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios'
 
 class Login extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             username: '',
@@ -11,9 +11,8 @@ class Login extends Component {
             Message: ''
         }
     }
-
-    handleLoginSubmit = (e) =>{
-e.preventDefault();
+    handleLoginCheck = (e) => {
+        e.preventDefault();
         const formErr = (selector) => {
             const isNodelist = (typeof selector.length != 'undefined' &&
                 typeof selector.item != 'undefined')
@@ -38,12 +37,12 @@ e.preventDefault();
         }
         let uname = document.getElementById('username')
         let pword = document.getElementById('password')
-        
+
         let {
-           username,
-           password,
-           Message
-        } = this.state;
+       username,
+            password,
+            Message
+    } = this.state;
         if (!username) {
             formErr(uname);
         } else {
@@ -55,70 +54,75 @@ e.preventDefault();
             fixedErr(pword);
         }
 
+        this.handleLoginSubmit();
+    }
+
+    handleLoginSubmit = (e) => {
+
         axios
-        .post('/users/login', {
-            username: this.state.username,
-            password: this.state.password,
+            .post('/users/login', {
+                username: this.state.username,
+                password: this.state.password,
 
-        })
-        .then(res => {
-            console.log(res.data)
-            this.props.onLoginSuccess(res.data.data.token, res.data.data.user.username, res.data.data.user.id)
-            this.setState({
-                username: '',
-                password: '',
-                Message: 'Login success'
             })
+            .then(res => {
+                console.log(res.data)
+                this.props.onLoginSuccess(res.data.data.token, res.data.data.user.username, res.data.data.user.id, res.data.data.user.gender, res.data.data.user.gender_pref, res.data.data.user.budget_tier)
+                this.setState({
+                    username: '',
+                    password: '',
+                    Message: 'Login success'
+                })
 
-        })
-        .catch(err => {
-            console.log(`Axios err: `, err)
-            this.setState({
-                username: '',
-                password: '',
-                Message: 'Err during login. Please try again'
             })
-        })
-}
-
-handleFormInput = e => {
-    
-            this.setState({
-                [e.target.id]: e.target.value
+            .catch(err => {
+                console.log(`Axios err: `, err)
+                this.setState({
+                    username: '',
+                    password: '',
+                    Message: 'Err during login. Please try again'
+                })
             })
-        }
+    }
 
-    render(){
+    handleFormInput = e => {
+
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    render() {
         let {
             username,
             password,
-        Message } = this.state
-        return(
+            Message } = this.state
+        return (
             <div>
                 <h1>Login</h1>
-                <br/>
-                <br/>
-                <form onSubmit={this.handleLoginSubmit} >
-                <input id='username' onInput={this.handleFormInput} type='text' placeholder='username' value={username}/>
-                <br/>
-                <br/>
-                <input id='password' onInput={this.handleFormInput} type='password' placeholder='password' value={password}/>
-             
-                <br/>
-                <br/>
-                <p>{this.state.Message}</p>
-                <br/>
-                <br/>
-                <button onClick={this.handleLoginSubmit} type='submit'>Submit</button> 
-                  </form>
+                <br />
+                <br />
+                <form onSubmit={this.handleLoginCheck} >
+                    <input id='username' onInput={this.handleFormInput} type='text' placeholder='username' value={username} />
+                    <br />
+                    <br />
+                    <input id='password' onInput={this.handleFormInput} type='password' placeholder='password' value={password} />
+
+                    <br />
+                    <br />
+                    <p>{this.state.Message}</p>
+                    <br />
+                    <br />
+                    <button onClick={this.handleLoginCheck} type='submit'>Submit</button>
+                </form>
                 <br />
                 <br />
                 <br />
-                
+
                 <h2>Don't have an account? Signup now!</h2>
                 <Link to='/signup' > <button>Sign Up</button> </Link>
 
-                {this.state.Message === 'Login success' ? <Redirect to="/budget"/> : null }
+                {this.state.Message === 'Login success' ? <Redirect to={`/user/${this.props.loggedInUser}/feed`} /> : null}
             </div>
         )
     }

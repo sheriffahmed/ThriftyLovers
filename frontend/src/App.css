@@ -75,15 +75,15 @@ body{
   /* position: absolute; */
 }
 
-.table {
+/* .table {
   width: 100%;
   border:  #960B18 solid;
   border-width: 1px;
-}
+} */
 
-tr, th, td {
+/* tr, th, td {
   border: #960B18 solid;
-}
+} */
 
 ul {
   list-style-type: none;
