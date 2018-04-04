@@ -9,7 +9,8 @@ router.post('/new', db.registerUser);
 router.post('/login', db.authUser);
 router.post('/event', db.saveEventPref);
 router.get('/art', db.artFetch);
-router.get('/user', db.getSingleUser);
+router.post('/user', db.getSingleUser);
+
 
 // router.get('/user/:user_id', db.grabProfileInfo )
 
