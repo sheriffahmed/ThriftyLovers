@@ -21,19 +21,7 @@
     "eject": "react-scripts eject"
   },
   "proxy": {
-    "/users/new": {
-      "target": "http://localhost:3100"
-    },
-    "/users/login": {
-      "target": "http://localhost:3100"
-    },
-    "/users/art": {
-      "target": "http://localhost:3100"
-    },
-    "/users/user": {
-      "target": "http://localhost:3100"
-    },
-    "/users/event": {
+    "/users": {
       "target": "http://localhost:3100"
     }
   }

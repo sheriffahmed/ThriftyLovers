@@ -12,7 +12,7 @@ init();
 
 passport.use(new LocalStrategy(options, (username, password, done) => {
   console.log(username, password)
-  db.one('SELECT username, password_digest, id, gender, gender_pref FROM users WHERE username=$1', [username])
+  db.one('SELECT username, password_digest, id, gender, gender_pref, budget_tier FROM users WHERE username=$1', [username])
     .then((user) => {
       console.log('database user: ', user.password_digest)
       if (!user) {
