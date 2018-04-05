@@ -112,7 +112,7 @@ class BudgetPage extends React.Component {
         let { tierData } = this.state
         return (
             <div>
-                <h1>Budget</h1>
+                <h1>Events</h1>
                 <p>Please choose your level of thriftiness!</p>
                 {/* <button onClick={this.handleTiers}>Free</button> {' '}
                 <button onClick={this.handleTiers}>Low</button> {' '}
@@ -159,7 +159,7 @@ class BudgetPage extends React.Component {
                     return e.Price._ === "Free" && this.props.BudgetTier === 'Free'
                         ?  <div>
                                 <hr />
-                                <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button>
+                                {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
                                 <h2>{e.Name}</h2>
 
                                 <img src={e.Image[2].$.src} />
@@ -191,7 +191,7 @@ class BudgetPage extends React.Component {
                         : e.Price._ !== 'Free' && this.props.BudgetTier !== 'Free'
                             ? <div>
                                 <hr />
-                                <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button>
+                                {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
                                 <h2>{e.Name}</h2>
 
                                 <img src={e.Image[2].$.src} />

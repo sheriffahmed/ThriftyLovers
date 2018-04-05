@@ -5,50 +5,66 @@ import dummy2 from './DummyAll';
 
 
 class Matching extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            user1: '',
-            users: [],
-            result: ''
-        }
+
+    state = {
+        allUsers: [],
+        allMatches: []
     }
-    handleUserMatch = (user1,userArr) =>{
-        if(this.state.result){
-           return; 
-        }
-    userArr.forEach(user =>{
-        if(user1.username !== user.username){
-            console.log(`Not Same user`)
-            console.log(`user1 min age: `, user1.pref.minAge, `user age: `, user.age, `user1 max age: `, user1.pref.maxAge)
-            if(user1.pref.minAge <= user.age && user1.pref.maxAge >= user.age && user1.pref.genderPref === user.gender){
-                console.log(`in Age Range`)
-                user1.pref.eventIds.forEach(el =>{
-                    user.pref.eventIds.forEach(el2 =>{
-                        if(el === el2){
-                            this.setState({
-                                result: `${user1.firstName} Matches with ${user.firstName}!`
-                        })
-                    }
-                })
+   
+
+    handleUserMatch = () =>{ 
+        const loggedInUser = {
+            userId: this.props.userId,
+            userGender: this.props.userGender,
+            userGenderPref: this.props.userGenderPref,
+            userBudgetTier: this.props.userBudgetTier
+         }
+     return dummy2.filter(user =>{
+        return user.userId !== loggedInUser.userId && user.gender === loggedInUser.userGenderPref && user.userGenderPref === loggedInUser.gender
+        // return user.userId !== loggedInUser.userId
+     })
+
+//     userArr.forEach(user =>{
+        
+        
+//         if(user1.username !== user.username){
+//             console.log(`Not Same user`)
+        
+//             if(user1.genderPref === user.gender){
+//                 user1.eventIds.forEach(el =>{
+//                     user.eventIds.forEach(el2 =>{
+//                         if(el === el2){
+//                             this.setState({
+//                                 result: `${user1.firstName} Matches with ${user.firstName}!`
+//                         })
+//                     }
+//                 })
 
                 
-            })
-        }
-    }
-    console.log('Nope')
-})
+//             })
+//         }
+//     }
+//     console.log('Nope')
+// }
+// )
     
     }
+
     render() {
-        
+         let allMatches = this.handleUserMatch( dummy2)
+console.log(`all matches: `,allMatches)         
 
         return (
             <div>
                 <h1>Matching</h1>
             <p>{dummy.firstName} {' '} {dummy.lastName}</p>
-           {this.handleUserMatch(dummy, dummy2)}
-            <p>{this.state.result}</p>
+
+           Matches:
+        <br />
+            <p>{allMatches.map(match =>(
+                <h1>{match.firstName}</h1>
+                ))}</p>
+
             </div>
         )
     }

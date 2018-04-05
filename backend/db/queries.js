@@ -25,6 +25,23 @@ function getAllUsers(req, res, next) {
         });
     })
     .catch(function (err) {
+      console.log(err)
+      return next(err);
+    });
+}
+
+function getUserMatches(req, res, next) {
+  db.any('select username, bio, dob, gender, budget_tier, first_name, gender_pref, id, last_name, profile_pic_url from users')
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ALL users'
+        });
+    })
+    .catch(function (err) {
+      console.log(err)
       return next(err);
     });
 }
@@ -164,6 +181,15 @@ function authUser(req, res, next) {
   }
   )(req, res, next);
 };
+
+function logoutUser(req, res, next){
+  req.logout();
+  // req.destroy();
+  // req.session.destroy();
+  console.log(`session: `,req.session);
+}
+
+
 function artFetch(req, res){
   // (req, res) => {
     // var myHeaders = new Headers({
@@ -204,6 +230,8 @@ module.exports = {
   registerUser: registerUser,
   updateSingleUser: updateSingleUser,
   authUser: authUser,
+  getUserMatches: getUserMatches,
   artFetch: artFetch,
+  logoutUser: logoutUser,
   saveEventPref: saveEventPref
 };

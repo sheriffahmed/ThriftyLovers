@@ -9,15 +9,15 @@ const dummy2 = [
         username: "ThriftyLover1",
         password: "ld+kjdujfef-937&%3mdfuQ*~",
         age: 23,
-        gender: "male",
+        gender: "M",
         pictures: ['123.jpg','456.png','789.gif'],
-        pref: {
-            
-            genderPref: "female",
+        // pref: {
+            budget_tier:"Free",
+            genderPref: "F",
             minAge: 20,
             maxAge: 25,
-            eventIds: [1,2,3],
-        }
+            eventIds: [1,2,3]
+        // }
     },
     {
         firstName: 'Jane',
@@ -26,15 +26,15 @@ const dummy2 = [
         username: "ThriftyLover2",
         password: "kdie2830*6446%73523f",
         age: 21,
-        gender: "female",
+        gender: "F",
         pictures: ['abc.jpg','def.png','ghi.gif'],
-        pref: {
-            
-            genderPref: "male",
+        // pref: {
+            budget_tier:"Free",            
+            genderPref: "M",
             minAge: 18,
             maxAge: 25,
             eventIds: [1,2,3],
-        }
+        // }
     },
     {
         firstName: 'Steve',
@@ -43,15 +43,15 @@ const dummy2 = [
         username: "ThriftyLover3",
         password: "95%3$#!2dfj%3djhf",
         age: 277,
-        gender: "male",
+        gender: "M",
         pictures: ['tube.jpg','blood.png','tekashi.gif'],
-        pref: {
-            
+        // pref: {
+            budget_tier:"$",            
             genderPref: "any",
             minAge: 27,
             maxAge: 30,
             eventIds: [1,2,3],
-        }
+        // }
     },
     {
         firstName: 'Justine',
@@ -60,15 +60,15 @@ const dummy2 = [
         username: "ThriftyLover4",
         password: "348kf&$jhef8=+3rer39r",
         age: 28,
-        gender: "female",
+        gender: "F",
         pictures: ['div.jpg','let.png','var.gif'],
-        pref: {
-            
-            genderPref: "female",
+        // pref: {
+            budget_tier:"$$",            
+            genderPref: "F",
             minAge: 24,
             maxAge: 29,
             eventIds: [1,2,3],
-        }
+        // }
     }
 ]
 

@@ -29,50 +29,106 @@ class App extends Component {
       userBudgetTier: '',
       navUser: '',
       navPassword: '',
-      navMessage: ''
+      navMessage: '',
+      result: '',
+      matchesArr: []
+
+    }
+    this.handleUserMatch = (user1, userArr) => {
+      if (this.state.result) {
+        return;
+      }
+      userArr.forEach(user => {
+        if (user1.username !== user.username) {
+          console.log(`Not Same user`)
+          console.log(`user1 min age: `, user1.pref.minAge, `user age: `, user.age, `user1 max age: `, user1.pref.maxAge)
+          if (user1.pref.minAge <= user.age && user1.pref.maxAge >= user.age && user1.pref.genderPref === user.gender) {
+            console.log(`in Age Range`)
+            user1.pref.eventIds.forEach(el => {
+              user.pref.eventIds.forEach(el2 => {
+                if (el === el2) {
+                  this.setState({
+                    result: `${user1.firstName} Matches with ${user.firstName}!`
+                  })
+                }
+              })
+
+
+            })
+          }
+        }
+        console.log('Nope')
+      })
 
     }
   }
 
-  handleUserInput = e =>{
+  handleUserInput = e => {
     this.setState({
-      navUser: [e.target.value]
+      navUser: e.target.value
     })
   }
-handlePasswordInput = e =>{
+  handlePasswordInput = e => {
     this.setState({
-      navPassword: [e.target.value]
+      navPassword: e.target.value
     })
   }
-  handleNavbarLogin = (e) =>{
-console.log(this.state.navUser)
-              axios
-                  .post('/users/login', {
-                      username: this.state.navUser,
-                      password: this.state.navPassword
-      
-                  })
-                  .then(res => {
-                      console.log(`res data: `,res.data)
-                      this.handleLoginSuccess(res.data.data.token, res.data.data.user.username, res.data.data.user.id, res.data.data.user.gender, res.data.data.user.gender_pref, res.data.data.user.budget_tier)
-                      this.setState({
-                          navUser: '',
-                          navPassword: '',
-                          navMessage: 'Login success'
-                      })
-      
-                  })
-                  .catch(err => {
-                      console.log(`Axios err: `, err)
-                      this.setState({
-                          navUser: '',
-                          navPassword: '',
-                          navMessage: 'Err during login. Please try again'
-                      })
-                  })
-          }
-      
-  
+  handleUserLogout = (click) =>{
+    console.log(`inside logout.`)
+    // axios
+    // .get('/users/logout')
+    // .then(res =>{
+      this.setState({
+        userSession: '',
+        loggedInUserName: '',
+        userId: '',
+        userGender: '',
+        userGenderPref: '',
+        userBudgetTier: '',
+        navUser: '',
+        navPassword: '',
+        navMessage: '',
+        result: '',
+        matchesArr: []
+      });
+      console.log(`Login Success`);
+    // })
+    // .catch(err => {
+    //   console.log(`Axios err: `, err)
+    //   this.setState({
+    //     navMessage: 'Err during logout. Please try again'
+    //   })
+    // })
+  }
+  handleNavbarLogin = (e) => {
+    console.log(this.state.navUser)
+    axios
+      .post('/users/login', {
+        username: this.state.navUser,
+        password: this.state.navPassword
+
+      })
+      .then(res => {
+        console.log(`res data: `, res.data)
+        this.handleLoginSuccess(res.data.data.token, res.data.data.user.username, res.data.data.user.id, res.data.data.user.gender, res.data.data.user.gender_pref, res.data.data.user.budget_tier)
+        this.setState({
+          navUser: '',
+          navPassword: '',
+          navMessage: 'Login success'
+        })
+
+      })
+      .catch(err => {
+        console.log(`Axios err: `, err)
+        this.setState({
+          navUser: '',
+          navPassword: '',
+          navMessage: 'Err during login. Please try again'
+        })
+      })
+  }
+
+
   // handleNavbarSubmit = () =>{
   //   this.setState({
   //     navSubmit: true
@@ -91,6 +147,16 @@ console.log(this.state.navUser)
     })
 
 
+  }
+
+  componentDidMount() {
+    axios
+      .get('/users/match')
+      .then(obj => {
+        console.log(`all users for match: `, obj.data.data)
+
+
+      })
   }
   render() {
     console.log(this.state)
@@ -155,6 +221,7 @@ console.log(this.state.navUser)
                     <div>
                       <label>
                         <button
+                        onClick={this.handleUserLogout}
                           type="button"
                           className="btn btn-danger"
                           style={
@@ -230,7 +297,11 @@ console.log(this.state.navUser)
             <Route exact path='/user/:user/messages' render={(props) => this.state.userSession ? <Messages user={this.state.loggedInUserName} {...props} /> : <Redirect to='/login' />} />
             <Route exact path='/user/:user/chat/:user2' render={(props) => this.state.userSession ? <Chat authUser={this.state.loggedInUserName} /> : <Redirect to='/login' />} />
             <Route path='/budget' render={(props) => <BudgetPage UserID={this.state.userId} BudgetTier={this.state.userBudgetTier} {...props} />} />
-            <Route path='/match' render={(props) => <Matching {...props} />} />
+            <Route path='/match' render={(props) => <Matching
+              userId={this.state.userId}
+              userGender={this.state.userGender}
+              userGenderPref={this.state.userGenderPref}
+              userBudgetTier={this.state.userBudgetTier}  {...props} />} />
             <Route exact path='/login' render={props => <Login onLoginSuccess={this.handleLoginSuccess} navUser={this.state.navUser} navPassword={this.state.navPassword} loggedInUser={this.state.loggedInUserName} {...props} />} />
             <Route exact path='/user/:user/feed' render={props => this.state.userSession ? <Feed onLoginSuccess={this.handleLoginSuccess} {...props} /> : <Redirect to='/login' />} />
 
