@@ -5,7 +5,7 @@ import Dropzone from 'react-dropzone'
 import request from 'superagent';
 import cloudData from '../imageCloudUrls'
 // Image Upload Cloud API Url and upload style preset Variables  (Line 332)
-console.log(`cloud: `,)
+console.log(`cloud: `, )
 const CLOUDINARY_UPLOAD_PRESET = cloudData.cloudPreset;
 const CLOUDINARY_UPLOAD_URL = cloudData.cloudUploadUrl;
 
@@ -151,7 +151,7 @@ class Registration extends React.Component {
         })
     }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
         const formErr = (selector) => {
             const isNodelist = (typeof selector.length != 'undefined' &&
                 typeof selector.item != 'undefined')
@@ -184,7 +184,7 @@ class Registration extends React.Component {
         let genpref = document.getElementById('preferredGender')
         let g = document.getElementsByClassName('g')
         let b = document.getElementsByClassName('b')
-        
+
         let errs = document.querySelectorAll('input')
 
         let bio = document.getElementById('bio')
@@ -249,7 +249,7 @@ class Registration extends React.Component {
             fixedErr(g);
         }
 
-        if(!budgetTier){
+        if (!budgetTier) {
             formErr(b);
         } else {
             fixedErr(b);
@@ -279,33 +279,30 @@ class Registration extends React.Component {
 
         // this.handleImageUpload(uploadedFile);
 
-        console.log(`after cloud upload, cloud state: `, this.state.uploadedFileCloudinaryUrl)
+        // console.log(`after cloud upload, cloud state: `, this.state.uploadedFileCloudinaryUrl)
 
-        axios
-            .post('/users/new', {
-
-
-                username: this.state.username,
-                password: this.state.password,
-                firstname: this.state.firstName,
-                lastname: this.state.lastName,
-                bio: this.state.bio,
-                gender: this.state.gender,
-                genderpref: this.state.preferredGender,
-                budgettier: this.state.budgetTier,
-                dob: `${this.state.bYear}-${this.state.bMonth}-${this.state.bDay} `,
-                profilepicurl: this.state.uploadedFileCloudinaryUrl
-            })
-            .then(res => {
-                console.log(res.data)
-                this.setState({
+        axios.post('/users/new', {
+            username: this.state.username,
+            password: this.state.password,
+            firstname: this.state.firstName,
+            lastname: this.state.lastName,
+            bio: this.state.bio,
+            gender: this.state.gender,
+            genderpref: this.state.preferredGender,
+            budgettier: this.state.budgetTier,
+            dob: `${this.state.bYear}-${this.state.bMonth}-${this.state.bDay} `,
+            profilepicurl: this.state.uploadedFileCloudinaryUrl
+        })
+            .then((res) => {
+                return this.setState({
                     username: '',
                     password: '',
-                    firstname: '',
-                    lastname: '',
+                    confirmPassword: '',
+                    firstName: '',
+                    lastName: '',
                     bio: '',
                     gender: '',
-                    genderpref: '',
+                    preferredGender: '',
                     budgetTier: '',
                     dob: '',
                     bDay: 0,
@@ -335,7 +332,7 @@ class Registration extends React.Component {
                     // uploadedFileCloudinaryUrl: '',
                     Message: 'Err Registering user. UserName may be taken by another user'
                 })
-            })
+            });
     }
 
 
@@ -456,17 +453,17 @@ class Registration extends React.Component {
                 Confirm Password: <input id='confirmPassword' onInput={this.handleFormInput} type="password" value={confirmPassword} />
                 <br />
                 <br />
-                  My gender is:       <select id="gender" className='g' onChange={this.handleGenderSelect} value={gender} >
+                My gender is:       <select id="gender" className='g' onChange={this.handleGenderSelect} value={gender} >
                     <option value='' >Gender</option>
                     <option value='M' >Male</option>
                     <option value='F' >Female</option>
                     <option value='N' >Neutral</option>
-               
+
                 </select>
                 <br />
                 <br />
 
-               I'm interested in:  <select id='preferredGender' className='g' onChange={this.handleGenderSelect} value={preferredGender} >
+                I'm interested in:  <select id='preferredGender' className='g' onChange={this.handleGenderSelect} value={preferredGender} >
                     <option value='' >Gender</option>
                     <option value='M' >Men</option>
                     <option value='F' >Women</option>
@@ -476,7 +473,7 @@ class Registration extends React.Component {
                 </select>
                 <br />
                 <br />
-               Please Select Budget Tier: <select id='budgetTier' className='b' onChange={this.handleGenderSelect} value={budgetTier} >
+                Please Select Budget Tier: <select id='budgetTier' className='b' onChange={this.handleGenderSelect} value={budgetTier} >
                     <option value='' >Budget Tier</option>
                     <option value='Free' >Free Tier</option>
                     <option value='$' >Low Tier</option>

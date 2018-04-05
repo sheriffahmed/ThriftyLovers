@@ -8,15 +8,44 @@ class Feed extends React.Component{
         this.state= {}
     }
 
-    componentDidMount(){
-        axios
-        
-        
+    handleUserMatch = () =>{ 
+        const arr = this.props.userArr;
+        console.log(`arr `,arr)
+        const loggedInUser = {
+            userId: this.props.userId,
+            userGender: this.props.userGender,
+            userGenderPref: this.props.userGenderPref,
+            userBudgetTier: this.props.userBudgetTier
+         }
+         console.log(`loggedInUser: `, loggedInUser)
+     return arr.filter(user =>{
+        return user.id !== loggedInUser.userId && user.gender === loggedInUser.userGenderPref && user.gender_pref === loggedInUser.userGender && user.budget_tier === loggedInUser.userBudgetTier
+        // return user.userId !== loggedInUser.userId
+     })
     }
+
     render(){
+
+        let allMatches = this.handleUserMatch()
         return(
             <div>
-                <h1>Your Matches</h1>
+                <h1>{this.props.match.params.user}'s Matches</h1>
+                <br />
+                <br />
+
+                <br />
+            <p>{allMatches.map(match =>(
+                <div>
+                <h1>{match.username}</h1>
+                <img src={match.profile_pic_url} />
+                <Link to={`/user/public/${match.username}`} > <button> View {match.first_name}'s Profile </button> </Link>
+                <hr />
+                </div>
+                ))}</p>
+
+                <br />
+                <br />
+                <br />
 
                 </div>
         )

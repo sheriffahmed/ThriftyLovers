@@ -10,6 +10,9 @@ router.post('/login', db.authUser);
 router.post('/event', db.saveEventPref);
 router.get('/art', db.artFetch);
 router.post('/user', db.getSingleUser);
+router.get('/match', db.getUserMatches);
+router.get('/logout', db.logoutUser);
+
 
 
 // router.get('/user/:user_id', db.grabProfileInfo )
