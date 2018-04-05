@@ -94,7 +94,6 @@ function registerUser(req, res, next) {
       passport.authenticate('local', (err, user, info) => {
         if (user) {
           res.status(200)
-          console.log(`res.body`, res.body)
             .json({
               status: 'success',
               data: user,
