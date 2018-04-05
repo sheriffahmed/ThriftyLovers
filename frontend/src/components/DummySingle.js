@@ -10,13 +10,13 @@ const dummy = {
     age: 23,
     gender: "male",
     pictures: ['123.jpg','456.png','789.gif'],
-    pref: {
-        
+    // pref: {
+        budget_tier:"Free",
         genderPref: "female",
         minAge: 20,
         maxAge: 25,
         eventIds: [1,2,3],
-    }
+    // }
 }
 
 export default dummy;

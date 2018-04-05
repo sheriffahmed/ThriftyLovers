@@ -29,8 +29,9 @@ class UserProfile extends React.Component {
         }
     }
     componentDidMount(){
+        console.log(this.props.match.params.user)
         axios
-        .post('/users/user', {username: this.props.user})
+        .post('/users/user', {username: this.props.match.params.user})
         .then(res =>{
             console.log(`user profile: `,res.data.data[0])
             let profile = res.data.data[0]

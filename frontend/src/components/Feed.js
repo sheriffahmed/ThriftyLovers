@@ -10,7 +10,10 @@ class Feed extends React.Component{
 
     componentDidMount(){
         axios
-        
+        .get('/users/match')
+        .then(res =>{
+            console.log('user match repsonse: ',res.data.data)
+        })
         
     }
     render(){

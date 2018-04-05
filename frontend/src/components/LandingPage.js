@@ -52,11 +52,11 @@ class LandingPage extends React.Component {
                     </select>
                 <br/>
                 <br/>
-                <p1>Please choose your level of thriftiness!</p1>
+                {/* <p1>Please choose your level of thriftiness!</p1>
                 <br/>
                 <Link to='/budget'><button>Free</button></Link> {' '}
                 <Link to='/budget'><button>Low</button></Link> {' '}
-                <Link to='/budget'><button>Avg</button></Link>
+                <Link to='/budget'><button>Avg</button></Link> */}
                     <br/>
                     <br/>
                     <br/>   
