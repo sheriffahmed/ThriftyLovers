@@ -388,7 +388,7 @@ class Registration extends React.Component {
         this.handleDiMOptions();
 
         return (
-            <div>
+            <div className="registration">
                 <h1>Registration</h1>
                 <br />
                 <br />
@@ -488,7 +488,7 @@ class Registration extends React.Component {
                 <br />
                 <p>{this.state.Message}</p>
                 <br />
-                <button disabled={this.state.hidebutton} onClick={this.handleSubmit} id='formSubmit' >Submit</button>
+                <button className="signup" disabled={this.state.hidebutton} onClick={this.handleSubmit} id='formSubmit' >Submit</button>
                 <br />
                 <br />
             </div>

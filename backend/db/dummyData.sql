@@ -63,13 +63,14 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.users (id, username, password_digest, first_name, last_name, dob, bio, gender, gender_pref, profile_pic_url, budget_tier) FROM stdin;
+COPY users (id, username, password_digest, first_name, last_name, dob, bio, gender, gender_pref, profile_pic_url, budget_tier) FROM stdin;
 1	test	$2a$10$3WZIagWMiicl4qGebEQPVe4XYNEjvzIDQNITowZ.cfowl4QF48BN2	John	Doe	1993-01-08	This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 	M	F	https://res.cloudinary.com/thiftylovers/image/upload/v1522832694/e1c9d0d1206fbc5a34773664153fe743_w4oon5.gif	Free
 4	test2	$2a$10$CEuGGINkLJcxyFHAp7xvbObqiUbtri2IXNm9yM7ng4m54o5dm67xK	Jane	Doe	1996-02-04	I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe 	F	M	https://res.cloudinary.com/thiftylovers/image/upload/v1522877244/cat-3089169_960_720_raeq1q.jpg	Free
 6	test3	$2a$10$VZJV1cf3uj1Fq23GvhHGI.dtlq8zvo4BM/VflK.kTlWrH5StVUkQu	John	Doe	1997-06-08	This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 	M	ALL	https://res.cloudinary.com/thiftylovers/image/upload/v1522891022/23561409_1411449035626057_2354841275048199738_n_zgjglr.png	$

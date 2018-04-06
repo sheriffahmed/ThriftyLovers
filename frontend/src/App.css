@@ -88,3 +88,45 @@ body{
 ul {
   list-style-type: none;
 }
+
+.signup {
+  color: #ffffff;
+  background-color: red;
+  border-color: red;
+  min-width: 150px;
+  font-size: 14px;
+  padding: 17px 13px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  line-height: 22px;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer; 
+}
+
+.user {
+  margin-left: 3.2%;
+
+}
+
+.messages {
+  margin-left: 3.2%;
+}
+
+.login {
+  text-align: center;
+}
+
+.events {
+  margin-left: 3.2%;
+}
+
+.feed {
+  margin-left: 3.2%;
+}
+
+.registration {
+  margin-left: 3.2%;
+}
