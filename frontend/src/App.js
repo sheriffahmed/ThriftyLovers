@@ -32,7 +32,7 @@ class App extends Component {
       navPassword: '',
       navMessage: '',
       result: '',
-      allUsers: []
+      allUsers: ''
 
     }
     this.handleUserMatch = (user1, userArr) => {
@@ -64,6 +64,10 @@ class App extends Component {
     }
   }
 
+  handleRedirect = () =>{
+    return <Redirect to={`/user/${this.state.loggedInUserName}/feed`} />;
+  }
+
   handleUserInput = e => {
     this.setState({
       navUser: e.target.value
@@ -89,8 +93,7 @@ class App extends Component {
         navUser: '',
         navPassword: '',
         navMessage: '',
-        result: '',
-        allUsers: []
+        result: ''
       });
       console.log(`Login Success`);
     // })
@@ -117,7 +120,7 @@ class App extends Component {
           navPassword: '',
           navMessage: 'Login success'
         })
-
+        return this.handleRedirect();
       })
       .catch(err => {
         console.log(`Axios err: `, err)
@@ -154,10 +157,14 @@ class App extends Component {
       .get('/users/match')
       .then(arr => {
         console.log(`all users for match: `, arr.data.data)
-        this.setState({
+        console.log(this.state.allUsers)
+        if(!this.state.allUsers){
+            this.setState({
           allUsers: arr.data.data
         })
         console.log(`this.state.allUsers: `, this.state.allUsers)
+        }
+      
       })
   }
   render() {
@@ -290,6 +297,7 @@ class App extends Component {
           </div>
         </nav>
         <div>
+          {this.handleRedirect}
           <Switch>
 
             <Route exact path='/' render={(props) => <LandingPage {...props} />} />
