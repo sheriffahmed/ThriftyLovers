@@ -320,7 +320,7 @@ class App extends Component {
 
           </Switch>
         </div>
-        <div style={{ height: '50px', backgroundColor: '#343a40' }} ></div>
+        {/* <div style={{ height: '50px', backgroundColor: '#343a40' }} ></div> */}
       </div>
     );
   }
