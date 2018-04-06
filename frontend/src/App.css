@@ -88,6 +88,48 @@ body{
 ul {
   list-style-type: none;
 }
+
+.signup {
+  color: #ffffff;
+  background-color: red;
+  border-color: red;
+  min-width: 150px;
+  font-size: 14px;
+  padding: 17px 13px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  line-height: 22px;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer; 
+}
+
+.user {
+  margin-left: 3.2%;
+
+}
+
+.messages {
+  margin-left: 3.2%;
+}
+
+.login {
+  text-align: center;
+}
+
+.events {
+  margin-left: 3.2%;
+}
+
+.feed {
+  margin-left: 3.2%;
+}
+
+.registration {
+  margin-left: 3.2%;
+}
 /* Parrallax css */
 @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
@@ -149,3 +191,4 @@ ul {
 @media screen and (max-width: 479px) {
   #parallax-world-of-ugg .block {padding: 30px 15px; width:290px;}
 }
+

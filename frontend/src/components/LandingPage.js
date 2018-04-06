@@ -34,8 +34,7 @@ class LandingPage extends React.Component {
                     
                     
                 <h1>Thrifty Lovers</h1>
-
-                <h1>See how it works below:</h1>
+                <h1>Go on dates, find your match, save your cash.</h1>
                 <label>I'm a</label>
                 {' '}
                 <select>
@@ -48,7 +47,6 @@ class LandingPage extends React.Component {
                         <option>Woman</option>
                         <option>Man</option>
                         <option>Gender Neutral</option>
-                        <option>Any</option>
                         
                     </select>
                 <br/>
@@ -61,7 +59,7 @@ class LandingPage extends React.Component {
                     <br/>
                     <br/>
                     <br/>   
-                    <Link to='/signup'><button>Signup</button></Link> 
+                    <Link to='/signup'><button className="signup">Signup</button></Link> 
                 </div>
                 <div id="parallax-world-of-ugg">
   
