@@ -75,7 +75,7 @@ body {
 }
 
 .container2 {
-  background-color: #D93337;
+  background-color: #ffffff;
   width: 100%;
   text-align: center;
   font-family: 'Arial'
@@ -97,7 +97,6 @@ body {
 }
 #thriftylogo {
   background-color: #D93337;
-  height: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
