@@ -75,7 +75,14 @@ body {
 }
 
 .container2 {
+  background-color: #D93337;
+  width: 100%;
   text-align: center;
+  font-family: 'Arial'
+  
+}
+.container3 {
+  text-align:center;
   font-family: 'Arial'
 }
 
@@ -83,6 +90,18 @@ body {
   border-radius: 5px;
   background: white;
   border: #960B18 solid 1px;
+}
+#thriftyimage{
+  margin: 0 auto;
+  display: block;
+}
+#thriftylogo {
+  background-color: #D93337;
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 ul {
