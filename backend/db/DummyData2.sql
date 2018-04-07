@@ -1,4 +1,719 @@
 --
+-- PostgreSQL database cluster dump
+--
+
+SET default_transaction_read_only = off;
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+
+--
+-- Roles
+--
+
+CREATE ROLE admin;
+ALTER ROLE admin WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN NOREPLICATION NOBYPASSRLS;
+CREATE ROLE c4q;
+ALTER ROLE c4q WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN NOREPLICATION NOBYPASSRLS PASSWORD 'md58147cfae39b502ce7d17de306c06ed04';
+CREATE ROLE cc4q1;
+ALTER ROLE cc4q1 WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN NOREPLICATION NOBYPASSRLS;
+CREATE ROLE patrick;
+ALTER ROLE patrick WITH NOSUPERUSER INHERIT NOCREATEROLE CREATEDB LOGIN NOREPLICATION NOBYPASSRLS PASSWORD 'md555f99ba06095c26c49da030ce42aac4f';
+CREATE ROLE postgres;
+ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'md500e2cf72c3b28072ff50123391480feb';
+CREATE ROLE thriftylovers;
+ALTER ROLE thriftylovers WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN NOREPLICATION NOBYPASSRLS;
+
+
+
+
+
+
+--
+-- Database creation
+--
+
+CREATE DATABASE c4q WITH TEMPLATE = template0 OWNER = c4q;
+CREATE DATABASE "final-exam" WITH TEMPLATE = template0 OWNER = c4q;
+CREATE DATABASE practice WITH TEMPLATE = template0 OWNER = c4q;
+CREATE DATABASE puppies WITH TEMPLATE = template0 OWNER = c4q;
+REVOKE CONNECT,TEMPORARY ON DATABASE template1 FROM PUBLIC;
+GRANT CONNECT ON DATABASE template1 TO PUBLIC;
+CREATE DATABASE thrifty WITH TEMPLATE = template0 OWNER = c4q;
+CREATE DATABASE userlist WITH TEMPLATE = template0 OWNER = c4q;
+
+
+\connect c4q
+
+SET default_transaction_read_only = off;
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.3
+-- Dumped by pg_dump version 10.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: schools; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.schools (
+    id integer NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.schools OWNER TO c4q;
+
+--
+-- Name: schools_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.schools_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.schools_id_seq OWNER TO c4q;
+
+--
+-- Name: schools_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.schools_id_seq OWNED BY public.schools.id;
+
+
+--
+-- Name: teachers; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.teachers (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    subject character varying,
+    schoolid integer
+);
+
+
+ALTER TABLE public.teachers OWNER TO c4q;
+
+--
+-- Name: teachers_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.teachers_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.teachers_id_seq OWNER TO c4q;
+
+--
+-- Name: teachers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.teachers_id_seq OWNED BY public.teachers.id;
+
+
+--
+-- Name: schools id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.schools ALTER COLUMN id SET DEFAULT nextval('public.schools_id_seq'::regclass);
+
+
+--
+-- Name: teachers id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.teachers ALTER COLUMN id SET DEFAULT nextval('public.teachers_id_seq'::regclass);
+
+
+--
+-- Data for Name: schools; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.schools (id, name) FROM stdin;
+1	East High School
+2	West High School
+3	Central High School
+\.
+
+
+--
+-- Data for Name: teachers; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.teachers (id, name, subject, schoolid) FROM stdin;
+1	Herman Miller	Biology	2
+2	Frank Gehry	English	1
+3	Ai Weiwei	History	2
+4	Cindy Sherman	Math	3
+5	Yayoi Kusama	Gym	1
+6	Marina Abramovic	History	1
+7	Richard Serra	Art	3
+8	Louise Bourgeois	English	2
+9	Kara Walker	Chemistry	3
+10	Anish Kapoor	Physics	1
+11	Yoko Ono	Music	2
+12	Agnes Martin	Math	3
+13	Helio Oticica	Gym	2
+14	Carl Pope	Biology	1
+15	David Hockney	Gym	3
+16	William Leavitt	Math	2
+17	Eduardo Kac	English	3
+18	Steve McQueen	History	3
+19	Takashi Murakami	Physics	2
+20	Nam June Paik	Music	1
+21	Gerhard Richter	Art	\N
+22	Andy Warhol	Chemistry	\N
+23	Jenny Holtzer	Math	\N
+\.
+
+
+--
+-- Name: schools_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.schools_id_seq', 1, false);
+
+
+--
+-- Name: teachers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.teachers_id_seq', 1, false);
+
+
+--
+-- Name: schools schools_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.schools
+    ADD CONSTRAINT schools_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: teachers teachers_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.teachers
+    ADD CONSTRAINT teachers_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect -reuse-previous=on "dbname='final-exam'"
+
+SET default_transaction_read_only = off;
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.3
+-- Dumped by pg_dump version 10.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: schools; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.schools (
+    id integer NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.schools OWNER TO c4q;
+
+--
+-- Name: schools_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.schools_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.schools_id_seq OWNER TO c4q;
+
+--
+-- Name: schools_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.schools_id_seq OWNED BY public.schools.id;
+
+
+--
+-- Name: teachers; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.teachers (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    subject character varying,
+    schoolid integer
+);
+
+
+ALTER TABLE public.teachers OWNER TO c4q;
+
+--
+-- Name: teachers_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.teachers_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.teachers_id_seq OWNER TO c4q;
+
+--
+-- Name: teachers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.teachers_id_seq OWNED BY public.teachers.id;
+
+
+--
+-- Name: schools id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.schools ALTER COLUMN id SET DEFAULT nextval('public.schools_id_seq'::regclass);
+
+
+--
+-- Name: teachers id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.teachers ALTER COLUMN id SET DEFAULT nextval('public.teachers_id_seq'::regclass);
+
+
+--
+-- Data for Name: schools; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.schools (id, name) FROM stdin;
+1	East High School
+2	West High School
+3	Central High School
+\.
+
+
+--
+-- Data for Name: teachers; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.teachers (id, name, subject, schoolid) FROM stdin;
+1	Herman Miller	Biology	2
+2	Frank Gehry	English	1
+3	Ai Weiwei	History	2
+4	Cindy Sherman	Math	3
+5	Yayoi Kusama	Gym	1
+6	Marina Abramovic	History	1
+7	Richard Serra	Art	3
+8	Louise Bourgeois	English	2
+9	Kara Walker	Chemistry	3
+10	Anish Kapoor	Physics	1
+11	Yoko Ono	Music	2
+12	Agnes Martin	Math	3
+13	Helio Oticica	Gym	2
+14	Carl Pope	Biology	1
+15	David Hockney	Gym	3
+16	William Leavitt	Math	2
+17	Eduardo Kac	English	3
+18	Steve McQueen	History	3
+19	Takashi Murakami	Physics	2
+20	Nam June Paik	Music	1
+21	Gerhard Richter	Art	\N
+22	Andy Warhol	Chemistry	\N
+23	Jenny Holtzer	Math	\N
+\.
+
+
+--
+-- Name: schools_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.schools_id_seq', 1, false);
+
+
+--
+-- Name: teachers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.teachers_id_seq', 1, false);
+
+
+--
+-- Name: schools schools_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.schools
+    ADD CONSTRAINT schools_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: teachers teachers_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.teachers
+    ADD CONSTRAINT teachers_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect postgres
+
+SET default_transaction_read_only = off;
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.3
+-- Dumped by pg_dump version 10.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: DATABASE postgres; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE postgres IS 'default administrative connection database';
+
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect practice
+
+SET default_transaction_read_only = off;
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.3
+-- Dumped by pg_dump version 10.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: tv_show; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.tv_show (
+    title character varying(100),
+    genre character varying(50)
+);
+
+
+ALTER TABLE public.tv_show OWNER TO c4q;
+
+--
+-- Data for Name: tv_show; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.tv_show (title, genre) FROM stdin;
+Avatar: The Last Airbender	Cartoon
+Seinfeld	Comedy
+\.
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect puppies
+
+SET default_transaction_read_only = off;
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.3
+-- Dumped by pg_dump version 10.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: pups; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.pups (
+    id integer NOT NULL,
+    name character varying,
+    breed character varying,
+    age integer,
+    sex character varying
+);
+
+
+ALTER TABLE public.pups OWNER TO c4q;
+
+--
+-- Name: pups_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.pups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pups_id_seq OWNER TO c4q;
+
+--
+-- Name: pups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.pups_id_seq OWNED BY public.pups.id;
+
+
+--
+-- Name: pups id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.pups ALTER COLUMN id SET DEFAULT nextval('public.pups_id_seq'::regclass);
+
+
+--
+-- Data for Name: pups; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.pups (id, name, breed, age, sex) FROM stdin;
+1	Tyler	Retrieved	3	M
+\.
+
+
+--
+-- Name: pups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.pups_id_seq', 1, true);
+
+
+--
+-- Name: pups pups_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.pups
+    ADD CONSTRAINT pups_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect template1
+
+SET default_transaction_read_only = off;
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.3
+-- Dumped by pg_dump version 10.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: DATABASE template1; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE template1 IS 'default template for new databases';
+
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\connect thrifty
+
+SET default_transaction_read_only = off;
+
+--
 -- PostgreSQL database dump
 --
 
@@ -393,5 +1108,133 @@ ALTER TABLE ONLY public.users
 
 --
 -- PostgreSQL database dump complete
+--
+
+\connect userlist
+
+SET default_transaction_read_only = off;
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.3
+-- Dumped by pg_dump version 10.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.users (
+    id integer NOT NULL,
+    username character varying,
+    password_digest character varying
+);
+
+
+ALTER TABLE public.users OWNER TO c4q;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO c4q;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.users (id, username, password_digest) FROM stdin;
+1	hello	$2a$10$gbgMtHXDW68ki1D5zCHP0eplXNmo8LHoByIgdKekwP8VSQ2KJf.vy
+3	hello2	$2a$10$DhwXAnlkVw1U5DqbUDpaneK2XM0yOKM7FHrK4Q.zd1gHNbSc5y5ty
+4	asiya	$2a$10$9dH0oof1djPmj3UfyuuvR.43jOyjUKu0DzcQOxPXKgKU2/P1BWNhW
+8	hello3	$2a$10$SHbZMlhqpMyKVGYnrgOaSuesVQWN1oBbCW9EdVhm0WgpWEal1ZHa6
+9	yo3	$2a$10$aU022r/N6vN1mJ6SDZ2yietQXw8TaEunhQKZdX0T2g./lWbiIHheq
+10	workingonit	$2a$10$KzF.nb8iWbU4K7r5VQUzJ.XyE.QLWTBW6SaBLV9IkGMbhHVF6KxfW
+13	hello4	$2a$10$z0CubIrYoxFDufEbQrv4judcnyf93QK8X77KYEETcPb5sswJazB3.
+15	1234567	$2a$10$95dYxLcS1ha30ZXmLJH4E.KdyOs.nqVd9.bdzF9WKNTvtucXnfJ6.
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 15, true);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_username_key UNIQUE (username);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+--
+-- PostgreSQL database cluster dump complete
 --
 

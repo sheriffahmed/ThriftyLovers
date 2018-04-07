@@ -104,6 +104,33 @@ ul {
   border-radius: 10px;
   display: inline-block;
   cursor: pointer; 
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 0.15s, 0.15s, 0.15s;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+  transition-delay: initial, initial, initial;
+}
+
+.signup:hover{
+  color: red;
+  background-color: #ffffff;
+  border: 1px solid red;
+}
+.btm-danger2 {
+  color: #fff;
+  background-color: red;
+  border-color: red;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 0.15s, 0.15s, 0.15s;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+  transition-delay: initial, initial, initial;
+}
+
+.btn-danger2, .btn :hover {
+  color: #dc3545;
+  background-color: #ffffff;
+  border: 1px solid #dc3545;
 }
 
 .user {
