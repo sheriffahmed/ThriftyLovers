@@ -75,18 +75,14 @@ body {
 }
 
 .container2 {
-  /* position: absolute; */
+  text-align: center;
 }
 
-/* .table {
-  width: 100%;
-  border:  #960B18 solid;
-  border-width: 1px;
-} */
-
-/* tr, th, td {
-  border: #960B18 solid;
-} */
+#select {
+  border-radius: 10px;
+  background: white;
+  border: #960B18 solid 1px;
+}
 
 ul {
   list-style-type: none;
@@ -161,10 +157,19 @@ ul {
   margin-left: 3.2%;
 }
 
+.public {
+  margin-left: 3.2%;
+}
+
+.chat {
+  margin-left: 3.2%;
+}
+
 /* Parrallax css */
 
 @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+
 /* Override UGG site */
 
 #main {
@@ -201,7 +206,7 @@ ul {
   font-size: 30px;
   font-weight: 400;
   text-transform: uppercase;
-  color: black;
+  color: #960B18;
   padding: 0;
   margin: 0;
 }
@@ -226,7 +231,7 @@ ul {
   font-weight: 400;
   letter-spacing: 8px;
   text-transform: uppercase;
-  color: black;
+  color: #960B18;
 }
 
 #parallax-world-of-ugg p {
@@ -248,15 +253,15 @@ ul {
 }
 
 .sc {
-  color: #3d3c3a;
+  color: #960B18;
 }
 
 .ny {
-  color: #3d3c3a;
+  color: #960B18;
 }
 
 .atw {
-  color: #3d3c3a;
+  color: #960B18;
 }
 
 /* Section - Title */

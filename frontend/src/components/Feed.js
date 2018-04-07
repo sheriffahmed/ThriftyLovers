@@ -31,9 +31,6 @@ class Feed extends React.Component{
             <div className="feed">
                 <h1>{this.props.match.params.user}'s Matches</h1>
                 <br />
-                <br />
-
-                <br />
             <p>{allMatches.map(match =>(
                 <div>
                 <h1>{match.username}</h1>
