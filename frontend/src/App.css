@@ -269,7 +269,7 @@ ul {
   padding: 60px;
   margin: 0 auto;
   text-align: center;
-  margin-left: 300px;
+  /* margin-left: 300px; */
 }
 
 #parallax-world-of-ugg .title h1 {
@@ -285,7 +285,7 @@ ul {
 #parallax-world-of-ugg .block {
   background: white;
   padding: 60px;
-  width: 1350px;
+  width: 100%;
   margin: 0 auto;
   text-align: justify;
 }
@@ -317,7 +317,7 @@ ul {
   background-repeat: no-repeat;
   overflow: hidden;
   /* position: relative; */
-  width: 1395px;
+  width: 100%;
   background-image: url(https://images.unsplash.com/photo-1422327571285-01fb2ebc228f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=7456a9e48c1b6e213cc1110e7ca42f79&amp;dpr=1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80&amp;cs=tinysrgb);
   background-attachment: fixed;
   background-size: cover;
@@ -332,7 +332,7 @@ ul {
   padding-bottom: 200px;
   overflow: hidden;
   position: relative;
-  width: 1395px;
+  width: 100%;
   background-image: url(http://www.stippelliviaggi.it/wp-content/uploads/2017/11/new-york-.jpg);
   background-attachment: fixed;
   background-size: cover;
@@ -347,7 +347,7 @@ ul {
   padding-bottom: 200px;
   overflow: hidden;
   position: relative;
-  width: 1395px;
+  width: 100%;
   background-image: url(https://images.unsplash.com/photo-1518563795073-6b72265ad862?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=1e95afca9ca9161310d24b9e1988fea3&amp;dpr=1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80&amp;cs=tinysrgb);
   background-attachment: fixed;
   background-size: cover;
@@ -363,7 +363,7 @@ ul {
 
 #parallax-world-of-ugg .line-break {
   border-bottom: 1px solid black;
-  width: 150px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -374,14 +374,14 @@ ul {
 @media screen and (max-width: 959px) and (min-width: 768px) {
   #parallax-world-of-ugg .block {
     padding: 40px;
-    width: 620px;
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 767px) {
   #parallax-world-of-ugg .block {
     padding: 30px;
-    width: 420px;
+    width: 100%;
   }
   #parallax-world-of-ugg h2 {
     font-size: 30px;
@@ -400,6 +400,6 @@ ul {
 @media screen and (max-width: 479px) {
   #parallax-world-of-ugg .block {
     padding: 30px 15px;
-    width: 290px;
+    width: 100%;
   }
 }
