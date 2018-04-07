@@ -68,7 +68,7 @@ class  UserPublicProfile extends React.Component{
         } = this.state
         return(
           <div className="public">
- <h1>{username}'s Profile</h1>
+ <h1>{firstName}'s Profile</h1>
 
  <img className='mandatory' src={userPic} />
  <br/>

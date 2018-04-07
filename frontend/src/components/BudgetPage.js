@@ -147,7 +147,7 @@ class BudgetPage extends React.Component {
                         </div>
                     </div>
                 </div>
-                {tierData ? tierData.map(e => {
+                {tierData ? tierData.map((e, index) => {
                     console.log('price:', e.Price._)
                     console.log('budget tier:', this.props.BudgetTier)
                     return e.Price._ === "Free" && this.props.BudgetTier === 'Free'
@@ -176,8 +176,10 @@ class BudgetPage extends React.Component {
                                 Price:{' '}
                                 {e.Price._}
 
-                                <a data-toggle="collapse" data-target='#summaryText'><h2 >Summary</h2> </a>
-                                <div id='summaryText' class='collapse'><p  >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p> </div>
+                                <a data-toggle="collapse" data-target={`#summaryText${index}`}><h2 >Summary</h2> </a>
+                                {/* <div id={`summaryText${index}`} class='collapse'><p  >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p> </div> */}
+                                <div id={`summaryText${index}`} class='collapse'><p  >{e.Description}</p> </div>
+                                
 
                                 <hr />
                             </div>
@@ -208,8 +210,10 @@ class BudgetPage extends React.Component {
                                 Price:{' '}
                                 {e.Price._}
 
-                                <h2>Summary</h2>
-                                <p>{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p>
+                                <a data-toggle="collapse" data-target={`#summaryText${index}`}> <h2>Summary</h2> </a>
+                                {/* <p id='summaryText' class='collapse' >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p> */}
+                                <p id={`summaryText${index}`} class='collapse' >{e.Description}</p>
+                                
 
                                 <hr />
                             </div> : null
