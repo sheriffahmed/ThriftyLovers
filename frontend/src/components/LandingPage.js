@@ -47,7 +47,7 @@ class LandingPage extends React.Component {
                     </select>
                     {' '} looking for a {' '}
                     <select id="select">
-                        <option>Woman</option>
+                        <option>Woman</option> 
                         <option>Man</option>
                         <option>Gender Neutral</option>
                     </select>
