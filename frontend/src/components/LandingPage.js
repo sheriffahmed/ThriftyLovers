@@ -57,7 +57,7 @@ class LandingPage extends React.Component {
                 <div id="parallax-world-of-ugg">
                     <section>
                         <div class="parallax-one">
-                            <h2>SELECT YOUR BUDGET</h2>
+                            <h2 id="one">SELECT YOUR BUDGET</h2>
                         </div>
                     </section>
 
@@ -71,7 +71,7 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="parallax-two">
-                            <h2>GET YOUR DATE</h2>
+                            <h2 id="one">GET YOUR DATE</h2>
                         </div>
                     </section>
 
@@ -85,7 +85,7 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="parallax-three">
-                            <h2>MEET YOUR MATCH</h2>
+                            <h2 id="one">MEET YOUR MATCH</h2>
                         </div>
                     </section>
 
