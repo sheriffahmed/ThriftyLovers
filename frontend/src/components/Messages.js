@@ -24,7 +24,7 @@ class Messages extends React.Component {
     render() {
         let allMatches = this.handleUserMatch()
         return (
-            <div>
+            <div className="messages">
                 <h1>Chat With Your Thrifter Here!</h1>
                 <div class="table-responsive-sm">
                     <table className="table table-hover">

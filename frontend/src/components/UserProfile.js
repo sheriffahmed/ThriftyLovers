@@ -63,7 +63,7 @@ render(){
         budgetTier 
     } = this.state
     return(
-        <div>    
+        <div className="user">    
             <h1>{username}'s Profile</h1>
             {/* <h2><a href="">New Matches: 3</a></h2> */}
             <img className='mandatory' src={userPic} />

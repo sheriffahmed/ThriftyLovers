@@ -111,18 +111,12 @@ class BudgetPage extends React.Component {
     render() {
         let { tierData } = this.state
         return (
-            <div>
+            <div className="events">
                 <h1>Events</h1>
                 <p>Please choose your level of thriftiness!</p>
                 {/* <button onClick={this.handleTiers}>Free</button> {' '}
                 <button onClick={this.handleTiers}>Low</button> {' '}
                 <button onClick={this.handleTiers}>Avg</button> */}
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
                 <br />
                 {this.state.noUserId ? <Redirect to='/login' /> : null}
                 {<button id='clickModal' type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" hidden={true} >
@@ -182,8 +176,8 @@ class BudgetPage extends React.Component {
                                 Price:{' '}
                                 {e.Price._}
 
-                                <h2>Summary</h2>
-                                <p>{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p>
+                                <h2 data-toggle="collapse" data-target='#summaryText' >Summary</h2>
+                                <p id='summaryText' class='collaspe' >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p>
 
                                 <hr />
                             </div>

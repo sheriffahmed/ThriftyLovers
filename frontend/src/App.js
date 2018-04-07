@@ -32,7 +32,7 @@ class App extends Component {
       navPassword: '',
       navMessage: '',
       result: '',
-      allUsers: []
+      allUsers: ''
 
     }
     this.handleUserMatch = (user1, userArr) => {
@@ -64,6 +64,10 @@ class App extends Component {
     }
   }
 
+  handleRedirect = () =>{
+    return <Redirect to={`/user/${this.state.loggedInUserName}/feed`} />;
+  }
+
   handleUserInput = e => {
     this.setState({
       navUser: e.target.value
@@ -89,8 +93,7 @@ class App extends Component {
         navUser: '',
         navPassword: '',
         navMessage: '',
-        result: '',
-        allUsers: []
+        result: ''
       });
       console.log(`Login Success`);
     // })
@@ -117,7 +120,7 @@ class App extends Component {
           navPassword: '',
           navMessage: 'Login success'
         })
-
+        return this.handleRedirect();
       })
       .catch(err => {
         console.log(`Axios err: `, err)
@@ -154,10 +157,14 @@ class App extends Component {
       .get('/users/match')
       .then(arr => {
         console.log(`all users for match: `, arr.data.data)
-        this.setState({
+        console.log(this.state.allUsers)
+        if(!this.state.allUsers){
+            this.setState({
           allUsers: arr.data.data
         })
         console.log(`this.state.allUsers: `, this.state.allUsers)
+        }
+      
       })
   }
   render() {
@@ -174,7 +181,7 @@ class App extends Component {
       >
         {/* Navbar Start */}
         <nav
-          class="navbar navbar-expand-lg bg-dark navbar-dark"
+          class="navbar navbar-expand-lg bg-light navbar-light"
           style={
             {
               backgroundPosition: 'fixed'
@@ -225,13 +232,8 @@ class App extends Component {
                         <button
                         onClick={this.handleUserLogout}
                           type="button"
-                          className="btn btn-danger"
-                          style={
-                            {
-                              backgroundColor: 'red',
-                              marginLeft: '10px'
-                            }
-                          } >
+                          className="btn btm-danger2"
+                           >
                           Logout
                       </button>
                       </label>
@@ -276,7 +278,7 @@ class App extends Component {
                       </label>
                       <div>
                         <label>
-                          <button type="button" onClick={this.handleNavbarLogin} className="btn btn-danger" style={{ backgroundColor: 'red', marginLeft: '10px' }} >
+                          <button type="button" onClick={this.handleNavbarLogin} className="btn btm-danger2" style={{ marginLeft: '10px' }} >
                             Login
                           </button>
                         </label>
@@ -290,6 +292,7 @@ class App extends Component {
           </div>
         </nav>
         <div>
+          {this.handleRedirect}
           <Switch>
 
             <Route exact path='/' render={(props) => <LandingPage {...props} />} />
@@ -320,7 +323,7 @@ class App extends Component {
 
           </Switch>
         </div>
-        <div style={{ height: '50px', backgroundColor: '#343a40' }} ></div>
+        {/* <div style={{ height: '50px', backgroundColor: '#343a40' }} ></div> */}
       </div>
     );
   }

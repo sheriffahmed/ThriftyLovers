@@ -28,11 +28,8 @@ class Feed extends React.Component{
 
         let allMatches = this.handleUserMatch()
         return(
-            <div>
+            <div className="feed">
                 <h1>{this.props.match.params.user}'s Matches</h1>
-                <br />
-                <br />
-
                 <br />
             <p>{allMatches.map(match =>(
                 <div>

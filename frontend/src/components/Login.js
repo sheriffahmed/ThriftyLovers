@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Switch, Route, Redirect } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
+import '.././App.css';
 
 class Login extends Component {
     constructor(props) {
@@ -105,7 +106,7 @@ class Login extends Component {
             // this.handleLoginSubmit();
             // }
         return (
-            <div>
+            <div className="login">
                
                 <h1>Login</h1>
                 <br />
@@ -121,7 +122,7 @@ class Login extends Component {
                     <p>{this.state.Message}</p>
                     <br />
                     <br />
-                    <button onClick={this.handleLoginCheck} type='submit'>Submit</button>
+                    <button className="signup" onClick={this.handleLoginCheck} type='submit'>Submit</button>
 
                 </form>
                 <br />
@@ -129,8 +130,7 @@ class Login extends Component {
                 <br />
 
                 <h2>Don't have an account? Signup now!</h2>
-                <Link to='/signup' > <button>Sign Up</button> </Link>
-
+                <Link to='/signup' > <button className="signup">Sign Up</button> </Link>
                 {this.state.Message === 'Login success' ? <Redirect to={`/user/${this.props.loggedInUser}/feed`} /> : null}
                 {/* {this.state.Message === 'Login success' ? <Redirect to={`/budget`} /> : null} */}
                 

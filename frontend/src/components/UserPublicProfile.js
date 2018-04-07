@@ -67,7 +67,7 @@ class  UserPublicProfile extends React.Component{
             budgetTier 
         } = this.state
         return(
-          <div>
+          <div className="public">
  <h1>{username}'s Profile</h1>
 
  <img className='mandatory' src={userPic} />
