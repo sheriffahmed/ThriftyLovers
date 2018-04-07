@@ -181,7 +181,7 @@ class App extends Component {
       >
         {/* Navbar Start */}
         <nav
-          class="navbar navbar-expand-lg bg-dark navbar-dark"
+          class="navbar navbar-expand-lg bg-light navbar-light"
           style={
             {
               backgroundPosition: 'fixed'
