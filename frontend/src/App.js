@@ -232,13 +232,8 @@ class App extends Component {
                         <button
                         onClick={this.handleUserLogout}
                           type="button"
-                          className="btn btn-danger"
-                          style={
-                            {
-                              backgroundColor: 'red',
-                              marginLeft: '10px'
-                            }
-                          } >
+                          className="btn btm-danger2"
+                           >
                           Logout
                       </button>
                       </label>
