@@ -266,6 +266,10 @@ ul {
   color: #960B18;
 }
 
+#one {
+  text-shadow: 2px 2px 5px red;
+}
+
 /* Section - Title */
 
 /**************************/
@@ -324,7 +328,7 @@ ul {
   overflow: hidden;
   /* position: relative; */
   width: 100%;
-  background-image: url(https://images.unsplash.com/photo-1422327571285-01fb2ebc228f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=7456a9e48c1b6e213cc1110e7ca42f79&amp;dpr=1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80&amp;cs=tinysrgb);
+  background-image: url(https://images.unsplash.com/photo-1521828847175-b6d80fc5a7fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a06c19940f5dd6cad784b872049d4dc8&auto=format&fit=crop&w=1950&q=80);
   background-attachment: fixed;
   background-size: cover;
   -moz-background-size: cover;
