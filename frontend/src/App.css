@@ -131,11 +131,10 @@ ul {
   transition-delay: initial, initial, initial;
 }
 
-.btn-danger2,
-.btn :hover {
-  color: #dc3545;
+.btm-danger2:hover {
+  color: red;
   background-color: #ffffff;
-  border: 1px solid #dc3545;
+  border: 1px solid red;
 }
 
 .user {

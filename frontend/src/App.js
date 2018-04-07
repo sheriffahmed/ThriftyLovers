@@ -283,7 +283,7 @@ class App extends Component {
                       </label>
                       <div>
                         <label>
-                          <button type="button" onClick={this.handleNavbarLogin} className="btn btn-danger2" style={{ marginLeft: '10px' }} >
+                          <button type="button" onClick={this.handleNavbarLogin} className="btn btm-danger2" style={{ marginLeft: '10px' }} >
                             Login
                           </button>
                         </label>
