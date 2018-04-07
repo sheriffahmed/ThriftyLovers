@@ -27,12 +27,17 @@ class LandingPage extends React.Component {
     // }
     render() {
         return (
+            <div>
+             <div id='thriftylogo'>   <img id='thriftyimage' alt="Brand1" src={Logo_1} /> </div>
             <div className="container" >
-                <div className="container2" >
+                
+                <div>
                     <br />
-                    <img alt="Brand1" src={Logo_1} />
-                    <h1>Thrifty Lovers</h1>
+                   
+                   </div>
+                    {/* <h1>Thrifty Lovers</h1> */}
                     <br />
+                    <div className="container3" >
                     <label>I'm a</label>
                     {' '}
                     <select id="select">
@@ -111,6 +116,7 @@ class LandingPage extends React.Component {
                 </div>
                 <br />
                 <br />
+            </div>
             </div>
         )
     }
