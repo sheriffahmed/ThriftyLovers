@@ -176,8 +176,8 @@ class BudgetPage extends React.Component {
                                 Price:{' '}
                                 {e.Price._}
 
-                                <h2 data-toggle="collapse" data-target='#summaryText' >Summary</h2>
-                                <p id='summaryText' class='collaspe' >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p>
+                                <a data-toggle="collapse" data-target='#summaryText'><h2 >Summary</h2> </a>
+                                <div id='summaryText' class='collapse'><p  >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p> </div>
 
                                 <hr />
                             </div>
