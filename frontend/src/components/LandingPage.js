@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Logo_1 from '../images/Logo_1.png'
 // import './sparks_lighter.png'
 // import '../images/brooklynbridgepicnic.jpg'
 
@@ -29,6 +30,7 @@ class LandingPage extends React.Component {
             <div className="container" >
                 <div className="container2" >
                     <br />
+                    <img alt="Brand1" src={Logo_1} />
                     <h1>Thrifty Lovers</h1>
                     <br />
                     <label>I'm a</label>

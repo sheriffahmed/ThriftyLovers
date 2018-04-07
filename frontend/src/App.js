@@ -242,12 +242,12 @@ class App extends Component {
                 </form>
                 : <li>
                   {/* Need to Login */}
-                  <form class="form-inline">
+                  <form class="form-inline my-2 my-lg-0" align="right">
                     <div class="input-group">
                       <label>
                         <input
                           type="text"
-                          class="form-control"
+                          class="form-control mr-sm-2"
                           value={this.state.navUser}
                           onInput={this.handleUserInput}
                           placeholder="Username"
@@ -264,7 +264,7 @@ class App extends Component {
                       <label>
                         <input
                           type="password"
-                          class="form-control"
+                          class="form-control mr-sm-2"
                           placeholder="Password"
                           value={this.state.navPassword}
                           onInput={this.handlePasswordInput}
