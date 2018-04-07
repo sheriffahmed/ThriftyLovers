@@ -26,13 +26,10 @@ class LandingPage extends React.Component {
     // }
     render() {
         return (
-
             <div className="container" >
                 <div className="container2" >
                     <br />
                     <h1>Thrifty Lovers</h1>
-                    <br />
-                    <h1>Go on dates, find your match, save your cash.</h1>
                     <br />
                     <label>I'm a</label>
                     {' '}
@@ -54,21 +51,13 @@ class LandingPage extends React.Component {
                 <Link to='/budget'><button>Avg</button></Link> */}
                     <br />
                     <br />
-                    <br />
-                    <Link to='/signup'><button className="signup">Signup</button></Link>
+                    <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>
                 </div>
+                    <br />
                 <div id="parallax-world-of-ugg">
-
-                    <section>
-                        <div class="title">
-
-                            <h1>BECAUSE LOVE...IS A BARGAIN</h1>
-                        </div>
-                    </section>
-
                     <section>
                         <div class="parallax-one">
-                            <h2>TRANSPARENCY IS KEY</h2>
+                            <h2>SELECT YOUR BUDGET</h2>
                         </div>
                     </section>
 
@@ -82,7 +71,7 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="parallax-two">
-                            <h2>I LOVE NEW YORK</h2>
+                            <h2>GET YOUR DATE</h2>
                         </div>
                     </section>
 
@@ -96,7 +85,7 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="parallax-three">
-                            <h2>DON'T CHEAT YOURSELF</h2>
+                            <h2>MEET YOUR MATCH</h2>
                         </div>
                     </section>
 
@@ -107,8 +96,19 @@ class LandingPage extends React.Component {
                             {/* <p class="margin-top-10">In 2011, UGG will go back to its roots and focus on bringing the active men that brought the brand to life back with new styles allowing them to love the brand again as well. Partnering with Super Bowl champion and NFL MVP Tom Brady, UGG will invite even more men to feel the love the rest of the world knows so well. UGG will also step into the world of high fashion with UGG Collection. The UGG Collection fuses the timeless craft of Italian shoemaking with the reliable magic of sheepskin, bringing the luxurious feel of UGG to high end fashion. As the love for UGG continues to spread across the world, we have continued to offer new and unexpected ways to experience the brand. The UGG journey continues on and the love for UGG continues to spread.</p> */}
                         </div>
                     </section>
+                     <section>
+                        <div class="title">
+
+                            <h1>BECAUSE LOVE...IS A BARGAIN</h1>
+                        </div>
+                    </section>
 
                 </div>
+                <div className="container2">
+                <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>
+                </div>
+                <br />
+                <br />
             </div>
         )
     }
