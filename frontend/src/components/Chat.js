@@ -35,7 +35,7 @@ class Chat extends React.Component{
     }
     render(){
         return (
-            <div className="container3">
+            <div className="chat">
                 <div className="row">
                     <div className="col-4">
                         <div className="card">

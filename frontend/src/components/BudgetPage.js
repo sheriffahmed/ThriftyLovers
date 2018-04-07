@@ -118,12 +118,6 @@ class BudgetPage extends React.Component {
                 <button onClick={this.handleTiers}>Low</button> {' '}
                 <button onClick={this.handleTiers}>Avg</button> */}
                 <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
                 {this.state.noUserId ? <Redirect to='/login' /> : null}
                 {<button id='clickModal' type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" hidden={true} >
                     Open modal

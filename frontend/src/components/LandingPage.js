@@ -29,28 +29,24 @@ class LandingPage extends React.Component {
 
             <div className="container" >
                 <div className="container2" >
-
-
-
-
+                    <br />
                     <h1>Thrifty Lovers</h1>
+                    <br />
                     <h1>Go on dates, find your match, save your cash.</h1>
+                    <br />
                     <label>I'm a</label>
                     {' '}
-                    <select>
+                    <select id="select">
                         <option>Woman</option>
                         <option>Man</option>
                         <option>Gender Neutral</option>
                     </select>
                     {' '} looking for a {' '}
-                    <select>
+                    <select id="select">
                         <option>Woman</option>
                         <option>Man</option>
                         <option>Gender Neutral</option>
-
                     </select>
-                    <br />
-                    <br />
                     {/* <p1>Please choose your level of thriftiness!</p1>
                 <br/>
                 <Link to='/budget'><button>Free</button></Link> {' '}
