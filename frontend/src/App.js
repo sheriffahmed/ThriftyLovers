@@ -227,7 +227,7 @@ class App extends Component {
                   class="form-inline">
                   <div class="input-group">
                     <p class="navbar-brand">
-                      Welcome, {this.state.loggedInUserName}!
+                      Welcome, {this.state.loggedInUserName.substr(0,1).toLocaleUpperCase() + this.state.loggedInUserName.substr(1)}!
                   </p>
                     <div>
                       <label>
