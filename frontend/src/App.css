@@ -14,9 +14,46 @@ body {
   padding: inherit;
 }
 
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+}
+
+.containerfooter1{
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+.btn-social {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 45px;
+}
+
+.btn-outline {
+  color: #fff;
+  font-size: 20px;
+  border: 2px solid #fff;
+  background: 0 0;
+  transition: all .3s ease-in-out;
+  margin-top: 15px;
 }
 
 .App-header {
@@ -41,6 +78,16 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+footer .footer-above {
+  padding-top: 50px;
+  background-color: #C55656;
+}
+
+footer .footer-below {
+  padding: 25px 0;
+  background-color: #973131;
 }
 
 .mandatory {
@@ -124,12 +171,12 @@ ul {
   background-color: #D93337;
   border-color: #D93337;
   min-width: 150px;
-  font-size: 14px;
+  font-size: 34px;
   padding: 17px 13px;
   position: relative;
   text-align: center;
   z-index: 1;
-  line-height: 22px;
+  line-height: 62px;
   border: none;
   border-radius: 10px;
   display: inline-block;
