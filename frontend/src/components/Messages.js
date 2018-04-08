@@ -25,7 +25,8 @@ class Messages extends React.Component {
         let allMatches = this.handleUserMatch()
         return (
             <div className="messages">
-                <h1>Chat With Your Thrifter Here!</h1>
+                <div className="messages2">
+                <h1 id="header">Chat With Your Thrifter Here!</h1>
                 <div class="table-responsive-sm">
                     <table className="table table-hover">
                         <thead>
@@ -56,6 +57,7 @@ class Messages extends React.Component {
                 </div>
                 <br />
                 <br />
+                </div>
             </div>
         )
     }
