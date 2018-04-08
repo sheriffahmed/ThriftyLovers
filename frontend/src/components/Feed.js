@@ -29,7 +29,7 @@ class Feed extends React.Component{
         let allMatches = this.handleUserMatch()
         return(
             <div>
-            <h1 id="header2">{this.props.match.params.user}'s Matches</h1>
+            <h1 id="header2">{this.props.match.params.user.substr(0,1).toUpperCase() + this.props.match.params.user.substr(1)}'s Matches</h1>
             <div className="feed">  
                 <br />
             <p>{allMatches.map(match =>(
