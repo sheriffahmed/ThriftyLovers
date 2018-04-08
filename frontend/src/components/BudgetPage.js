@@ -150,7 +150,7 @@ class BudgetPage extends React.Component {
                 {tierData ? tierData.map((e, index) => {
                     console.log('price:', e.Price._)
                     console.log('budget tier:', this.props.BudgetTier)
-                    return e.Price._ === "Free" && this.props.BudgetTier === 'Free'
+                    return e.Price._ === "Free" && this.props.BudgetTier === 'Free'&& index !== 0
                         ?  <div>
                                 <hr />
                                 {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
