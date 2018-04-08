@@ -104,12 +104,14 @@ class LandingPage extends React.Component {
                     <section>
                         <div class="block">
                             <p><span class="first-character atw">J</span>oin our growing community and become a Thrifty Lover... </p>
+{/* //                             <p><span class="first-character atw">T</span>he odds are in your favor. Don't sell yourself short. Become a Thrifty Lover today!</p> */}
+                            {/* <br/> */}
+
                             <p class="line-break margin-top-10"></p>
                         </div>
                     </section>
                      <section>
                         <div class="title">
-
                             <h1>BECAUSE LOVE...IS A BARGAIN</h1>
                         </div>
                     </section>

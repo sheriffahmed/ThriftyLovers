@@ -44,9 +44,8 @@ body {
 }
 
 .mandatory {
-  /* width: 200px; */
-  height: 133px;
-  padding-left: 1.8em;
+  border-radius: 10%;
+  box-shadow: 2px 2px 2px red;
 }
 
 .users {
@@ -83,7 +82,8 @@ body {
 }
 .container3 {
   text-align:center;
-  font-family: 'Arial'
+  font-family: 'Arial';
+  font-size: 20px;
 }
 
 #select {
@@ -109,8 +109,8 @@ ul {
 
 .signup {
   color: #ffffff;
-  background-color: red;
-  border-color: red;
+  background-color: #D93337;
+  border-color: #D93337;
   min-width: 150px;
   font-size: 14px;
   padding: 17px 13px;
@@ -130,15 +130,15 @@ ul {
 }
 
 .signup:hover {
-  color: red;
+  color: #D93337;
   background-color: #ffffff;
-  border: 1px solid red;
+  border: 1px solid #D93337;
 }
 
 .btm-danger2 {
   color: #fff;
-  background-color: red;
-  border-color: red;
+  background-color: #D93337;
+  border-color: #D93337;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition-property: background-color, border-color, box-shadow;
   transition-duration: 0.15s, 0.15s, 0.15s;
@@ -147,17 +147,41 @@ ul {
 }
 
 .btm-danger2:hover {
-  color: red;
+  color: #D93337;
   background-color: #ffffff;
-  border: 1px solid red;
+  border: 1px solid #D93337;
 }
 
 .user {
-  margin-left: 3.2%;
+  background: #D93337;
+}
+
+.user2 {
+  color: #960B18;
+  width: 100px;
+  height: 100px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#header {
+  color: white;
+  font-family: 'Raleway';
+  background: #D93337;
+}
+
+#profile {
+  float: left;
 }
 
 .messages {
-  margin-left: 3.2%;
+  color: #960B18;
+}
+
+.messages2 {
+  margin-left: 15%;
+  margin-right: 15%;
+  color: #960B18;
 }
 
 .login {
@@ -165,23 +189,27 @@ ul {
 }
 
 .events {
-  margin-left: 3.2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .feed {
-  margin-left: 3.2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .registration {
-  margin-left: 3.2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .public {
-  margin-left: 3.2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .chat {
-  margin-left: 3.2%;
+  margin-left:15%;
 }
 
 /* Parrallax css */

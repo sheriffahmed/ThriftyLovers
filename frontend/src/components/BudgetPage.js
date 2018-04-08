@@ -112,7 +112,7 @@ class BudgetPage extends React.Component {
         let { tierData } = this.state
         return (
             <div className="events">
-                <h1>Events</h1>
+                <h1 id="header">Events</h1>
                 <p>Please choose your level of thriftiness!</p>
                 {/* <button onClick={this.handleTiers}>Free</button> {' '}
                 <button onClick={this.handleTiers}>Low</button> {' '}
