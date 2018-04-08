@@ -190,10 +190,12 @@ class App extends Component {
         >
           <Link to='/' >
             <a class="navbar-brand"
+                
               href="/"
               style={
                 {
                   color: 'red'
+                
                 }
               }
             >

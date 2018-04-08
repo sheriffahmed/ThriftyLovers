@@ -40,7 +40,7 @@ class Messages extends React.Component {
                                 <tr>
                                     <td>{msg.first_name}
                                         <br />
-                                        <img className="mandatory" src={msg.profile_pic_url} />
+                                        <img className="matchpics" src={msg.profile_pic_url} />
                                     </td>
                                     <td>
                                         <br />
