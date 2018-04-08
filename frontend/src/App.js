@@ -64,7 +64,7 @@ class App extends Component {
     }
   }
 
-  handleRedirect = () =>{
+  handleRedirect = () => {
     return <Redirect to={`/user/${this.state.loggedInUserName}/feed`} />;
   }
 
@@ -78,24 +78,24 @@ class App extends Component {
       navPassword: e.target.value
     })
   }
-  handleUserLogout = (click) =>{
+  handleUserLogout = (click) => {
     console.log(`inside logout.`)
     // axios
     // .get('/users/logout')
     // .then(res =>{
-      this.setState({
-        userSession: '',
-        loggedInUserName: '',
-        userId: '',
-        userGender: '',
-        userGenderPref: '',
-        userBudgetTier: '',
-        navUser: '',
-        navPassword: '',
-        navMessage: '',
-        result: ''
-      });
-      console.log(`Login Success`);
+    this.setState({
+      userSession: '',
+      loggedInUserName: '',
+      userId: '',
+      userGender: '',
+      userGenderPref: '',
+      userBudgetTier: '',
+      navUser: '',
+      navPassword: '',
+      navMessage: '',
+      result: ''
+    });
+    console.log(`Login Success`);
     // })
     // .catch(err => {
     //   console.log(`Axios err: `, err)
@@ -158,13 +158,13 @@ class App extends Component {
       .then(arr => {
         console.log(`all users for match: `, arr.data.data)
         console.log(this.state.allUsers)
-        if(!this.state.allUsers){
-            this.setState({
-          allUsers: arr.data.data
-        })
-        console.log(`this.state.allUsers: `, this.state.allUsers)
+        if (!this.state.allUsers) {
+          this.setState({
+            allUsers: arr.data.data
+          })
+          console.log(`this.state.allUsers: `, this.state.allUsers)
         }
-      
+
       })
   }
   render() {
@@ -230,10 +230,10 @@ class App extends Component {
                     <div>
                       <label>
                         <button
-                        onClick={this.handleUserLogout}
+                          onClick={this.handleUserLogout}
                           type="button"
                           className="btn btm-danger2"
-                           >
+                        >
                           Logout
                       </button>
                       </label>
@@ -299,14 +299,14 @@ class App extends Component {
             <Route path='/signup' render={(props) => <Registration {...props} />} />
             <Route path='/user/:user/edit' render={() => this.state.userSession ? <EditUser /> : <Redirect to='/login' />} />
             <Route exact path='/user/:user' render={(props) => this.state.userSession ? <UserProfile user={props.match.params.user} editButton={<Link to={`/user/${this.state.loggedInUserName}/edit`} ></Link>} {...props} /> : <Redirect to='/login' />} />
-            <Route exact path='/user/public/:user2' render={(props) => this.state.userSession ? <UserPublicProfile user={props.match.params.user2} {...props} /> : <Redirect to='/login' />} />            
-            <Route exact path='/user/:user/messages' render={(props) => this.state.userSession ? <Messages 
+            <Route exact path='/user/public/:user2' render={(props) => this.state.userSession ? <UserPublicProfile user={props.match.params.user2} {...props} /> : <Redirect to='/login' />} />
+            <Route exact path='/user/:user/messages' render={(props) => this.state.userSession ? <Messages
               userId={this.state.userId}
               userGender={this.state.userGender}
               userGenderPref={this.state.userGenderPref}
-              userBudgetTier={this.state.userBudgetTier} 
+              userBudgetTier={this.state.userBudgetTier}
               userArr={this.state.allUsers}
-            user={this.state.loggedInUserName} {...props} /> : <Redirect to='/login' />} />
+              user={this.state.loggedInUserName} {...props} /> : <Redirect to='/login' />} />
             <Route exact path='/user/:user/chat/:user2' render={(props) => this.state.userSession ? <Chat authUser={this.state.loggedInUserName} /> : <Redirect to='/login' />} />
             <Route path='/budget' render={(props) => <BudgetPage UserID={this.state.userId} BudgetTier={this.state.userBudgetTier} {...props} />} />
             <Route path='/match' render={(props) => <Matching
@@ -315,7 +315,7 @@ class App extends Component {
               userGenderPref={this.state.userGenderPref}
               userBudgetTier={this.state.userBudgetTier}  {...props} />} />
             <Route exact path='/login' render={props => <Login onLoginSuccess={this.handleLoginSuccess} navUser={this.state.navUser} navPassword={this.state.navPassword} loggedInUser={this.state.loggedInUserName} {...props} />} />
-            <Route exact path='/user/:user/feed' render={props => this.state.userSession ? <Feed 
+            <Route exact path='/user/:user/feed' render={props => this.state.userSession ? <Feed
               userId={this.state.userId}
               userGender={this.state.userGender}
               userGenderPref={this.state.userGenderPref}
@@ -323,6 +323,8 @@ class App extends Component {
 
           </Switch>
         </div>
+        {/* -- Footer -- */}
+
         {/* <div style={{ height: '50px', backgroundColor: '#343a40' }} ></div> */}
       </div>
     );

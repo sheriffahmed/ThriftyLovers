@@ -342,7 +342,7 @@ class Registration extends React.Component {
             hidebutton: true
         })
         let upload = request.post(CLOUDINARY_UPLOAD_URL)
-            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET) 
             .field('file', file);
 
         upload.end((err, response) => {

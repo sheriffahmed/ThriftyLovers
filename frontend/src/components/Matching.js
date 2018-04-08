@@ -16,7 +16,7 @@ class Matching extends React.Component {
         const loggedInUser = {
             userId: this.props.userId,
             userGender: this.props.userGender,
-            userGenderPref: this.props.userGenderPref,
+            userGenderPref: this.props.userGenderPref, 
             userBudgetTier: this.props.userBudgetTier
          }
      return dummy2.filter(user =>{

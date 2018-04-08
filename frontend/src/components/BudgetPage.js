@@ -99,7 +99,7 @@ class BudgetPage extends React.Component {
         //   console.log(request.readyState)
         //   console.log(request.status)
     }
-    handleObjectLoop = (obj) => {
+    handleObjectLoop = (obj) => { 
         for (let key in obj) {
             return <div>
                 <h2>{key}</h2>
@@ -109,7 +109,7 @@ class BudgetPage extends React.Component {
     }
 
     render() {
-        let { tierData } = this.state
+        let { tierData } = this.state 
         return (
             <div>
             <h1 id="header2">Events</h1>
