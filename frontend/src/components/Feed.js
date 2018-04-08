@@ -34,7 +34,7 @@ class Feed extends React.Component{
                 <br />
             <p>{allMatches.map(match =>(
                 <div>
-                <h1>{match.username}</h1> 
+                <h1>{match.username.substr(0,1).toUpperCase() + match.username.substr(1)}</h1> 
                 <img className="matchpics" src={match.profile_pic_url} />
                 <Link to={`/user/public/${match.username}`} > <button className="signup"> View {match.first_name}'s Profile </button> </Link>
                 <hr />
