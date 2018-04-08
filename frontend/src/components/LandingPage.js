@@ -61,6 +61,11 @@ class LandingPage extends React.Component {
                     <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>
                 </div>
                     <br />
+                    <div class="block">
+                            <p><span class="first-character sc">T</span>hrifty Lovers is a web based application that solves the hardships of modern dating by creating transparency around personal finances. 
+                            Imagine you can select a partner based on similar passions, intrests and financial goals! There are no secrets here. Thrifty Lovers takes the stress of finances out of dating, leaving room for the romance.</p>
+                            <p class="line-break margin-top-10"></p>
+                        </div>
                 <div id="parallax-world-of-ugg">
                     <section>
                         <div class="parallax-one">
@@ -70,9 +75,10 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="block">
-                            <p><span class="first-character sc">M</span>utual understanding of one's economic dating preference is key to matching. There are no secrets here. Transparency is key to building strong and lasting relationships.</p>
+                            <p><span class="first-character sc">T</span>hrifty Lovers allows you the experience of love and budget 
+                            co-existing in harmony. Sign up and select the budget that works best for you
+                            and experience the magic of dating without worrying about your finances.</p>
                             <p class="line-break margin-top-10"></p>
-                            {/* <p class="margin-top-10">The UGG brand began to symbolize those who embraced sport and a relaxed, active lifestyle. More than that, an emotional connection and a true feeling of love began to grow for UGG boots, just as Brian had envisioned. People didn't just like wearing UGG boots, they fell in love with them and literally could not take them off. By the end of the 90's, celebrities and those in the fashion world took notice of the UGG brand. A cultural shift occurred as well - people were embracing, and feeling empowered, by living a more casual lifestyle and UGG became one of the symbols of this lifestyle. By 2000, a love that began on the beaches had become an icon of casual style. It was at this time that the love for UGG grew in the east, over the Rockies and in Chicago. In 2000, UGG Sheepskin boots were first featured on Oprah's Favorite Things® and Oprah emphatically declared that she "LOOOOOVES her UGG boots." From that point on, the world began to notice.</p> */}
                         </div>
                     </section>
 
@@ -84,9 +90,8 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="block">
-                            <p><span class="first-character ny">W</span>ith over a hundred things to do in the city, we are sure to find something that won't break your bank. Who said you can't have fun on a budget?</p>
+                            <p><span class="first-character ny">W</span>ith thousands of things happening in the city every single day, there is always a possibilty for adventure.<br></br><br></br><br></br> We make browsing events easy using our tier system allowing you to select events that you love while highlighting possible connections to like-minded Thrifty Lovers who share your selected budget tier and flavor of adventure. </p>
                             <p class="line-break margin-top-10"></p>
-                            {/* <p class="margin-top-10">Fueled by celebrities from coast to coast wearing UGG boots and slippers on their downtime, an entirely new era of fashion was carved out. As a result, the desire and love for UGG increased as people wanted to go deeper into this relaxed UGG experience. UGG began offering numerous color and style variations on their sheepskin boots and slippers. Cold weather boots for women and men and leather casuals were added with great success. What started as a niche item, UGG sheepskin boots were now a must-have staple in everyone's wardrobe. More UGG collections followed, showcasing everything from knit boots to sneakers to wedges, all the while maintaining that luxurious feel UGG is known for all over the world. UGG products were now seen on runways and in fashion shoots from coast to coast. Before long, the love spread even further.</p> */}
                         </div>
                     </section>
 
@@ -98,10 +103,11 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="block">
-                            <p><span class="first-character atw">T</span>he odds are in your favor. Don't sell yourself short. Become a Thrifty Lover today!</p>
-                            <br/>
+                            <p><span class="first-character atw">J</span>oin our growing community and become a Thrifty Lover... </p>
+{/* //                             <p><span class="first-character atw">T</span>he odds are in your favor. Don't sell yourself short. Become a Thrifty Lover today!</p> */}
+                            {/* <br/> */}
+
                             <p class="line-break margin-top-10"></p>
-                            {/* <p class="margin-top-10">In 2011, UGG will go back to its roots and focus on bringing the active men that brought the brand to life back with new styles allowing them to love the brand again as well. Partnering with Super Bowl champion and NFL MVP Tom Brady, UGG will invite even more men to feel the love the rest of the world knows so well. UGG will also step into the world of high fashion with UGG Collection. The UGG Collection fuses the timeless craft of Italian shoemaking with the reliable magic of sheepskin, bringing the luxurious feel of UGG to high end fashion. As the love for UGG continues to spread across the world, we have continued to offer new and unexpected ways to experience the brand. The UGG journey continues on and the love for UGG continues to spread.</p> */}
                         </div>
                     </section>
                      <section>
