@@ -34,8 +34,8 @@ class Feed extends React.Component{
             <p>{allMatches.map(match =>(
                 <div>
                 <h1>{match.username}</h1>
-                <img src={match.profile_pic_url} />
-                <Link to={`/user/public/${match.username}`} > <button className="signup"> View {match.first_name}'s Profile </button> </Link>
+                <img src={match.profile_pic_url} style={{maxWidth: '200px' }}/>
+                <Link to={`/user/public/${match.username}`} > <button> View {match.first_name}'s Profile </button> </Link>
                 <hr />
                 </div>
                 ))}</p>

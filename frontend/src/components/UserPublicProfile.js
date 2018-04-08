@@ -70,7 +70,7 @@ class  UserPublicProfile extends React.Component{
           <div className="public">
  <h1 id="header">{firstName}'s Profile</h1>
 
- <img className='mandatory' src={userPic} />
+ <img className='mandatory' style={{maxHeight: '200px'}} src={userPic} />
  <br/>
  <br/>
  
