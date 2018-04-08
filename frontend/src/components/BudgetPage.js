@@ -111,13 +111,13 @@ class BudgetPage extends React.Component {
     render() {
         let { tierData } = this.state
         return (
+            <div>
+            <h1 id="header2">Events</h1>
             <div className="events">
-                <h1>Events</h1>
-                <p>Please choose your level of thriftiness!</p>
+                {/* <p>Please choose your level of thriftiness!</p> */}
                 {/* <button onClick={this.handleTiers}>Free</button> {' '}
                 <button onClick={this.handleTiers}>Low</button> {' '}
                 <button onClick={this.handleTiers}>Avg</button> */}
-                <br />
                 {this.state.noUserId ? <Redirect to='/login' /> : null}
                 {<button id='clickModal' type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" hidden={true} >
                     Open modal
@@ -147,7 +147,7 @@ class BudgetPage extends React.Component {
                         </div>
                     </div>
                 </div>
-                {tierData ? tierData.map(e => {
+                {tierData ? tierData.map((e, index) => {
                     console.log('price:', e.Price._)
                     console.log('budget tier:', this.props.BudgetTier)
                     return e.Price._ === "Free" && this.props.BudgetTier === 'Free'
@@ -156,7 +156,7 @@ class BudgetPage extends React.Component {
                                 {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
                                 <h2>{e.Name}</h2>
 
-                                <img src={e.Image[2].$.src} />
+                                <img className="mandatory" src={e.Image[2].$.src} />
                                 <h2>Details</h2>
                                 <br />
                                 Name:{' '}
@@ -176,8 +176,12 @@ class BudgetPage extends React.Component {
                                 Price:{' '}
                                 {e.Price._}
 
-                                <h2 data-toggle="collapse" data-target='#summaryText' >Summary</h2>
-                                <p id='summaryText' class='collaspe' >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p>
+                                <a data-toggle="collapse" data-target={`#summaryText${index}`}>
+                                <br/>
+                                <h2 className="signup" >Summary</h2> </a>
+                                {/* <div id={`summaryText${index}`} class='collapse'><p  >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p> </div> */}
+                                <div id={`summaryText${index}`} class='collapse'><p  >{e.Description}</p> </div>
+                                
 
                                 <hr />
                             </div>
@@ -190,7 +194,6 @@ class BudgetPage extends React.Component {
 
                                 <img src={e.Image[2].$.src} />
                                 <h2>Details</h2>
-                                <br />
                                 Name:{' '}
                                 {
                                     e.Venue.Name
@@ -208,8 +211,15 @@ class BudgetPage extends React.Component {
                                 Price:{' '}
                                 {e.Price._}
 
-                                <h2>Summary</h2>
-                                <p>{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p>
+                                <a data-toggle="collapse" data-target={`#summaryText${index}`}> 
+                                <br />
+                                <br />
+                                <h2 className="signup">Summary</h2> </a>
+                                {/* <p id='summaryText' class='collapse' >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p> */}
+                                
+                                
+                                <p id={`summaryText${index}`} class='collapse' >{e.Description}</p>
+                                
 
                                 <hr />
                             </div> : null
@@ -252,6 +262,7 @@ ScheduleNote
 Type
 :
 "Gallery" */}
+            </div>
             </div>
 
 

@@ -44,9 +44,9 @@ body {
 }
 
 .mandatory {
-  /* width: 200px; */
-  height: 133px;
-  padding-left: 1.8em;
+  border-radius: 10%;
+  box-shadow: 2px 2px 2px red;
+  max-height: 200px;
 }
 
 .users {
@@ -75,14 +75,33 @@ body {
 }
 
 .container2 {
+  background-color: #ffffff;
+  width: 100%;
   text-align: center;
   font-family: 'Arial'
+  
+}
+.container3 {
+  text-align:center;
+  font-family: 'Arial';
+  font-size: 20px;
 }
 
 #select {
   border-radius: 5px;
   background: white;
   border: #960B18 solid 1px;
+}
+#thriftyimage{
+  margin: 0 auto;
+  display: block;
+}
+#thriftylogo {
+  background-color: #D93337;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 ul {
@@ -91,8 +110,8 @@ ul {
 
 .signup {
   color: #ffffff;
-  background-color: red;
-  border-color: red;
+  background-color: #D93337;
+  border-color: #D93337;
   min-width: 150px;
   font-size: 14px;
   padding: 17px 13px;
@@ -112,15 +131,15 @@ ul {
 }
 
 .signup:hover {
-  color: red;
+  color: #D93337;
   background-color: #ffffff;
-  border: 1px solid red;
+  border: 1px solid #D93337;
 }
 
 .btm-danger2 {
   color: #fff;
-  background-color: red;
-  border-color: red;
+  background-color: #D93337;
+  border-color: #D93337;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition-property: background-color, border-color, box-shadow;
   transition-duration: 0.15s, 0.15s, 0.15s;
@@ -129,17 +148,50 @@ ul {
 }
 
 .btm-danger2:hover {
-  color: red;
+  color: #D93337;
   background-color: #ffffff;
-  border: 1px solid red;
+  border: 1px solid #D93337;
 }
 
-.user {
-  margin-left: 3.2%;
+.user2 {
+  color: #960B18;
+  width: 200px;
+  height: 100px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+
+#header {
+  color: white;
+  font-family: 'Raleway';
+  background: #D93337;
+}
+
+#header2 {
+  font-family: 'Raleway';
+  background: #D93337;
+  color: white;
+  text-indent: 15%;
+}
+
+#profile {
+  float: left;
 }
 
 .messages {
-  margin-left: 3.2%;
+  color: #960B18;
+}
+
+.messages2 {
+  color: #960B18;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.message3 {
+  width: 100%;
+  color: #960B18
 }
 
 .login {
@@ -147,23 +199,28 @@ ul {
 }
 
 .events {
-  margin-left: 3.2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .feed {
-  margin-left: 3.2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .registration {
-  margin-left: 3.2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .public {
-  margin-left: 3.2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .chat {
-  margin-left: 3.2%;
+  margin-left:15%;
+  text-align: center;
 }
 
 /* Parrallax css */
@@ -266,6 +323,10 @@ ul {
   color: #960B18;
 }
 
+#one {
+  text-shadow: 2px 2px 5px red;
+}
+
 /* Section - Title */
 
 /**************************/
@@ -324,7 +385,7 @@ ul {
   overflow: hidden;
   /* position: relative; */
   width: 100%;
-  background-image: url(https://images.unsplash.com/photo-1422327571285-01fb2ebc228f?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=7456a9e48c1b6e213cc1110e7ca42f79&amp;dpr=1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80&amp;cs=tinysrgb);
+  background-image: url(https://images.unsplash.com/photo-1521828847175-b6d80fc5a7fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a06c19940f5dd6cad784b872049d4dc8&auto=format&fit=crop&w=1950&q=80);
   background-attachment: fixed;
   background-size: cover;
   -moz-background-size: cover;
@@ -354,7 +415,7 @@ ul {
   overflow: hidden;
   position: relative;
   width: 100%;
-  background-image: url(https://images.unsplash.com/photo-1518563795073-6b72265ad862?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=1e95afca9ca9161310d24b9e1988fea3&amp;dpr=1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80&amp;cs=tinysrgb);
+  background-image: url(https://images.unsplash.com/photo-1499200544186-6b1e3ec3b68e?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=4b4efff92e189382e4fe9f218f8dd4ff&amp;dpr=1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80&amp;cs=tinysrgb);
   background-attachment: fixed;
   background-size: cover;
   -moz-background-size: cover;

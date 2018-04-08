@@ -25,8 +25,9 @@ class Messages extends React.Component {
         let allMatches = this.handleUserMatch()
         return (
             <div className="messages">
-                <h1>Chat With Your Thrifter Here!</h1>
-                <div class="table-responsive-sm">
+                <h1 id="header2">Chat With Your Thrifter Here!</h1>
+            <div className="messages2">
+            <div class="table-responsive-sm">
                     <table className="table table-hover">
                         <thead>
                             <tr>
@@ -40,7 +41,7 @@ class Messages extends React.Component {
                                 <tr>
                                     <td>{msg.first_name}
                                         <br />
-                                        <img className="users" src={msg.profile_pic_url} />
+                                        <img className="mandatory" src={msg.profile_pic_url} />
                                     </td>
                                     {/* <td>Walking in the Park</td> */}
                                     <td>
@@ -56,6 +57,7 @@ class Messages extends React.Component {
                 </div>
                 <br />
                 <br />
+                </div>
             </div>
         )
     }

@@ -15,12 +15,170 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
 
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -
+-- Name: event_pref; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.event_pref (
+    id integer NOT NULL,
+    user_id integer,
+    user_gender character varying,
+    user_gender_pref character varying,
+    event_id character varying
+);
+
+
+ALTER TABLE public.event_pref OWNER TO c4q;
+
+--
+-- Name: event_pref_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.event_pref_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.event_pref_id_seq OWNER TO c4q;
+
+--
+-- Name: event_pref_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.event_pref_id_seq OWNED BY public.event_pref.id;
+
+
+--
+-- Name: likes; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.likes (
+    id integer NOT NULL,
+    match_id integer,
+    user_id integer
+);
+
+
+ALTER TABLE public.likes OWNER TO c4q;
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.likes_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.likes_id_seq OWNER TO c4q;
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.likes_id_seq OWNED BY public.likes.id;
+
+
+--
+-- Name: matches; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.matches (
+    id integer NOT NULL,
+    user1 integer,
+    user2 integer,
+    approved boolean NOT NULL
+);
+
+
+ALTER TABLE public.matches OWNER TO c4q;
+
+--
+-- Name: matches_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.matches_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.matches_id_seq OWNER TO c4q;
+
+--
+-- Name: matches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.matches_id_seq OWNED BY public.matches.id;
+
+
+--
+-- Name: message_log; Type: TABLE; Schema: public; Owner: c4q
+--
+
+CREATE TABLE public.message_log (
+    id integer NOT NULL,
+    to_user_id integer,
+    from_user_id integer,
+    message character varying
+);
+
+
+ALTER TABLE public.message_log OWNER TO c4q;
+
+--
+-- Name: message_log_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
+--
+
+CREATE SEQUENCE public.message_log_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.message_log_id_seq OWNER TO c4q;
+
+--
+-- Name: message_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
+--
+
+ALTER SEQUENCE public.message_log_id_seq OWNED BY public.message_log.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: c4q
 --
 
 CREATE TABLE public.users (
@@ -38,8 +196,10 @@ CREATE TABLE public.users (
 );
 
 
+ALTER TABLE public.users OWNER TO c4q;
+
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: c4q
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -51,27 +211,88 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.users_id_seq OWNER TO c4q;
+
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: c4q
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: event_pref id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.event_pref ALTER COLUMN id SET DEFAULT nextval('public.event_pref_id_seq'::regclass);
+
+
+--
+-- Name: likes id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.likes ALTER COLUMN id SET DEFAULT nextval('public.likes_id_seq'::regclass);
+
+
+--
+-- Name: matches id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.matches ALTER COLUMN id SET DEFAULT nextval('public.matches_id_seq'::regclass);
+
+
+--
+-- Name: message_log id; Type: DEFAULT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.message_log ALTER COLUMN id SET DEFAULT nextval('public.message_log_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: c4q
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
-ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: event_pref; Type: TABLE DATA; Schema: public; Owner: c4q
 --
 
-COPY users (id, username, password_digest, first_name, last_name, dob, bio, gender, gender_pref, profile_pic_url, budget_tier) FROM stdin;
-1	test	$2a$10$3WZIagWMiicl4qGebEQPVe4XYNEjvzIDQNITowZ.cfowl4QF48BN2	John	Doe	1993-01-08	This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 	M	F	https://res.cloudinary.com/thiftylovers/image/upload/v1522832694/e1c9d0d1206fbc5a34773664153fe743_w4oon5.gif	Free
+COPY public.event_pref (id, user_id, user_gender, user_gender_pref, event_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: likes; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.likes (id, match_id, user_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: matches; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.matches (id, user1, user2, approved) FROM stdin;
+\.
+
+
+--
+-- Data for Name: message_log; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.message_log (id, to_user_id, from_user_id, message) FROM stdin;
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: c4q
+--
+
+COPY public.users (id, username, password_digest, first_name, last_name, dob, bio, gender, gender_pref, profile_pic_url, budget_tier) FROM stdin;
+1	test	$2a$10$3WZIagWMiicl4qGebEQPVe4XYNEjvzIDQNITowZ.cfowl4QF48BN2	John	Doe	1993-01-08	This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test This is a test 	M	F	https://images.unsplash.com/photo-1522609946836-c85cba8eb943?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=917cb3c845bb6aaffa27be9efa07e147&auto=format&fit=crop&w=334&q=80	Free
 4	test2	$2a$10$CEuGGINkLJcxyFHAp7xvbObqiUbtri2IXNm9yM7ng4m54o5dm67xK	Jane	Doe	1996-02-04	I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe I am Jane Doe 	F	M	https://res.cloudinary.com/thiftylovers/image/upload/v1522877244/cat-3089169_960_720_raeq1q.jpg	Free
 6	test3	$2a$10$VZJV1cf3uj1Fq23GvhHGI.dtlq8zvo4BM/VflK.kTlWrH5StVUkQu	John	Doe	1997-06-08	This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 This is test3 	M	ALL	https://res.cloudinary.com/thiftylovers/image/upload/v1522891022/23561409_1411449035626057_2354841275048199738_n_zgjglr.png	$
 9	kate.edwards	$2a$10$tc6CU1PsN25BFZ/K/TDV1uM9cYw5kjPYHv5dy.o2lno7uO4LwrI1S	Kate	Edwards	1989-05-08	Living in my own world. I'm naive and honest, straightforward.	F	M	https://res.cloudinary.com/thiftylovers/image/upload/v1522907340/random-user_imageF33_yzcldz.jpg	Free
@@ -88,14 +309,74 @@ COPY users (id, username, password_digest, first_name, last_name, dob, bio, gend
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: event_pref_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.event_pref_id_seq', 1, false);
+
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.likes_id_seq', 1, false);
+
+
+--
+-- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.matches_id_seq', 1, false);
+
+
+--
+-- Name: message_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
+--
+
+SELECT pg_catalog.setval('public.message_log_id_seq', 1, false);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: c4q
 --
 
 SELECT pg_catalog.setval('public.users_id_seq', 25, true);
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: event_pref event_pref_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.event_pref
+    ADD CONSTRAINT event_pref_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: likes likes_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.likes
+    ADD CONSTRAINT likes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: matches matches_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.matches
+    ADD CONSTRAINT matches_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: message_log message_log_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
+--
+
+ALTER TABLE ONLY public.message_log
+    ADD CONSTRAINT message_log_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: c4q
 --
 
 ALTER TABLE ONLY public.users
@@ -103,7 +384,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: c4q
 --
 
 ALTER TABLE ONLY public.users

@@ -67,37 +67,33 @@ class  UserPublicProfile extends React.Component{
             budgetTier 
         } = this.state
         return(
-          <div className="public">
- <h1>{username}'s Profile</h1>
+            <div>
+                <h1 id="header2">{firstName}'s Profile</h1>
+            <div className="public">
+            <img className='mandatory' style={{maxHeight: '200px'}} src={userPic} />
+            <br/>
+            <br/>
+                 First Name: {' '} {firstName}
+                <br/>
+                <br/>
 
- <img className='mandatory' src={userPic} />
- <br/>
- <br/>
- 
- First Name: {' '} {firstName}
- <br/>
- <br/>
- 
- Last Name: {' '} {lastName}
- <br/>
- <br/>
- Age: {' '} {age}
- <br/>
- <br/>
- Budget Tier: {' '} {budgetTier}
- <br/>
- <br/>
- 
-
- <br/>
- <h3>About Me</h3>
- <p className="aboutme">{bio}</p>
- <br/>
- <br/>
- <br/>
-    </div>  
-        )
-    }
+                Last Name: {' '} {lastName}
+                <br/>
+                <br/>
+                Age: {' '} {age}
+                <br/>
+                <br/>
+                Budget Tier: {' '} {budgetTier}
+                <br/>
+                <br/>
+                <h3>About Me</h3>
+                <p className="aboutme">{bio}</p>
+                <br/>
+                <br/>
+                <br/>
+                </div>  
+        )   </div>
+        )}
 }
 
 export default UserPublicProfile;
