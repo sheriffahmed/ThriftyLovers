@@ -46,7 +46,15 @@ body {
 .mandatory {
   border-radius: 10%;
   box-shadow: 2px 2px 2px red;
-  max-height: 250px;
+  height: 400px;
+  width: 270px;
+}
+
+.matchpics {
+  border-radius: 10%;
+  box-shadow: 2px 2px 2px red;
+  height: 250px;
+  width: 300px;
 }
 
 .users {
@@ -179,7 +187,14 @@ ul {
 }
 
 #profile {
-  float: left;
+  margin-left: 309px;
+  margin-top: -406px;
+  margin-right: -250px;
+}
+
+#publicpro {
+  margin-left: 330px;
+  margin-top: -270px;
 }
 
 .messages {
@@ -191,6 +206,11 @@ ul {
   margin-left: 15%;
   margin-right: 15%;
 }
+
+.testing {
+  margin-right: 350px;
+}
+
 
 .message3 {
   width: 100%;

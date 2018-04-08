@@ -29,13 +29,13 @@ class Feed extends React.Component{
         let allMatches = this.handleUserMatch()
         return(
             <div>
-            <h1 id="header2">{this.props.match.params.user}'s Matches</h1>
+            <h1 id="header2">{this.props.match.params.user.substr(0,1).toUpperCase() + this.props.match.params.user.substr(1)}'s Matches</h1>
             <div className="feed">  
                 <br />
             <p>{allMatches.map(match =>(
                 <div>
                 <h1>{match.username}</h1> 
-                <img className="mandatory" src={match.profile_pic_url} />
+                <img className="matchpics" src={match.profile_pic_url} />
                 <Link to={`/user/public/${match.username}`} > <button className="signup"> View {match.first_name}'s Profile </button> </Link>
                 <hr />
                 </div>
