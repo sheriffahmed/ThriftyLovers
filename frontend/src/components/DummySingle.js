@@ -14,7 +14,7 @@ const dummy = {
         budget_tier:"Free",
         genderPref: "female",
         minAge: 20,
-        maxAge: 25,
+        maxAge: 25, 
         eventIds: [1,2,3],
     // }
 }

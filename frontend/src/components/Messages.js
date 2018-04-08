@@ -15,7 +15,7 @@ class Messages extends React.Component {
             userGenderPref: this.props.userGenderPref,
             userBudgetTier: this.props.userBudgetTier
         }
-        console.log(`loggedInUser: `, loggedInUser)
+        console.log(`loggedInUser: `, loggedInUser) 
         return arr.filter(user => {
             return user.id !== loggedInUser.userId && user.gender === loggedInUser.userGenderPref && user.gender_pref === loggedInUser.userGender && user.budget_tier === loggedInUser.userBudgetTier
             // return user.userId !== loggedInUser.userId
