@@ -111,8 +111,8 @@ class LandingPage extends React.Component {
                         </div>
                     </section>
                      <section>
-                        <div class="title">
-                            <h1>BECAUSE LOVE...IS A BARGAIN</h1>
+                        <div class="title">  
+                            <h1>BECAUSE LOVE...IS A BARGAIN</h1>  
                         </div>
                     </section>
 

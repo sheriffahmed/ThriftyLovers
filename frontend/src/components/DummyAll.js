@@ -12,7 +12,7 @@ const dummy2 = [
         gender: "M",
         pictures: ['123.jpg','456.png','789.gif'],
         // pref: {
-            budget_tier:"Free",
+            budget_tier:"Free", 
             genderPref: "F",
             minAge: 20,
             maxAge: 25,

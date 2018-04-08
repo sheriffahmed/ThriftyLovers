@@ -74,7 +74,7 @@ render(){
             <br/>
             <br/>
             
-            Last Name: {' '} {lastName}
+            Last Name: {' '} {lastName}  
             <br/>
             <br/>
             Age: {' '} {age}
