@@ -153,10 +153,6 @@ ul {
   border: 1px solid #D93337;
 }
 
-.user {
-  background: #D93337;
-}
-
 .user2 {
   color: #960B18;
   width: 200px;
@@ -165,10 +161,18 @@ ul {
   margin-right: 15%;
 }
 
+
 #header {
   color: white;
   font-family: 'Raleway';
   background: #D93337;
+}
+
+#header2 {
+  font-family: 'Raleway';
+  background: #D93337;
+  color: white;
+  text-indent: 15%;
 }
 
 #profile {
@@ -180,9 +184,14 @@ ul {
 }
 
 .messages2 {
+  color: #960B18;
   margin-left: 15%;
   margin-right: 15%;
-  color: #960B18;
+}
+
+.message3 {
+  width: 100%;
+  color: #960B18
 }
 
 .login {
@@ -211,6 +220,7 @@ ul {
 
 .chat {
   margin-left:15%;
+  text-align: center;
 }
 
 /* Parrallax css */

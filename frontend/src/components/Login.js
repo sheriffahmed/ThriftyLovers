@@ -108,7 +108,7 @@ class Login extends Component {
         return (
             <div className="login">
                
-                <h1>Login</h1>
+                <h1 id="header">Login</h1>
                 <br />
                 <br />
                 <form onSubmit={this.handleLoginCheck} >
