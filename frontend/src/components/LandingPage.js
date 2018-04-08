@@ -61,12 +61,13 @@ class LandingPage extends React.Component {
                     <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>
                 </div>
                     <br />
+                    <div id="parallax-world-of-ugg">
                     <div class="block">
-                            <p><span class="first-character sc">T</span>hrifty Lovers is a web based application that solves the hardships of modern dating by creating transparency around personal finances. 
-                            Imagine you can select a partner based on similar passions, intrests and financial goals! There are no secrets here. Thrifty Lovers takes the stress of finances out of dating, leaving room for the romance.</p>
+                            <p><span class="first-character sc">T</span>hrifty Lovers solves the hardships of modern dating by creating transparency around personal finances. 
+                            Find your partner based on similar passions, interests and financial goals! Thrifty Lovers takes the stress of finances out of dating, leaving room for the romance.</p>
                             <p class="line-break margin-top-10"></p>
                         </div>
-                <div id="parallax-world-of-ugg">
+                
                     <section>
                         <div class="parallax-one">
                             <h2 id="one">SELECT YOUR BUDGET</h2>
@@ -90,7 +91,13 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="block">
-                            <p><span class="first-character ny">W</span>ith thousands of things happening in the city every single day, there is always a possibilty for adventure.<br></br><br></br><br></br> We make browsing events easy using our tier system allowing you to select events that you love while highlighting possible connections to like-minded Thrifty Lovers who share your selected budget tier and flavor of adventure. </p>
+                            <p><span class="first-character ny">W</span>ith thousands of things happening in the city every single day, there is always a possibilty for adventure.</p><br>
+                            </br>
+                            <br>
+                            </br>
+                            <br>
+                            </br> 
+                            <p><span class="first-character sc">B</span>rowsing events is easy using our tiered budget system. You to select events that you love while highlighting possible connections to like-minded Thrifty Lovers who share your flavor of adventure. </p>
                             <p class="line-break margin-top-10"></p>
                         </div>
                     </section>
@@ -101,21 +108,24 @@ class LandingPage extends React.Component {
                         </div>
                     </section>
 
-                    <section>
+                    {/* <section>
                         <div class="block">
                             <p><span class="first-character atw">J</span>oin our growing community and become a Thrifty Lover... </p>
 {/* //                             <p><span class="first-character atw">T</span>he odds are in your favor. Don't sell yourself short. Become a Thrifty Lover today!</p> */}
                             {/* <br/> */}
-
+                            {/* <br/>
+                            <br/>
+                            <br/>
                             <p class="line-break margin-top-10"></p>
                         </div>
-                    </section>
+                    </section> */} 
+                    
                      <section>
                         <div class="title">
-                            <h1>BECAUSE LOVE...IS A BARGAIN</h1>
+                            <h1>Join our growing community and become a Thrifty Lover...</h1><br/>
+                            <h1 id="slogan">BECAUSE LOVE...IS A BARGAIN</h1>
                         </div>
                     </section>
-
                 </div>
                 <div className="container2">
                 <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>

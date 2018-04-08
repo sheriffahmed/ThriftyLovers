@@ -32,7 +32,6 @@ class Messages extends React.Component {
                         <thead>
                             <tr>
                                 <th>Matches</th>
-                                {/* <th>Event</th> */}
                                 <th>Messages</th>
                             </tr>
                         </thead>
@@ -43,15 +42,13 @@ class Messages extends React.Component {
                                         <br />
                                         <img className="mandatory" src={msg.profile_pic_url} />
                                     </td>
-                                    {/* <td>Walking in the Park</td> */}
                                     <td>
                                         <br />
-                                        <Link to={`/user/${this.props.user}/chat/${msg.username}`}>Message</Link>
+                                        <Link to={`/user/${this.props.user}/chat/${msg.username}`}><button className="signup">Message</button></Link>
                                         <br />
                                     </td>
                                 </tr>
-                            )) : <td><p>No Messages.</p></td>}
-
+                            )) :<td><p>No Messages.</p></td>}
                         </tbody>
                     </table>
                 </div>
