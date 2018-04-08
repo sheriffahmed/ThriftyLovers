@@ -7,7 +7,7 @@ class Chat extends React.Component{
 
         this.state = {
             username: this.props.authUser,
-            message: '',
+            message: '', 
             messages: []
         };
 

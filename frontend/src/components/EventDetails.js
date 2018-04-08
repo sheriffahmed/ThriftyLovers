@@ -6,7 +6,7 @@ class EventDetails extends React.Component {
         return(
             <div>
                 <h1>Event Details</h1>
-                <h5>Not a user yet?</h5>
+                <h5>Not a user yet?</h5> 
                 <Link to='/signup'><button> Register </button></Link>
             </div>
         )
