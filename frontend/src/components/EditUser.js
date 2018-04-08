@@ -15,7 +15,7 @@ render(){
             <textarea className="aboutme">I enjoy fine wine, long walks on the beach, and modern art.</textarea>
             <br/>
             <h3>Edit Profile</h3>
-            <h5>On dates, I'd prefer to:</h5>
+            <h5>On dates, I'd prefer to:</h5> 
                 <form className="bill">
                     <ul>
                     <li><label><input type="checkbox" />Pay for myself</label></li>

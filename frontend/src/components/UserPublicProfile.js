@@ -56,7 +56,7 @@ class  UserPublicProfile extends React.Component{
     }
     render(){
         let {
-            username,
+            username, 
             userPic,
             firstName,
             lastName,
@@ -68,7 +68,7 @@ class  UserPublicProfile extends React.Component{
         } = this.state
         return(
             <div>
-                <h1 id="header2">{firstName}'s Profile</h1>
+                <h1 id="header2">{firstName}'s Profile</h1> 
             <div className="public">
             <img className='mandatory' style={{maxHeight: '200px'}} src={userPic} />
             <br/>

@@ -242,14 +242,14 @@ class App extends Component {
                 </form>
                 : <li>
                   {/* Need to Login */}
-                  <form class="form-inline my-2 my-lg-0" align="right">
+                  <form class="form-inline my-2 my-lg-0" align="right"> 
                     <div class="input-group">
                       <label>
                         <input
                           type="text"
                           class="form-control mr-sm-2"
                           value={this.state.navUser}
-                          onInput={this.handleUserInput}
+                          onInput={this.handleUserInput} 
                           placeholder="Username"
                           aria-label="Username"
                           aria-describedby="basic-addon1"
