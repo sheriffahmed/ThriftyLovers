@@ -65,8 +65,7 @@ render(){
     return(
         <div>
             <h1 id="header2">{firstName}'s Profile</h1>
-            <div className="user2">
-            <br/> 
+            <div className="user2"> 
             <img className='mandatory' src={userPic} />
             <br/>
             <br/>
