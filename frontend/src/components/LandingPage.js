@@ -58,7 +58,7 @@ class LandingPage extends React.Component {
                 <Link to='/budget'><button>Avg</button></Link> */}
                     <br />
                     <br />
-                    <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>
+                    <Link to='/signup'><button className="signup2">Join Thrifty Lovers</button></Link>
                 </div>
                     <br />
                     <div id="parallax-world-of-ugg">
@@ -128,7 +128,7 @@ class LandingPage extends React.Component {
                     </section>
                 </div>
                 <div className="container2">
-                <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>
+                <Link to='/signup'><button className="signup2">Join Thrifty Lovers</button></Link>
                 </div>
                 <br />
                 <br />
