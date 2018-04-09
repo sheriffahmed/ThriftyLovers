@@ -33,24 +33,25 @@ class Feed extends React.Component{
             <div className="feed">  
             <div class="table-responsive-sm">
                     <table className="table table-hover">
-                        <thead>
+                        {/* <thead>
                         <tr>
-                                <th>Matches</th>
+                                <th></th>
                                 <th>{' '}</th>
                             </tr>
-                        </thead>
+                        </thead> */}
                 <br />
                 <tbody>
            {allMatches.map(match =>(
                 <tr>
-                {/* <div> */}
+                    <td>
+                        <h1>{match.username.substr(0,1).toUpperCase() + match.username.substr(1)}</h1> 
+                        <img className="matchpics" src={match.profile_pic_url} /> 
+                    </td>
+                {/* <td style={{paddingTop: '20%'}}> */}
                 <td>
-                <h1>{match.username.substr(0,1).toUpperCase() + match.username.substr(1)}</h1> 
-               
-                <img className="matchpics" src={match.profile_pic_url} /> 
-                <br />
-                </td>
-                <td style={{paddingTop: '20%'}}>
+                    <br/>
+                    <br/>
+                    <br/>
                 <Link to={`/user/public/${match.username}`} > <button className="signup"> View {match.first_name}'s Profile </button> </Link>
                 </td>
                 <hr />
