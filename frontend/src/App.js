@@ -215,10 +215,10 @@ class App extends Component {
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}` : '/user/:user'} > <li class="nav-item"><a class="nav-link" href="/user/:user">My Profile</a></li></Link>
-              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/messages` : '/user/:user/messages'} > <li class="nav-item"><a class="nav-link" href="/user/:user/messages">Messages</a></li></Link>
-              <Link to='/budget' > <li class="nav-item"><a class="nav-link" href="/budget">Events</a></li></Link>
-              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/feed` : '/user/:user/feed'} > <li class="nav-item"><a class="nav-link" href="/user/:user/Feed">Feed</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}` : '/user/:user'} > <li class="nav-item"><a class="nav-link" href="/user/:user">MY PROFILE</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/messages` : '/user/:user/messages'} > <li class="nav-item"><a class="nav-link" href="/user/:user/messages">MESSAGES</a></li></Link>
+              <Link to='/budget' > <li class="nav-item"><a class="nav-link" href="/budget">EVENTS</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/feed` : '/user/:user/feed'} > <li class="nav-item"><a class="nav-link" href="/user/:user/Feed">FEED</a></li></Link>
               {/* 
               Navbar Login 
               */}

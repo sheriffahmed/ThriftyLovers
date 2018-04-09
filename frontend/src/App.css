@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:900');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+
 body {
   margin: 0 auto;
   height: 100vh;
@@ -162,6 +165,10 @@ footer .footer-below {
   color: #D93337;
 }
 
+.btn btm-danger2 {
+  float: right;
+}
+
 ul {
   list-style-type: none;
 }
@@ -239,10 +246,11 @@ ul {
 
 .user2 {
   color: #960B18;
-  width: 200px;
-  height: 100px;
+  /* width: 200px;
+  height: 100px; */
   margin-left: 15%;
   margin-right: 15%;
+  font-size: 20px;
 }
 
 
@@ -260,9 +268,28 @@ ul {
 }
 
 #profile {
+  margin-left: 20px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.bg {
   margin-left: 309px;
-  margin-top: -406px;
-  margin-right: -250px;
+  margin-top: -428px;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: rgb(204, 198, 198);
+  height: 400px;
+  width: 500px;
+  border-radius: 10px;
+}
+.publicbg {
+  margin-left: 330px;
+  margin-top: -320px;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: rgb(204, 198, 198);
+  height: 400px;
+  width: 500px;
+  border-radius: 10px;
 }
 
 #publicpro {
@@ -307,6 +334,7 @@ ul {
 .registration {
   margin-left: 15%;
   margin-right: 15%;
+  color: #960b18;
 }
 
 .public {
@@ -552,12 +580,16 @@ ul {
   #parallax-world-of-ugg .block {
     padding: 30px;
   }
-  #parallax-world-of-ugg .parallax-one,
+  
   #parallax-world-of-ugg .parallax-two,
   #parallax-world-of-ugg .parallax-three {
     padding-top: 100px;
     padding-bottom: 100px;
   }
+ #parallax-world-of-ugg .parallax-one {
+   padding: 0;
+   margin: 0;
+ }
 }
 
 @media screen and (max-width: 479px) {

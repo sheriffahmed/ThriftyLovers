@@ -389,7 +389,7 @@ class Registration extends React.Component {
 
         return (
             <div className="registration">
-                <h1>Registration</h1>
+            <h1>Registration</h1>
                 <br />
                 <br />
                 Upload Profile Pic:
@@ -492,7 +492,7 @@ class Registration extends React.Component {
                 <br />
                 <br />
             </div>
-
+                            
         )
     }
 }

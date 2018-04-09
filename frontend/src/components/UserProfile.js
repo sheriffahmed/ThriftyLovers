@@ -65,20 +65,16 @@ render(){
     return(
         <div>
             <h1 id="header2">{firstName}'s Profile</h1>
+            <br/>
             <div className="user2"> 
             <img className='mandatory' src={userPic} />
             <br/>
             <br/>
+            <div className="bg">
             <section id="profile">
-            First Name: {' '} {firstName}
-            <br/>
-            <br/>
-            
-            Last Name: {' '} {lastName}  
-            <br/>
+            <h3>{firstName} {' '} {lastName}</h3> 
             <br/>
             Age: {' '} {age}
-            <br/>
             <br/>
             Budget Tier: {' '} {budgetTier}
             <br/>
@@ -95,6 +91,7 @@ render(){
             <br/>
            {this.props.editButton}
            </section>
+           </div>
            </div>
         </div>
     )

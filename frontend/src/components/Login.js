@@ -128,9 +128,7 @@ class Login extends Component {
                 <br />
                 <br />
                 <br />
-
-                <h2>Don't have an account? Signup now!</h2>
-                <Link to='/signup' > <button className="signup">Sign Up</button> </Link>
+                <Link to='/signup' ><h5>Don't have an account? Signup now!</h5></Link>
                 {this.state.Message === 'Login success' ? <Redirect to={`/user/${this.props.loggedInUser}/feed`} /> : null}
                 {/* {this.state.Message === 'Login success' ? <Redirect to={`/budget`} /> : null} */}
                 
