@@ -74,11 +74,11 @@ class  UserPublicProfile extends React.Component{
             <img className="matchpics" src={userPic} />
             <br/>
             <br/>
-            <section id="publicpro"> 
-                First Name: {' '} {firstName}
                 <br/>
                 <br/>
-                Last Name: {' '} {lastName}
+                <div className='publicbg'>
+                    <section id='profile'>
+                <h3>{firstName} {' '} {lastName}</h3>
                 <br/>
                 <br/>
                 Age: {' '} {age}
@@ -93,8 +93,9 @@ class  UserPublicProfile extends React.Component{
                 <br/>
                 <br/>
                 </section>
+                </div>
                 </div>  
-        )   </div>
+           )   </div>
         )}
 }
 

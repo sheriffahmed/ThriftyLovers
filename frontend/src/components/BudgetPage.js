@@ -156,9 +156,8 @@ class BudgetPage extends React.Component {
                                 {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
                                 <h2>{e.Name}</h2>
 
-                                <img className="mandatory" src={e.Image[2].$.src} />
+                                <img className="matchpics" src={e.Image[2].$.src} />
                                 <h2>Details</h2>
-                                <br />
                                 Name:{' '}
                                 {
                                     e.Venue.Name
@@ -192,7 +191,7 @@ class BudgetPage extends React.Component {
                                 {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
                                 <h2>{e.Name}</h2>
 
-                                <img src={e.Image[2].$.src} />
+                                <img id="matchpics" src={e.Image[2].$.src} />
                                 <h2>Details</h2>
                                 Name:{' '}
                                 {
