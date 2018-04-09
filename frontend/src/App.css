@@ -177,7 +177,7 @@ ul {
   text-align: center;
   z-index: 1;
   line-height: 22px;
-  border: none;
+  border: #D93337 1px solid;
   border-radius: 10px;
   display: inline-block;
   cursor: pointer;
