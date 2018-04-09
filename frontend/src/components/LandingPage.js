@@ -76,9 +76,9 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="block">
-                            <p><span class="first-character sc">T</span>hrifty Lovers allows you the experience of love and budget 
-                            co-existing in harmony. Sign up and select the budget that works best for you
-                            and experience the magic of dating without worrying about your finances.</p>
+                            <p><span class="first-character sc">S</span>ign up and select the budget that works best for you
+                            and experience the magic of dating without worrying about your finances.</p><br>
+                            </br>
                             <p class="line-break margin-top-10"></p>
                         </div>
                     </section>
@@ -91,13 +91,9 @@ class LandingPage extends React.Component {
 
                     <section>
                         <div class="block">
-                            <p><span class="first-character ny">W</span>ith thousands of things happening in the city every single day, there is always a possibilty for adventure.</p><br>
-                            </br>
-                            <br>
-                            </br>
-                            <br>
+                            <p><span class="first-character ny">B</span>rowse events using our tiered budget system and connect with Thrifty Lovers who share your flavor of adventure.</p><br>
                             </br> 
-                            <p><span class="first-character sc">B</span>rowsing events is easy using our tiered budget system. You to select events that you love while highlighting possible connections to like-minded Thrifty Lovers who share your flavor of adventure. </p>
+                            {/* <p><span class="first-character sc">B</span>rowsing events is easy using our tiered budget system. You to select events that you love while highlighting possible connections to like-minded Thrifty Lovers who share your flavor of adventure. </p> */}
                             <p class="line-break margin-top-10"></p>
                         </div>
                     </section>
