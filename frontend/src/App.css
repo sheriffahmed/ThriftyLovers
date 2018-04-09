@@ -192,13 +192,13 @@ ul {
   background-color: #D93337;
   border-color: #D93337;
   min-width: 150px;
-  font-size: 34px;
+  font-size: 33px;
   padding: 17px 13px;
   position: relative;
   text-align: center;
   z-index: 1;
   line-height: 62px;
-  border: none;
+  border: #D93337 1px solid;
   border-radius: 10px;
   display: inline-block;
   cursor: pointer;
@@ -209,6 +209,12 @@ ul {
   transition-delay: initial, initial, initial;
 }
 .signup:hover {
+  color: #D93337;
+  background-color: #ffffff;
+  border: 1px solid #D93337;
+}
+
+.signup2:hover {
   color: #D93337;
   background-color: #ffffff;
   border: 1px solid #D93337;
