@@ -7,10 +7,11 @@ body {
   height: 100vh;
   width: 100vw;
   padding: 0 auto;
+
 }
 
 .App {
-  color: #960B18;
+  color:white;
   margin: inherit;
   height: inherit;
   width: inherit;
@@ -143,6 +144,7 @@ footer .footer-below {
   text-align:center;
   font-family: 'Arial';
   font-size: 20px;
+  color: #960B18;
 }
 
 #select {
@@ -160,6 +162,7 @@ footer .footer-below {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  margin-top: -8px;
 }
 .title #slogan {
   color: #D93337;
@@ -271,25 +274,39 @@ ul {
   margin-left: 20px;
   padding: 20px;
   font-size: 20px;
+
+}
+
+.tag {
+  font-family: 'Oswald';
+  text-align: center;
+  background: transparent;
+  text-shadow: 2px 2px 2px gray;
+  color: #960B18;
+  font-size: 50px;
+  letter-spacing: 8px;
 }
 
 .bg {
   margin-left: 309px;
   margin-top: -428px;
   font-family: 'Source Sans Pro', sans-serif;
-  background-color: rgb(204, 198, 198);
+  background-color: rgb(250, 250, 250);
   height: 400px;
   width: 500px;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px red;
 }
 .publicbg {
+  color: #960B18;
   margin-left: 330px;
   margin-top: -320px;
   font-family: 'Source Sans Pro', sans-serif;
-  background-color: rgb(204, 198, 198);
+  background-color: rgb(255, 255, 255);
   height: 400px;
   width: 500px;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px red;
 }
 
 #publicpro {
@@ -302,7 +319,8 @@ ul {
 }
 
 .messages2 {
-  color: #960B18;
+  /* color: #960B18; */
+  color: white;
   margin-left: 15%;
   margin-right: 15%;
 }
@@ -343,7 +361,9 @@ ul {
 }
 
 .chat {
-  margin-left:15%;
+  color: #960B18;
+  margin-top: 5%;
+  margin-left:45%;
   text-align: center;
 }
 
@@ -456,7 +476,6 @@ ul {
 /**************************/
 
 #parallax-world-of-ugg .title {
-  background: white;
   padding: 60px;
   margin: 0 auto;
   text-align: center;

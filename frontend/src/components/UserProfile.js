@@ -76,6 +76,7 @@ render(){
             <br/>
             Age: {' '} {age}
             <br/>
+            <br/>
             Budget Tier: {' '} {budgetTier}
             <br/>
             <br/>

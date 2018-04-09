@@ -30,12 +30,10 @@ class LandingPage extends React.Component {
             <div>
              <div id='thriftylogo'>   <img id='thriftyimage' alt="Brand1" src={Logo_1} /> </div>
             <div className="container" >
-                <div>
-                    <br />
-                   </div>
-                    {/* <h1>Thrifty Lovers</h1> */}
-                    <div className="container3" >
-                    <label>I'm a</label>
+                        <br/>
+                        <h2 className="tag">Date on a Budget</h2>
+                        <br/>
+                    {/* <label>I'm a</label>
                     {' '}
                     <select id="select">
                         <option>Woman</option>
@@ -47,25 +45,20 @@ class LandingPage extends React.Component {
                         <option>Woman</option> 
                         <option>Man</option>
                         <option>Gender Neutral</option>
-                    </select>
-                    {/* <p1>Please choose your level of thriftiness!</p1>
+                    </select> */
+                    /* <p1>Please choose your level of thriftiness!</p1>
                 <br/>
                 <Link to='/budget'><button>Free</button></Link> {' '}
                 <Link to='/budget'><button>Low</button></Link> {' '}
-                <Link to='/budget'><button>Avg</button></Link> */}
-                    <br />
-                    <br />
+                <Link to='/budget'><button>Avg</button></Link> 
                     <Link to='/signup'><button className="signup2">Join Thrifty Lovers</button></Link>
-                </div>
-                    <div id="parallax-world-of-ugg">
-                    <div class="block">
+        </div>*/}
+                  
 
                             {/* <p><span class="first-character sc">T</span>hrifty Lovers solves the hardships of modern dating by creating transparency around personal finances. 
                             Find your partner based on similar passions, interests and financial goals! Thrifty Lovers takes the stress of finances out of dating, leaving room for the romance.</p>
                             <p class="line-break margin-top-10"></p> */}
-                            
-                    </div>
-
+                 <div id="parallax-world-of-ugg">
                     <section> 
                         <div class="parallax-one">
                             <h2 id="one">SELECT YOUR BUDGET</h2>
