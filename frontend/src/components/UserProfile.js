@@ -67,24 +67,22 @@ render(){
             <h1 id="header2">{firstName}'s Profile</h1>
             <br/>
             <div className="user2"> 
-            <img className='mandatory' src={userPic} />
+            <img className='mandatory2' src={userPic} />
             <br/>
             <br/>
             <div className="bg">
             <section id="profile">
-            <h3>{firstName} {' '} {lastName}</h3> 
-            <br/>
+            <h3 className='profileName' ><b>{firstName} {' '} {lastName}</b></h3> 
             Age: {' '} {age}
             <br/>
-            <br/>
+
             Budget Tier: {' '} {budgetTier}
-            <br/>
             <br/>
             {/* <img className="mandatory" src="https://vignette.wikia.nocookie.net/warriorcatsrpg/images/1/19/Yellow_tiger_cat.jpg/revision/latest?cb=20110830125714" />
             <img className="mandatory" src="https://pbs.twimg.com/profile_images/378800000560709341/f304187183447a26eb801a3761b8353a.jpeg" />
             <img className="mandatory" src="http://www.catster.com/wp-content/uploads/2018/01/Orange-tabby-cat-sleeping-with-eyes-closed.jpg" />  */}
             
-            <h3>About Me</h3>
+            <h3 className='profileBio'><b> About Me:</b></h3>
             {/* <textarea className="aboutme">I enjoy fine wine, long walks on the beach, and modern art.</textarea> */}
             <p className="aboutme">{bio}</p>
             <br/>

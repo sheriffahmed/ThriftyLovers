@@ -101,6 +101,13 @@ footer .footer-below {
   width: 270px;
 }
 
+.mandatory2 {
+  border-radius: 10%;
+  box-shadow: 2px 2px 2px red;
+  height: 400px;
+  width: 270px;
+}
+
 .matchpics {
   border-radius: 10%;
   box-shadow: 2px 2px 2px red;
@@ -115,8 +122,12 @@ footer .footer-below {
 }
 
 .aboutme {
-  width: 300px;
+  margin: 0 auto;
+  display: block;
+  max-width: 300px;
   height: 3em;
+  text-align: center;
+  color: #ef2a3d;
 }
 
 .bill {
@@ -254,6 +265,16 @@ ul {
   margin-left: 15%;
   margin-right: 15%;
   font-size: 20px;
+  display: block;
+}
+
+.profileName{
+  text-align: center;
+  font-size: 3em;
+}
+
+.profileBio{
+  text-align: center;
 }
 
 
@@ -287,9 +308,18 @@ ul {
   letter-spacing: 8px;
 }
 
-.thriftyEvents:hover{
-  background-image: url('http://bestanimations.com/Signs&Shapes/Hearts/manyhearts/pink-hearts-falling-animated-gif.gif')
+.thriftyEvents{
+  /* width: 100px;
+  height: 100px; */
+  /* background: red; */
+  -webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
 }
+
+.thriftyEvents:hover{
+  /* width: 300px; */
+}
+
 
 .bg {
   margin-left: 309px;
