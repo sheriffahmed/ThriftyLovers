@@ -151,7 +151,7 @@ class BudgetPage extends React.Component {
                     console.log('price:', e.Price._)
                     console.log('budget tier:', this.props.BudgetTier)
                     return e.Price._ === "Free" && this.props.BudgetTier === 'Free'&& index !== 0
-                        ?  <div>
+                        ?  <div className="thriftyEvents" >
                                 <hr />
                                 {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
                                 <h2>{e.Name}</h2>
