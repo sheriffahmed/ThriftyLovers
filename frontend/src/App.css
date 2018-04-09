@@ -287,6 +287,10 @@ ul {
   letter-spacing: 8px;
 }
 
+.thriftyEvents:hover{
+  background-image: url('http://bestanimations.com/Signs&Shapes/Hearts/manyhearts/pink-hearts-falling-animated-gif.gif')
+}
+
 .bg {
   margin-left: 309px;
   margin-top: -428px;
