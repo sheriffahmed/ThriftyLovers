@@ -37,7 +37,7 @@ class Chat extends React.Component{
         return (
             <div className="chat">
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-7">
                         <div className="card">
                             <div className="card-body">
                                 <div className="card-title">Chat</div>

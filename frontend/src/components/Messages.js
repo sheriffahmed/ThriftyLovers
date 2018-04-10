@@ -29,21 +29,22 @@ class Messages extends React.Component {
             <div className="messages2">
             <div class="table-responsive-sm">
                     <table className="table table-hover">
-                        <thead>
+                        {/* <thead>
                             <tr>
-                                <th>Matches</th>
-                                <th>Messages</th>
+                                <th><h3>Matches</h3></th>
+                                <th><h3>Messages</h3></th>
                             </tr>
-                        </thead>
+                        </thead> */}
                         <tbody>
                             {allMatches ? allMatches.map(msg => (
                                 <tr>
-                                    <td>{msg.first_name}
-                                        <br />
-                                        <img className="mandatory" src={msg.profile_pic_url} />
+                                    <td><h1>{msg.first_name}</h1>
+                                        <img className="matchpics" src={msg.profile_pic_url} />
                                     </td>
                                     <td>
-                                        <br />
+                                        <br/>
+                                        <br/>
+                                        <br/>
                                         <Link to={`/user/${this.props.user}/chat/${msg.username}`}><button className="signup">Message</button></Link>
                                         <br />
                                     </td>

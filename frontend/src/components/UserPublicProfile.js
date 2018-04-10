@@ -70,14 +70,15 @@ class  UserPublicProfile extends React.Component{
             <div>
                 <h1 id="header2">{firstName}'s Profile</h1> 
             <div className="public">
-            <img className='mandatory' style={{maxHeight: '200px'}} src={userPic} />
+            <br/>
+            <img className="matchpics" src={userPic} />
             <br/>
             <br/>
-                 First Name: {' '} {firstName}
                 <br/>
                 <br/>
-
-                Last Name: {' '} {lastName}
+                <div className='publicbg'>
+                    <section id='profile'>
+                <h3>{firstName} {' '} {lastName}</h3>
                 <br/>
                 <br/>
                 Age: {' '} {age}
@@ -91,8 +92,10 @@ class  UserPublicProfile extends React.Component{
                 <br/>
                 <br/>
                 <br/>
+                </section>
+                </div>
                 </div>  
-        )   </div>
+           )   </div>
         )}
 }
 

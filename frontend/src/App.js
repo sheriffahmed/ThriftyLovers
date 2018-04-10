@@ -184,16 +184,21 @@ class App extends Component {
           class="navbar navbar-expand-lg bg-light navbar-light"
           style={
             {
-              backgroundPosition: 'fixed'
+              position: 'fixed',
+              zIndex: 2,
+              width: '100%',
+              top: '0px'
             }
           }
         >
           <Link to='/' >
             <a class="navbar-brand"
+                
               href="/"
               style={
                 {
                   color: 'red'
+                
                 }
               }
             >
@@ -213,10 +218,10 @@ class App extends Component {
           </button>
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}` : '/user/:user'} > <li class="nav-item"><a class="nav-link" href="/user/:user">My Profile</a></li></Link>
-              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/messages` : '/user/:user/messages'} > <li class="nav-item"><a class="nav-link" href="/user/:user/messages">Messages</a></li></Link>
-              <Link to='/budget' > <li class="nav-item"><a class="nav-link" href="/budget">Events</a></li></Link>
-              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/feed` : '/user/:user/feed'} > <li class="nav-item"><a class="nav-link" href="/user/:user/Feed">Feed</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}` : '/user/:user'} > <li class="nav-item"><a class="nav-link" href="/user/:user">MY PROFILE</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/messages` : '/user/:user/messages'} > <li class="nav-item"><a class="nav-link" href="/user/:user/messages">MESSAGES</a></li></Link>
+              <Link to='/budget' > <li class="nav-item"><a class="nav-link" href="/budget">EVENTS</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/feed` : '/user/:user/feed'} > <li class="nav-item"><a class="nav-link" href="/user/:user/Feed">MATCHES</a></li></Link>
               {/* 
               Navbar Login 
               */}
@@ -225,7 +230,7 @@ class App extends Component {
                   class="form-inline">
                   <div class="input-group">
                     <p class="navbar-brand">
-                      Welcome, {this.state.loggedInUserName}!
+                      Welcome, {this.state.loggedInUserName.substr(0,1).toLocaleUpperCase() + this.state.loggedInUserName.substr(1)}!
                   </p>
                     <div>
                       <label>
@@ -291,7 +296,9 @@ class App extends Component {
             </ul>
           </div>
         </nav>
-        <div>
+        <div style={{
+    marginTop: '64px'
+}} >
           {this.handleRedirect}
           <Switch>
 

@@ -30,15 +30,10 @@ class LandingPage extends React.Component {
             <div>
              <div id='thriftylogo'>   <img id='thriftyimage' alt="Brand1" src={Logo_1} /> </div>
             <div className="container" >
-                
-                <div>
-                    <br />
-                   
-                   </div>
-                    {/* <h1>Thrifty Lovers</h1> */}
-                    <br />
-                    <div className="container3" >
-                    <label>I'm a</label>
+                        <br/>
+                        <h2 className="tag">Date on a Budget</h2>
+                        <br/>
+                    {/* <label>I'm a</label>
                     {' '}
                     <select id="select">
                         <option>Woman</option>
@@ -50,61 +45,51 @@ class LandingPage extends React.Component {
                         <option>Woman</option> 
                         <option>Man</option>
                         <option>Gender Neutral</option>
-                    </select>
-                    {/* <p1>Please choose your level of thriftiness!</p1>
+                    </select> */
+                    /* <p1>Please choose your level of thriftiness!</p1>
                 <br/>
                 <Link to='/budget'><button>Free</button></Link> {' '}
                 <Link to='/budget'><button>Low</button></Link> {' '}
-                <Link to='/budget'><button>Avg</button></Link> */}
-                    <br />
-                    <br />
-                    <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>
-                </div>
-                    <br />
-                    <div id="parallax-world-of-ugg">
-                    <div class="block">
-                            <p><span class="first-character sc">T</span>hrifty Lovers solves the hardships of modern dating by creating transparency around personal finances. 
+                <Link to='/budget'><button>Avg</button></Link> 
+                    <Link to='/signup'><button className="signup2">Join Thrifty Lovers</button></Link>
+        </div>*/}
+                  
+
+                            {/* <p><span class="first-character sc">T</span>hrifty Lovers solves the hardships of modern dating by creating transparency around personal finances. 
                             Find your partner based on similar passions, interests and financial goals! Thrifty Lovers takes the stress of finances out of dating, leaving room for the romance.</p>
-                            <p class="line-break margin-top-10"></p>
-                        </div>
-                
-                    <section>
+                            <p class="line-break margin-top-10"></p> */}
+                 <div id="parallax-world-of-ugg">
+                    <section> 
                         <div class="parallax-one">
                             <h2 id="one">SELECT YOUR BUDGET</h2>
                         </div>
                     </section>
-
-                    <section>
+                    <p class="line-break margin-top-10"></p>
+                    {/* <section>
                         <div class="block">
-                            <p><span class="first-character sc">T</span>hrifty Lovers allows you the experience of love and budget 
-                            co-existing in harmony. Sign up and select the budget that works best for you
-                            and experience the magic of dating without worrying about your finances.</p>
+                            <p><span class="first-character sc">S</span>ign up and select the budget that works best for you
+                            and experience the magic of dating without worrying about your finances.</p><br>
+                            </br>
                             <p class="line-break margin-top-10"></p>
                         </div>
-                    </section>
+                    </section> */}
 
                     <section>
                         <div class="parallax-two">
-                            <h2 id="one">GET YOUR DATE</h2>
+                            <h2 id="one">MEET YOUR MATCH</h2>
                         </div>
                     </section>
-
-                    <section>
+                    <p class="line-break margin-top-10"></p>
+                    {/* <section>
                         <div class="block">
-                            <p><span class="first-character ny">W</span>ith thousands of things happening in the city every single day, there is always a possibilty for adventure.</p><br>
-                            </br>
-                            <br>
-                            </br>
-                            <br>
+                            <p><span class="first-character ny">B</span>rowse events using our tiered budget system and connect with Thrifty Lovers who share your flavor of adventure.</p><br>
                             </br> 
-                            <p><span class="first-character sc">B</span>rowsing events is easy using our tiered budget system. You to select events that you love while highlighting possible connections to like-minded Thrifty Lovers who share your flavor of adventure. </p>
+                            {/* <p><span class="first-character sc">B</span>rowsing events is easy using our tiered budget system. You to select events that you love while highlighting possible connections to like-minded Thrifty Lovers who share your flavor of adventure. </p>
                             <p class="line-break margin-top-10"></p>
-                        </div>
-                    </section>
-
+                        </div>*/}
                     <section>
                         <div class="parallax-three">
-                            <h2 id="one">MEET YOUR MATCH</h2>
+                            <h2 id="one">GO ON A DATE</h2>
                         </div>
                     </section>
 
@@ -128,7 +113,7 @@ class LandingPage extends React.Component {
                     </section>
                 </div>
                 <div className="container2">
-                <Link to='/signup'><button className="signup">Join Thrifty Lovers</button></Link>
+                <Link to='/signup'><button className="signup2">Join Thrifty Lovers</button></Link>
                 </div>
                 <br />
                 <br />

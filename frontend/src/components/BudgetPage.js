@@ -151,14 +151,16 @@ class BudgetPage extends React.Component {
                     console.log('price:', e.Price._)
                     console.log('budget tier:', this.props.BudgetTier)
                     return e.Price._ === "Free" && this.props.BudgetTier === 'Free'&& index !== 0
-                        ?  <div>
-                                <hr />
+                        ?  <div className='table-responsive' >
+                            <table className='table table-hover' >
+                                <tbody>
+                                    <tr>
+                                {/* <hr /> */}
                                 {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
                                 <h2>{e.Name}</h2>
 
-                                <img className="mandatory" src={e.Image[2].$.src} />
+                                <img className="matchpics" src={e.Image[2].$.src} />
                                 <h2>Details</h2>
-                                <br />
                                 Name:{' '}
                                 {
                                     e.Venue.Name
@@ -181,7 +183,9 @@ class BudgetPage extends React.Component {
                                 <h2 className="signup" >Summary</h2> </a>
                                 {/* <div id={`summaryText${index}`} class='collapse'><p  >{e.Description.length > 100 ? e.Description.substring(0, 100) + '...' : e.Description}</p> </div> */}
                                 <div id={`summaryText${index}`} class='collapse'><p  >{e.Description}</p> </div>
-                                
+                                </tr>
+                                </tbody>
+                                </table>
 
                                 <hr />
                             </div>
@@ -192,7 +196,7 @@ class BudgetPage extends React.Component {
                                 {/* <button id={e.$.id} onClick={this.handleChosenEvent} >Make a Preferred Event</button> */}
                                 <h2>{e.Name}</h2>
 
-                                <img src={e.Image[2].$.src} />
+                                <img id="matchpics" src={e.Image[2].$.src} />
                                 <h2>Details</h2>
                                 Name:{' '}
                                 {
