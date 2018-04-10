@@ -184,7 +184,10 @@ class App extends Component {
           class="navbar navbar-expand-lg bg-light navbar-light"
           style={
             {
-              backgroundPosition: 'fixed'
+              position: 'fixed',
+              zIndex: 2,
+              width: '100%',
+              top: '0px'
             }
           }
         >
@@ -218,7 +221,7 @@ class App extends Component {
               <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}` : '/user/:user'} > <li class="nav-item"><a class="nav-link" href="/user/:user">MY PROFILE</a></li></Link>
               <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/messages` : '/user/:user/messages'} > <li class="nav-item"><a class="nav-link" href="/user/:user/messages">MESSAGES</a></li></Link>
               <Link to='/budget' > <li class="nav-item"><a class="nav-link" href="/budget">EVENTS</a></li></Link>
-              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/feed` : '/user/:user/feed'} > <li class="nav-item"><a class="nav-link" href="/user/:user/Feed">FEED</a></li></Link>
+              <Link to={this.state.loggedInUserName ? `/user/${this.state.loggedInUserName}/feed` : '/user/:user/feed'} > <li class="nav-item"><a class="nav-link" href="/user/:user/Feed">MATCHES</a></li></Link>
               {/* 
               Navbar Login 
               */}
@@ -293,7 +296,9 @@ class App extends Component {
             </ul>
           </div>
         </nav>
-        <div>
+        <div style={{
+    marginTop: '64px'
+}} >
           {this.handleRedirect}
           <Switch>
 
