@@ -1,5 +1,5 @@
 var pgp = require('pg-promise')({});
-var connectionString = 'postgres://localhost/thrifty';
+var connectionString = process.env.DATABASE_URL;
 //postgres://postgres:postgres@localhost:5433/userlist
 var db = pgp(connectionString);
 const authHelpers = require('../auth/helpers');
