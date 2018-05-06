@@ -63,9 +63,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 // chat socket
-server = app.listen(5000, function(){
+server = app.listen(PORT, function(){
   console.log('server is running on port 5000')
 });
 

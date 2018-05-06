@@ -24,5 +24,8 @@
     "serve-favicon": "~2.4.5",
     "socket.io": "^2.0.4",
     "xml2js": "^0.4.19"
+  },
+  "engine" : {
+    "node": "6.11.3"
   }
 }
