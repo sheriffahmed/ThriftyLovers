@@ -1,4 +1,4 @@
-{
+npm - v{
   "name": "thrifty-lovers",
   "version": "1.0.0",
   "description": "",
@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/sheriffahmed/ThriftyLovers#readme",
   "engines":{
-    "npm": "5.6.x"
+    "npm": "6.1.0"
   } 
 }
