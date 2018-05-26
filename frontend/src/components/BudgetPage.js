@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import EventBudgetPage from './EventsBudgetPage'
 import axios from 'axios'
-var XMLParser = require('react-xml-parser');
+
 
 class BudgetPage extends React.Component {
     constructor(props) {
